@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { AlertCircle, LogIn } from 'lucide-react';
+import { AlertCircle, LogIn, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
@@ -42,6 +42,9 @@ const Login = () => {
     setError(null);
 
     try {
+      // Simuler un délai de 3 secondes
+      await new Promise(resolve => setTimeout(resolve, 3000));
+
       // API endpoint for authentication, updated to use port 5010
       const apiUrl = "http://10.0.0.3:5010/api/auth/login";
 
@@ -154,7 +157,10 @@ const Login = () => {
                   disabled={isLoading}
                 >
                   {isLoading ? (
-                    <>Connexion en cours...</>
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Connexion en cours...
+                    </>
                   ) : (
                     <>
                       Se connecter <LogIn className="ml-2 h-4 w-4" />

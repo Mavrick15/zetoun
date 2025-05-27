@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { AlertCircle, ArrowRight, UserPlus } from 'lucide-react';
+import { AlertCircle, UserPlus, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
@@ -12,7 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 
-// Define the form schema with validation rules
+// Définition du schéma de formulaire avec les règles de validation
 const formSchema = z.object({
   name: z.string()
     .min(3, { message: 'Le nom doit contenir au moins 3 caractères' })
@@ -36,7 +36,7 @@ const SignUp = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
 
-  // Initialize the form with react-hook-form and zod validation
+  // Initialisation du formulaire avec react-hook-form et la validation Zod
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -52,10 +52,12 @@ const SignUp = () => {
     setError(null);
 
     try {
-      // API endpoint for user registration
-      const apiUrl = "http://10.0.0.3:5010/api/auth/signup"; // Backend server on port 5010
+      // Simuler un délai de 3 secondes
+      await new Promise(resolve => setTimeout(resolve, 3000));
 
-      // Make the API call
+      // Point de terminaison API pour l'enregistrement de l'utilisateur
+      const apiUrl = "http://10.0.0.3:5010/api/auth/signup";
+
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -65,18 +67,16 @@ const SignUp = () => {
           name: values.name,
           email: values.email,
           password: values.password,
-        }), // Send name, email, and password
+        }),
       });
 
-      // Check if the response was successful
       if (response.ok) {
         const data = await response.json();
-        // Assuming the API returns a user object with an isAuthenticated field and potentially a token
         localStorage.setItem('user', JSON.stringify({
           name: values.name,
           email: values.email,
-          isAuthenticated: true, // Or use data.isAuthenticated if provided by API
-          token: data.token // Store token if API provides one
+          isAuthenticated: true,
+          token: data.token
         }));
 
         toast({
@@ -84,10 +84,8 @@ const SignUp = () => {
           description: "Bienvenue sur notre plateforme de formations.",
         });
 
-        // Redirect to telecom-calendar page
         navigate('/add/telecom-calendar');
       } else {
-        // Handle API errors (e.g., email already exists, server errors)
         const errorData = await response.json();
         setError(errorData.message || 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.');
         toast({
@@ -97,7 +95,7 @@ const SignUp = () => {
         });
       }
     } catch (err) {
-      console.error('Registration error:', err);
+      console.error('Erreur d\'inscription:', err);
       setError('Impossible de se connecter au serveur. Veuillez vérifier votre connexion.');
       toast({
         title: "Erreur réseau",
@@ -197,7 +195,10 @@ const SignUp = () => {
                   disabled={isLoading}
                 >
                   {isLoading ? (
-                    <>Inscription en cours...</>
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Inscription en cours...
+                    </>
                   ) : (
                     <>
                       S'inscrire <UserPlus className="ml-2 h-4 w-4" />
