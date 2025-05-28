@@ -38,14 +38,20 @@ const Index = () => {
             Découvrez nos programmes de formation spécialisés pour développer vos compétences techniques
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
-            <Link to="/formations/system-administration" className="inline-block px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all">
-              Administration Système
+            <Link to="/formations/linux-administration" className="inline-block px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all">
+              Admin. système sous Linux
+            </Link>
+	    <Link to="/formations/windows-administration" className="inline-block px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all">
+              Admin. système sous Windows
             </Link>
             <Link to="/formations/network-administration" className="inline-block px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all">
-              Réseaux CISCO
+              Admin. Réseaux
             </Link>
             <Link to="/formations/computer-maintenance" className="inline-block px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all">
               Maintenance Informatique
+            </Link>
+            <Link to="/formations/virtualization-training" className="inline-block px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all">
+              Virtualisation
             </Link>
           </div>
         </div>
