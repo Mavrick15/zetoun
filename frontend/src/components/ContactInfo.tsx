@@ -26,7 +26,7 @@ const ContactInfo = () => {
           <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-700">
             <div className="flex flex-col items-center text-center">
               <img 
-                src="/lovable-uploads/moi.jpg"
+                src="/lovable-uploads/img/moi.jpg"
                 alt="Benjamin Baki"
                 className="w-32 h-32 rounded-full mb-4 object-cover filter grayscale"
               />
@@ -58,7 +58,7 @@ const ContactInfo = () => {
           <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-700">
             <div className="flex flex-col items-center text-center">
               <img 
-                src="/lovable-uploads/tendo.jpg"
+                src="/lovable-uploads/img/tendo.jpg"
                 alt="Christian Tendo"
                 className="w-32 h-32 rounded-full mb-4 object-cover filter grayscale"
               />

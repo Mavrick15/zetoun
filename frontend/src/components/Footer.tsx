@@ -78,7 +78,7 @@ const Footer = () => {
             <div className="flex items-center mb-6">
              <div className="h-12 w-12 mr-2">
                 <img 
-                  src="/lovable-uploads/Logo2.png" 
+                  src="/lovable-uploads/logo/Logo2.png" 
                   alt="ZetounLabs Logo" 
                   className="h-full w-full object-contain"
                 />

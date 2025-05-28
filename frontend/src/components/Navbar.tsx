@@ -59,7 +59,7 @@ const Navbar = () => {
             <Link to="/" className="flex items-center">
               <div className={cn("flex items-center")}>
                 <img
-                  src="/lovable-uploads/Logo1.svg"
+                  src="/lovable-uploads/logo/Logo1.svg"
                   alt="ZetounLabs Logo"
                   className={cn(
                     "h-8 mr-2",
