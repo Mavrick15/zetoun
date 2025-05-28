@@ -93,7 +93,7 @@ const ContactInfo = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % contactInfos.length);
-    }, 3 * 1000); // 5 minutes en millisecondes
+    }, 5 * 60 * 1000); // 5 minutes en millisecondes
 
     // Nettoyage de l'intervalle lorsque le composant est démonté
     return () => clearInterval(intervalId);
