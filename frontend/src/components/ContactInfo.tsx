@@ -100,14 +100,23 @@ const ContactInfo = () => {
   }, []);
 
   return (
-    <section className="bg-gradient-to-b from-white to-black text-white relative py-[25px]">
-      {/* ... le reste de votre section ... */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          {/* ... votre titre et texte ... */}
+    <section className="bg-gradient-to-b from-white to-black text-white relative py-12 md:py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10 md:mb-12">
+          <div className="inline-block mb-3 px-3 py-1 bg-white text-black rounded-full text-sm font-medium">
+            Contactez-nous
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
+            Contactez-nous dès aujourd’hui
+          </h2>
+          <p className="text-gray-700 text-lg max-w-2xl mx-auto mb-4">
+            Et si le numérique devenait le moteur de votre croissance ?
+          </p>
+          <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+            Comment Zetoun Labs peut transformer vos idées en solutions concrètes. Contactez notre équipe dès aujourd’hui et construisons ensemble votre avenir digital.
+          </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <ContactCard info={contactInfos[currentIndex % contactInfos.length]} />
           {contactInfos.length > 1 && (
             <ContactCard info={contactInfos[(currentIndex + 1) % contactInfos.length]} />

@@ -101,7 +101,7 @@ const Login = () => {
   return (
     <PageLayout showContact={false}>
       <SEO
-        title="Connexion | WRLDS Technologies"
+        title="Connexion | Zetoun Labs"
         description="Connectez-vous pour accéder à notre calendrier des formations en télécommunication"
       />
 

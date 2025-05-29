@@ -1,31 +1,67 @@
-import { ArrowLeft } from 'lucide-react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { ArrowLeft } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
+import SEO from '@/components/SEO';
+import { motion } from 'framer-motion'; // Import motion
+
 const PrivacyPolicy = () => {
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  return <PageLayout>
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto">
+
+  const pageVariants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { duration: 0.5 } },
+    exit: { opacity: 0 },
+  };
+
+  const contentVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.2 } },
+    exit: { opacity: 0, y: 20 },
+  };
+
+  const title = "Politique de confidentialité | Zetoun Labs";
+  const description = "Consultez notre politique de confidentialité pour comprendre comment nous collectons, utilisons et protégeons vos informations personnelles.";
+  const keywords = ["politique de confidentialité", "vie privée", "protection des données", "Zetoun Labs"];
+
+  return (
+    <PageLayout>
+      <SEO title={title} description={description} keywords={keywords} />
+      <motion.section
+        variants={pageVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        className="pt-24 pb-16 px-4 sm:px-6 lg:px-8"
+      >
+        <motion.div
+          variants={contentVariants}
+          className="container mx-auto"
+        >
           <div className="max-w-4xl mx-auto">
-            <Link to="/" className="inline-flex items-center text-gray-500 hover:text-gray-700 mb-6 transition-colors">
+            <Link
+              to="/"
+              className="inline-flex items-center text-gray-500 hover:text-gray-700 mb-6 transition-colors"
+            >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Home
             </Link>
-            
+
             <h1 className="text-4xl font-bold mb-8">Politique de confidentialité</h1>
-            
+
             <div className="prose prose-lg max-w-none">
-              <p className="text-gray-600 mb-6">Dernière mise à jour : Mardi le, 06 05 2025 à 16h 15' UTC+1</p>
-              
+              <p className="text-gray-600 mb-6">Dernière mise à jour : Mardi le, 06 05 2025 à 16h 15' UTC+1</p>
+
               <h2 className="text-2xl font-semibold mt-8 mb-4">1. Introduction</h2>
               <p className="text-gray-600 mb-4">
-                Chez Zetoun Labs (« nous », « notre » ou « nos »), nous respectons votre vie privée et nous engageons à protéger vos informations personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous visitez notre site web ou utilisez nos services.
+                Chez Zetoun Labs (« nous », « notre » ou « nos »), nous respectons votre vie privée et nous engageons à protéger vos informations personnelles. Cette po
+                litique de confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous visitez notre site web ou utilisez nos se
+                rvices.
               </p>
-              
+
               <h2 className="text-2xl font-semibold mt-8 mb-4">2. Les informations que nous collectons</h2>
               <p className="text-gray-600 mb-4">
                 Nous pouvons collecter les informations personnelles que vous nous fournissez volontairement lorsque vous :
@@ -37,9 +73,10 @@ const PrivacyPolicy = () => {
                 <li>Vous participez à nos enquêtes ou promotions</li>
               </ul>
               <p className="text-gray-600 mb-4">
-                Ces informations peuvent inclure votre nom, votre adresse e-mail, le nom de votre entreprise, votre numéro de téléphone et toute autre information que vous choisissez de nous fournir.
+                Ces informations peuvent inclure votre nom, votre adresse e-mail, le nom de votre entreprise, votre numéro de téléphone et toute autre information que v
+                ous choisissez de nous fournir.
               </p>
-              
+
               <h2 className="text-2xl font-semibold mt-8 mb-4">3. Comment nous utilisons vos informations</h2>
               <p className="text-gray-600 mb-4">
                 Nous pouvons utiliser les informations que nous collectons à diverses fins, notamment pour :
@@ -53,44 +90,53 @@ const PrivacyPolicy = () => {
                 <li>Traiter les transactions et envoyer les informations associées</li>
                 <li>Détecter et prévenir la fraude</li>
               </ul>
-              
+
               <h2 className="text-2xl font-semibold mt-8 mb-4">4. Cookies et technologies de suivi</h2>
               <p className="text-gray-600 mb-4">
-                Nous pouvons utiliser des cookies et des technologies de suivi similaires pour suivre l'activité sur notre site web et stocker certaines informations. Les cookies sont des fichiers contenant une petite quantité de données pouvant inclure un identifiant unique anonyme. Vous pouvez configurer votre navigateur pour refuser tous les cookies ou pour vous avertir lorsqu'un cookie est envoyé.
+                Nous pouvons utiliser des cookies et des technologies de suivi similaires pour suivre l'activité sur notre site web et stocker certaines informations. L
+                es cookies sont des fichiers contenant une petite quantité de données pouvant inclure un identifiant unique anonyme. Vous pouvez configurer votre navigateur pour refuse
+                r tous les cookies ou pour vous avertir lorsqu'un cookie est envoyé.
               </p>
-              
+
               <h2 className="text-2xl font-semibold mt-8 mb-4">5. Services tiers</h2>
               <p className="text-gray-600 mb-4">
-                Nous pouvons utiliser des services tiers qui collectent, surveillent et analysent des données afin d'améliorer nos services. Ces tiers disposent de leurs propres politiques de confidentialité concernant l'utilisation de ces informations.
+                Nous pouvons utiliser des services tiers qui collectent, surveillent et analysent des données afin d'améliorer nos services. Ces tiers disposent de leur
+                s propres politiques de confidentialité concernant l'utilisation de ces informations.
               </p>
-              
+
               <h2 className="text-2xl font-semibold mt-8 mb-4">6. Conservation des données</h2>
               <p className="text-gray-600 mb-4">
-                Nous conserverons vos informations personnelles uniquement aussi longtemps que nécessaire aux fins énoncées dans la présente politique de confidentialité.
+                Nous conserverons vos informations personnelles uniquement aussi longtemps que nécessaire aux fins énoncées dans la présente politique de confidentialit
+                é.
               </p>
-              
+
               <h2 className="text-2xl font-semibold mt-8 mb-4">7. Sécurité</h2>
               <p className="text-gray-600 mb-4">
-                The security of your data is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.
+                The security of your data is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secu
+                re. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.
               </p>
-              
+
               <h2 className="text-2xl font-semibold mt-8 mb-4">8. Vos droits</h2>
               <p className="text-gray-600 mb-4">
-                Selon votre emplacement, vous pouvez disposer de certains droits concernant vos informations personnelles, tels que le droit d'accéder, de corriger ou de supprimer vos informations personnelles.
+                Selon votre emplacement, vous pouvez disposer de certains droits concernant vos informations personnelles, tels que le droit d'accéder, de corriger ou d
+                e supprimer vos informations personnelles.
               </p>
-              
+
               <h2 className="text-2xl font-semibold mt-8 mb-4">9. Modifications de la présente politique de confidentialité</h2>
               <p className="text-gray-600 mb-4">
-                Nous sommes susceptibles de mettre à jour notre Politique de confidentialité de temps à autre. Nous vous informerons de toute modification en publiant la nouvelle Politique de confidentialité sur cette page. Nous vous informerons par e-mail et/ou par un avis bien visible sur notre site web avant l'entrée en vigueur de la modification.
+                Nous sommes susceptibles de mettre à jour notre Politique de confidentialité de temps à autre. Nous vous informerons de toute modification en publiant l
+                a nouvelle Politique de confidentialité sur cette page. Nous vous informerons par e-mail et/ou par un avis bien visible sur notre site web avant l'entrée en vigueur de
+                la modification.
               </p>
-              
+
               <h2 className="text-2xl font-semibold mt-8 mb-4">10. Contactez-nous</h2>
               <p className="text-gray-600 mb-4">Si vous avez des questions sur cette politique de confidentialité, veuillez nous contacter à support@zetounlabs.cd</p>
-              
             </div>
           </div>
-        </div>
-      </section>
-    </PageLayout>;
+        </motion.div>
+      </motion.section>
+    </PageLayout>
+  );
 };
+
 export default PrivacyPolicy;

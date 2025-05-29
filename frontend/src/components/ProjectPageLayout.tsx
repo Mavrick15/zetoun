@@ -1,9 +1,9 @@
-
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import { useEffect } from 'react';
+import SEO from '@/components/SEO'; // Importez le composant SEO
 
 interface ProjectPageLayoutProps {
   children: React.ReactNode;
@@ -26,32 +26,33 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   const bgColor = darkMode ? 'bg-[#0c151c]' : 'bg-gray-100';
   const textColor = darkMode ? 'text-white' : 'text-gray-900';
-  
+
   return (
     <PageLayout>
+      <SEO title={title} description={subtitle} /> {/* Composant SEO ajouté ici */}
       <div className="pt-16 pb-16">
         {/* Hero Section */}
-        <div 
+        <div
           className={`relative w-full h-[40vh] md:h-[50vh] overflow-hidden flex items-center justify-center`}
         >
           {/* Background Image with Overlay */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center" 
+          <div
+            className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${imageUrl})` }}
           ></div>
           <div className={`absolute inset-0 ${darkMode ? 'bg-black/70' : 'bg-white/70'}`}></div>
-          
+
           <div className="absolute inset-0 flex flex-col items-center justify-center p-4 z-10">
-            <motion.div 
+            <motion.div
               className="flex flex-col items-center justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <motion.h1 
+              <motion.h1
                 className={`text-4xl md:text-5xl font-bold mb-4 text-center ${textColor}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -59,13 +60,13 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
               >
                 {title}
               </motion.h1>
-              <motion.div 
+              <motion.div
                 className={`w-20 h-1 ${darkMode ? 'bg-white' : 'bg-gray-800'} mb-6`}
                 initial={{ width: 0 }}
                 animate={{ width: 80 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               />
-              <motion.p 
+              <motion.p
                 className={`text-xl text-center max-w-2xl ${darkMode ? 'text-white' : 'text-gray-700'}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -76,7 +77,7 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
             </motion.div>
           </div>
         </div>
-        
+
         {/* Back Button */}
         <div className="w-full max-w-4xl mx-auto px-6 md:px-8 mt-8">
           <Link to="/#projects" className="inline-flex items-center text-gray-600 hover:text-gray-800 transition-colors">
@@ -84,10 +85,10 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
             <span>Retour à l'accueil</span>
           </Link>
         </div>
-        
+
         {/* Case Study Content */}
         <div className="w-full max-w-4xl mx-auto px-6 md:px-8 py-12">
-          <motion.div 
+          <motion.div
             className="prose prose-lg max-w-none"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

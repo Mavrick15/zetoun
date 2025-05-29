@@ -111,7 +111,7 @@ const SignUp = () => {
   return (
     <PageLayout showContact={false}>
       <SEO
-        title="Inscription | WRLDS Technologies"
+        title="Inscription | Zetoun Labs"
         description="Inscrivez-vous pour accéder à notre calendrier des formations en télécommunication"
       />
 

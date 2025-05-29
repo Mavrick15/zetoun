@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
-import { Send, CheckCircle2, Lightbulb, Clock, ArrowRight, MessageSquare, ArrowLeft } from "lucide-react";
+import { Send, CheckCircle2, Lightbulb, Clock, ArrowRight, MessageSquare, ArrowLeft, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
@@ -19,24 +19,54 @@ const TelecomOpinion = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulating form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      toast({
-        title: "Demande envoyée",
-        description: "Nous avons bien reçu votre demande d'avis et nous vous répondrons dans les plus brefs délais.",
+    try {
+      // Simuler un temps de chargement de 3 secondes
+      await new Promise(resolve => setTimeout(resolve, 3000));
+
+      const response = await fetch('http://10.0.0.3:5010/api/telecom-opinions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, subject, message }),
       });
-      // Optionally reset the form
-      setName('');
-      setEmail('');
-      setSubject('');
-      setMessage('');
-    }, 1500);
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        toast({
+          title: "Demande envoyée",
+          description: "Nous avons bien reçu votre avis et nous vous répondrons dans les plus brefs délais.",
+        });
+        setName('');
+        setEmail('');
+        setSubject('');
+        setMessage('');
+        console.log('Avis télécom envoyé avec succès au backend', data);
+      } else {
+        setIsSubmitting(false);
+        toast({
+          variant: 'destructive',
+          title: 'Erreur lors de l\'envoi',
+          description: data.message || 'Une erreur est survenue lors de l\'enregistrement de votre avis.',
+        });
+        console.error('Erreur lors de l\'envoi de l\'avis télécom au backend', data);
+      }
+    } catch (error: any) {
+      setIsSubmitting(false);
+      toast({
+        variant: 'destructive',
+        title: 'Erreur réseau',
+        description: 'Impossible de contacter le serveur.',
+      });
+      console.error('Erreur réseau lors de l\'envoi de l\'avis télécom:', error);
+    }
   };
 
   const features = [
@@ -65,8 +95,8 @@ const TelecomOpinion = () => {
   return (
     <PageLayout>
       <SEO
-        title="Demander un Avis | WRLDS Technologies"
-        description="Contactez-nous pour obtenir un avis professionnel sur vos besoins en télécommunication."
+        title="Demander un Avis | Zetoun Labs"
+        description="Parlez-nous de vos besoins pour bénéficier de notre expertise."
       />
 
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
@@ -131,7 +161,7 @@ const TelecomOpinion = () => {
                         <Badge variant="secondary" className="bg-blue-100 text-blue-700 font-medium hover:bg-blue-200">Réponse sous 48h</Badge>
                       </div>
                       <CardDescription className="text-gray-700">
-                        Remplissez ce formulaire pour obtenir l'avis d'un de nos experts sur vos besoins en formation télécom.
+                        Sollicitez l'expertise de nos spécialistes via ce formulaire.
                       </CardDescription>
                     </CardHeader>
                     <form onSubmit={handleSubmit}>
@@ -197,12 +227,12 @@ const TelecomOpinion = () => {
                           disabled={isSubmitting}
                         >
                           <span className="relative z-10 flex items-center justify-center">
-                            {isSubmitting ? 'Envoi en cours...' : (
-                              <>
-                                <Send className="mr-2 h-4 w-4" />
-                                Envoyer ma demande
-                              </>
+                            {isSubmitting ? (
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            ) : (
+                              <Send className="mr-2 h-4 w-4" />
                             )}
+                            {isSubmitting ? 'Envoi en cours...' : 'Envoyer ma demande'}
                           </span>
                           <div className="absolute inset-0 bg-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                         </Button>
@@ -231,8 +261,7 @@ const TelecomOpinion = () => {
                         <CardTitle className="text-2xl mb-4">Merci pour votre demande !</CardTitle>
                         <CardDescription className="text-base text-gray-700">
                           <p className="mb-4">
-                            Nous avons bien reçu votre message et un membre de notre équipe vous contactera
-                            dans les plus brefs délais pour discuter de votre projet de formation.
+                            Merci pour votre message ! Notre équipe reviendra vers vous très vite pour discuter de votre projet ou de vos besoins.
                           </p>
                           <p>
                             Un email de confirmation a été envoyé à l'adresse <span className="font-medium">{email}</span>.

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CalendarIcon, MapPin, Clock, Users, UserCircle, Search, Filter, AlertCircle, ArrowLeft } from "lucide-react";
@@ -9,23 +9,26 @@ import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import useFormations, { Formation } from '@/hooks/useFormations';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Skeleton } from "@/components/ui/skeleton";
 import { Link } from 'react-router-dom';
+import { useToast } from "@/components/ui/use-toast";
 
 const TelecomCalendar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const [enrollingId, setEnrollingId] = useState<string | null>(null);
+  const { toast } = useToast();
 
-  // Handle search debounce for better performance
+  // Gérer le debounce de la recherche pour de meilleures performances
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearchTerm(searchTerm);
-    }, 500);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
-  // Fetch formations from API
+  // Récupérer les formations depuis l'API
   const {
     formations,
     loading,
@@ -37,7 +40,84 @@ const TelecomCalendar = () => {
     searchTerm: debouncedSearchTerm
   });
 
-  // Render loading skeletons
+  const handleEnrollment = async (formationId: string) => {
+    setEnrollingId(formationId); // Définir l'ID de la formation en cours d'inscription
+    try {
+      const userDataString = localStorage.getItem('user'); // Récupérer sous la clé 'user'
+      let authToken = null;
+
+      if (userDataString) {
+        try {
+          const userData = JSON.parse(userDataString);
+          authToken = userData.token; // Extraire le token depuis l'objet user
+        } catch (error) {
+          console.error("Erreur lors du parsing des informations utilisateur:", error);
+          toast({
+            variant: "destructive",
+            title: "Erreur d'authentification",
+            description: "Impossible de récupérer les informations d'authentification.",
+          });
+          setEnrollingId(null);
+          return;
+        }
+      }
+
+      console.log("Valeur de authToken avant la vérification:", authToken); // Vérifier le token récupéré
+
+      const headers: HeadersInit = {
+        'Content-Type': 'application/json',
+      };
+
+      if (authToken) {
+        headers['Authorization'] = `Bearer ${authToken}`;
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Non autorisé.",
+          description: "Votre session semble invalide. Veuillez vous reconnecter.",
+        });
+        setEnrollingId(null);
+        return;
+      }
+
+      const response = await fetch('http://10.0.0.3:5010/api/enrollments', {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({ formationId }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        // Gérer le succès de l'enrôlement (afficher un message, rediriger, etc.)
+        console.log('Enrôlement réussi:', data);
+        toast({
+          title: "Enrôlement réussi!",
+          description: data.message || "Vous êtes maintenant enrôlé à cette formation.",
+        });
+        // Si votre hook `useFormations` a une fonction `mutate` pour rafraîchir les données, vous pouvez l'appeler ici
+        // mutate();
+      } else {
+        // Gérer l'erreur de l'enrôlement
+        console.error('Erreur lors de l\'enrôlement:', data);
+        toast({
+          variant: "destructive",
+          title: "Erreur d'enrôlement",
+          description: data.message || "Une erreur s'est produite lors de l'enrôlement.",
+        });
+      }
+    } catch (error) {
+      console.error('Erreur de communication avec le serveur:', error);
+      toast({
+        variant: "destructive",
+        title: "Erreur serveur",
+        description: "Erreur de communication avec le serveur.",
+      });
+    } finally {
+      setEnrollingId(null);
+    }
+  };
+
+  // Rendre les squelettes de chargement
   const renderSkeletons = () => {
     return Array(3).fill(0).map((_, index) => (
       <Card key={`skeleton-${index}`} className="overflow-hidden border-0 shadow-md">
@@ -85,7 +165,7 @@ const TelecomCalendar = () => {
   return (
     <PageLayout>
       <SEO
-        title="Calendrier des Formations Télécom | WRLDS Technologies"
+        title="Calendrier des Formations Télécom | Zetoun Labs"
         description="Consultez notre calendrier des formations en télécommunication et réservez votre participation dès maintenant."
       />
 
@@ -109,7 +189,7 @@ const TelecomCalendar = () => {
               </p>
             </motion.div>
 
-            {/* Search and filter controls */}
+            {/* Contrôles de recherche et de filtre */}
             <div className="mb-8">
               <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100">
                 <div className="relative w-full sm:max-w-md">
@@ -129,7 +209,7 @@ const TelecomCalendar = () => {
               </div>
             </div>
 
-            {/* Error state */}
+            {/* État d'erreur (récupération des formations) */}
             {error && (
               <div className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100 mb-8">
                 <AlertCircle className="h-12 w-12 mx-auto text-red-400 mb-3" />
@@ -145,10 +225,10 @@ const TelecomCalendar = () => {
               </div>
             )}
 
-            {/* Loading state */}
+            {/* État de chargement */}
             {loading && renderSkeletons()}
 
-            {/* Empty state */}
+            {/* État vide */}
             {!loading && !error && formations?.length === 0 && (
               <div className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100">
                 <Filter className="h-12 w-12 mx-auto text-gray-400 mb-3" />
@@ -157,7 +237,7 @@ const TelecomCalendar = () => {
               </div>
             )}
 
-            {/* Formations list */}
+            {/* Liste des formations */}
             {!loading && !error && formations?.length > 0 && (
               <div className="grid grid-cols-1 gap-8 mb-8">
                 {formations.map((course, index) => (
@@ -240,8 +320,13 @@ const TelecomCalendar = () => {
                                   <p className="text-sm text-gray-700">Prix</p>
                                   <p className="font-semibold text-lg text-blue-600">{course.price}</p>
                                 </div>
-                                <Button size="lg" className="relative overflow-hidden group">
-                                  <span className="relative z-10">S'inscrire</span>
+                                <Button
+                                  size="lg"
+                                  className="relative overflow-hidden group"
+                                  onClick={() => handleEnrollment(course._id)}
+                                  disabled={enrollingId === course._id}
+                                >
+                                  <span className="relative z-10">{enrollingId === course._id ? "Enrolling..." : "S'enroller"}</span>
                                   <div className="absolute inset-0 bg-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                                 </Button>
                               </div>
@@ -316,11 +401,11 @@ const TelecomCalendar = () => {
                 Nous proposons également des formations sur mesure adaptées aux besoins spécifiques de votre entreprise.
                 Contactez-nous pour discuter de vos besoins en formation.
               </p>
-	      <Link to="/add/telecom-opinion">
+              <Link to="/add/telecom-opinion">
                 <Button size="lg" variant="outline" className="bg-white hover:bg-blue-50">
                   Demander une formation personnalisée
                 </Button>
-	      </Link>
+              </Link>
             </motion.div>
           </div>
         </div>

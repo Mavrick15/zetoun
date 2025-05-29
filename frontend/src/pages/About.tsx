@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import SEO from '@/components/SEO'; // Importez le composant SEO
 
 const About = () => {
   useEffect(() => {
@@ -32,19 +33,19 @@ const About = () => {
     {
       name: "Christian Tendo",
       role: "Co-Founder and CTO",
-      bio: "Ingénieur télécom, spécialiste IT, réseaux, systèmes et vidéosurveillance.",
+      bio: "Ingénieur télécom, IT, réseaux, systèmes et vidéosurveillance HIKVISION.",
       image: "/lovable-uploads/img/tendo.jpg"
     },
     {
       name: "Evra Lashe",
       role: "Co-Founder and COO",
-      bio: "Spécialiste réseau & systèmes, garant de la stabilité technique.",
+      bio: "Administrateur réseau et systèmes, garant de la stabilité technique.",
       image: "/lovable-uploads/img/evra.jpg"
     },
     {
       name: "Kevine Etanaka",
       role: "Co-Founder and CFO",
-      bio: "Ingénieure télécom, spécialiste de la transmission de données sol-sol.",
+      bio: "Ingénieure télécom, experte en transmission de données sol-sol.",
       image: "/lovable-uploads/img/kevine.jpg"
     },
     {
@@ -56,13 +57,18 @@ const About = () => {
     {
       name: "Grace Moke",
       role: "Co-Founder and CMO",
-      bio: "Ingénieure télécom, spécialiste de la transmission de données sol-sol.",
+      bio: "Ingénieure télécom, expert en montage de systèmes PV.",
       image: "/lovable-uploads/img/grace.jpg"
     }
   ];
 
+  const title = "À propos de Zetoun Labs - Innovation et Expertise Technologique";
+  const description = "Découvrez l'équipe, la vision, les valeurs et l'histoire de Zetoun Labs, votre partenaire en transformation numérique.";
+  const keywords = ["Zetoun Labs", "à propos", "équipe", "vision", "valeurs", "histoire", "innovation", "technologie"];
+
   return (
     <PageLayout>
+      <SEO title={title} description={description} keywords={keywords} type="website" />
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <div className="max-w-6xl mx-auto">
@@ -87,8 +93,7 @@ const About = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-xl text-gray-600 mb-12"
               >
-                Nous sommes une équipe d’innovateurs engagés à transformer le quotidien des entreprises et des particuliers en alliant technologies intelligentes, servi
-ces informatiques sur mesure, formations adaptées et support technique complet.
+                Nous sommes une équipe d’innovateurs engagés à transformer le quotidien des entreprises et des particuliers en alliant technologies intelligentes, services informatiques sur mesure, formations adaptées et support technique complet.
               </motion.p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
@@ -100,13 +105,10 @@ ces informatiques sur mesure, formations adaptées et support technique complet.
                 >
                   <h2 className="text-3xl font-bold">Notre Vision</h2>
                   <p className="text-gray-600">
-                    Être le partenaire de confiance qui comble le fossé entre les technologies émergentes et les besoins du monde réel, en transformant les idées en sol
-utions robustes et intelligentes qui stimulent la croissance et l’innovation des entreprises.
+                    Être le partenaire de confiance qui comble le fossé entre les technologies émergentes et les besoins du monde réel, en transformant les idées en solutions robustes et intelligentes qui stimulent la croissance et l’innovation des entreprises.
                   </p>
                   <p className="text-gray-600">
-                    Notre vision est de devenir le catalyseur de la transformation numérique en démocratisant l’accès aux technologies intelligentes : nous imaginons un
- futur où chaque entreprise et chaque particulier bénéficient d’infrastructures IT flexibles, de savoir-faire pointus et d’un support infaillible, pour libérer tout leu
-r potentiel d’innovation et de croissance.
+                    Notre vision est de devenir le catalyseur de la transformation numérique en démocratisant l’accès aux technologies intelligentes : nous imaginons un futur où chaque entreprise et chaque particulier bénéficient d’infrastructures IT flexibles, de savoir-faire pointus et d’un support infaillible, pour libérer tout leur potentiel d’innovation et de croissance.
                   </p>
                 </motion.div>
 
@@ -132,8 +134,7 @@ r potentiel d’innovation et de croissance.
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-gray-700 mt-1 mr-3 flex-shrink-0" />
-                      <span><strong>Impact:</strong> Le véritable indicateur de notre réussite, ce sont les bénéfices tangibles que nos interventions apportent à nos cl
-ients.</span>
+                      <span><strong>Impact:</strong> Le véritable indicateur de notre réussite, ce sont les bénéfices tangibles que nos interventions apportent à nos clients.</span>
                     </li>
                   </ul>
                 </motion.div>
@@ -148,18 +149,13 @@ ients.</span>
                 <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
                 <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
                   <p className="text-gray-600 mb-4">
-                    Nous sommes partis d’un constat simple : le paysage des services IT et de la formation était trop morcelé et complexe. Dès début 2024, notre ambitio
-n était de rassembler ces offres – infrastructures, déploiement logiciel, cybersécurité, support – en modules modulaires et intuitifs, accessibles aussi bien aux entrep
-rises qu’aux particuliers.
+                    Nous sommes partis d’un constat simple : le paysage des services IT et de la formation était trop morcelé et complexe. Dès début 2024, notre ambition était de rassembler ces offres – infrastructures, déploiement logiciel, cybersécurité, support – en modules modulaires et intuitifs, accessibles aussi bien aux entreprises qu’aux particuliers.
                   </p>
                   <p className="text-gray-600 mb-4">
-                    Grâce à notre premier tour de table, nous avons consacré les six premiers mois au “full code” : concevoir, tester et peaufiner chaque brique logicie
-lle et chaque composant de notre plateforme. Pour valider notre approche, nous avons rapidement mis en œuvre des prototypes chez nos premiers clients pilotes – PME loca
-les, start-ups et associations – en leur fournissant des environnements réseau clés en main et des modules de formation adaptés à leurs besoins réels.
+                    Grâce à notre premier tour de table, nous avons consacré les six premiers mois au “full code” : concevoir, tester et peaufiner chaque brique logicielle et chaque composant de notre plateforme. Pour valider notre approche, nous avons rapidement mis en œuvre des prototypes chez nos premiers clients pilotes – PME locales, start-ups et associations – en leur fournissant des environnements réseau clés en main et des modules de formation adaptés à leurs besoins réels.
                   </p>
                   <p className="text-gray-600">
-                    À l’aube de 2025, notre plateforme était assez robuste pour passer à l’échelle : nous avons alors élargi notre offre aux grands comptes, en intégran
-t des solutions de monitoring, d’automatisation et de formation certifiante.
+                    À l’aube de 2025, notre plateforme était assez robuste pour passer à l’échelle : nous avons alors élargi notre offre aux grands comptes, en intégrant des solutions de monitoring, d’automatisation et de formation certifiante.
                   </p>
                 </div>
               </motion.div>
@@ -216,18 +212,6 @@ t des solutions de monitoring, d’automatisation et de formation certifiante.
                     </Button>
                   </div>
                 </div>
-
-                {/* Points de navigation (à implémenter si nécessaire avec la logique de pagination) */}
-                {/* <div className="flex justify-center gap-2 mt-4">
-                  {teamMembers.map((_, index) => (
-                    <button
-                      key={index}
-                      className={`w-3 h-3 rounded-full ${scrollPosition / 300 === index ? 'bg-gray-700' : 'bg-gray-300'}`}
-                      // onClick={() => scrollToItem(index * 300)} // Fonction à implémenter
-                    ></button>
-                  ))}
-                </div> */}
-
               </motion.div>
             </div>
             <div className="mt-16 pt-8 border-t border-gray-200">

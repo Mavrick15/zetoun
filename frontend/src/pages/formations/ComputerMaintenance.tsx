@@ -7,17 +7,22 @@ import { useState, useEffect } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from '@/components/ui/button';
+import SEO from '@/components/SEO'; // Importez le composant SEO
 
 const ComputerMaintenance = () => {
   const isMobile = useIsMobile();
-  
+
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <PageLayout>
+      <SEO
+        title="Formation Maintenance Informatique | Dépannage PC"
+        description="Devenez expert en maintenance informatique : apprenez à diagnostiquer, réparer et optimiser les ordinateurs (matériel et logiciel)."
+      />
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <div className="max-w-6xl mx-auto">
@@ -25,32 +30,32 @@ const ComputerMaintenance = () => {
               <ArrowLeft className="mr-2 h-4 w-4" />
               Retour à l'accueil
             </Link>
-            
+
             <motion.div
               className="relative h-64 md:h-80 w-full mb-12 rounded-xl overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <img 
-                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80" 
-                alt="Maintenance des Ordinateurs" 
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80"
+                alt="Maintenance des Ordinateurs"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                 <div className="p-6 md:p-8">
-                  <motion.h1 
-                    initial={{ opacity: 0, y: -10 }} 
-                    animate={{ opacity: 1, y: 0 }} 
-                    transition={{ duration: 0.5, delay: 0.3 }} 
+                  <motion.h1
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
                     className="text-3xl sm:text-4xl font-bold mb-2 text-white"
                   >
                     Maintenance des Ordinateurs
                   </motion.h1>
-                  <motion.p 
-                    initial={{ opacity: 0 }} 
-                    animate={{ opacity: 1 }} 
-                    transition={{ duration: 0.5, delay: 0.4 }} 
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
                     className="text-base sm:text-lg text-white/90"
                   >
                     Formation pratique pour diagnostiquer et réparer les pannes matérielles/logiciels.
@@ -58,10 +63,10 @@ const ComputerMaintenance = () => {
                 </div>
               </div>
             </motion.div>
-            
+
             <div className="prose prose-lg max-w-none">
               {/* Introduction Section */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -71,7 +76,7 @@ const ComputerMaintenance = () => {
                   <Wrench className="w-5 h-5 text-gray-700" />
                   <h2 className="text-2xl font-bold">Objectifs pédagogiques</h2>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                   {[
                     { text: "Identifier composants PC", icon: <Cpu className="w-6 h-6 text-gray-600" /> },
@@ -93,8 +98,8 @@ const ComputerMaintenance = () => {
                     </motion.div>
                   ))}
                 </div>
-                
-                <motion.div 
+
+                <motion.div
                   className="rounded-lg overflow-hidden mb-10"
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -107,7 +112,7 @@ const ComputerMaintenance = () => {
                   />
                 </motion.div>
               </motion.div>
-              
+
               {/* Content Section */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -118,12 +123,12 @@ const ComputerMaintenance = () => {
                   <HardDrive className="w-5 h-5 text-gray-700" />
                   <h2 className="text-2xl font-bold">Contenu de la formation</h2>
                 </div>
-                
+
                 <p className="text-gray-600 mb-8 text-base max-w-3xl">
                   Notre formation de maintenance informatique vous apprendra à diagnostiquer et réparer efficacement
                   les problèmes courants sur les ordinateurs, tant au niveau matériel que logiciel.
                 </p>
-                
+
                 <Tabs defaultValue="content" className="w-full mb-12">
                   <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8">
                     <TabsTrigger value="content">Contenu</TabsTrigger>
@@ -131,7 +136,7 @@ const ComputerMaintenance = () => {
                     <TabsTrigger value="audience">Public cible</TabsTrigger>
                     <TabsTrigger value="duration">Durée</TabsTrigger>
                   </TabsList>
-                  
+
                   <TabsContent value="content" className="space-y-4">
                     <Card>
                       <CardContent className="pt-6">
@@ -143,8 +148,8 @@ const ComputerMaintenance = () => {
                             { text: "Sécurité de base", icon: <Shield className="w-5 h-5 mr-2" /> },
                             { text: "Notions réseau local", icon: <Settings className="w-5 h-5 mr-2" /> }
                           ].map((item, i) => (
-                            <motion.li 
-                              key={i} 
+                            <motion.li
+                              key={i}
                               className="flex items-center"
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
@@ -158,7 +163,7 @@ const ComputerMaintenance = () => {
                       </CardContent>
                     </Card>
                   </TabsContent>
-                  
+
                   <TabsContent value="methodology">
                     <Card>
                       <CardContent className="pt-6">
@@ -172,7 +177,7 @@ const ComputerMaintenance = () => {
                       </CardContent>
                     </Card>
                   </TabsContent>
-                  
+
                   <TabsContent value="audience">
                     <Card>
                       <CardContent className="pt-6">
@@ -186,7 +191,7 @@ const ComputerMaintenance = () => {
                       </CardContent>
                     </Card>
                   </TabsContent>
-                  
+
                   <TabsContent value="duration">
                     <Card>
                       <CardContent className="pt-6">
@@ -201,15 +206,15 @@ const ComputerMaintenance = () => {
                     </Card>
                   </TabsContent>
                 </Tabs>
-                
+
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-10">
                   <div className="flex items-center gap-2 mb-3">
                     <Settings className="w-5 h-5 text-gray-700" />
                     <h3 className="text-xl font-bold">Matériel fourni</h3>
                   </div>
                   <p className="text-gray-600">
-                    Pendant la formation, vous aurez accès à des ordinateurs de différentes générations, 
-                    des composants de rechange, et tous les outils nécessaires pour les travaux pratiques. 
+                    Pendant la formation, vous aurez accès à des ordinateurs de différentes générations,
+                    des composants de rechange, et tous les outils nécessaires pour les travaux pratiques.
                     Des systèmes d'exploitation et logiciels de diagnostic seront également mis à votre disposition.
                   </p>
                 </div>
@@ -218,11 +223,13 @@ const ComputerMaintenance = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               <div className="p-6 bg-gray-50 rounded-lg">
                 <h3 className="font-semibold text-lg mb-2">Formateurs experts</h3>
-                <p className="text-gray-600">Des professionnels certifiés avec une expertise pratique dans la maintenance préventive et corrective des infrastructures informatiques et réseau.</p>
+                <p className="text-gray-600">Des professionnels certifiés avec une expertise pratique dans la maintenance préventive et corrective des infrastructures i
+nformatiques et réseau.</p>
               </div>
               <div className="p-6 bg-gray-50 rounded-lg">
                 <h3 className="font-semibold text-lg mb-2">Approche pratique</h3>
-                <p className="text-gray-600">Nos formations en maintenance allient théorie et pratique pour assurer le diagnostic, la réparation et la prévention des pannes informatiques.</p>
+                <p className="text-gray-600">Nos formations en maintenance allient théorie et pratique pour assurer le diagnostic, la réparation et la prévention des pa
+nnes informatiques.</p>
               </div>
               <div className="p-6 bg-gray-50 rounded-lg">
                 <h3 className="font-semibold text-lg mb-2">Certifications reconnues</h3>
@@ -230,7 +237,7 @@ const ComputerMaintenance = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="mt-16 bg-blue-50 p-8 rounded-xl">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Vous souhaitez vous inscrire à l'une de nos formations ?</h2>
@@ -241,12 +248,12 @@ const ComputerMaintenance = () => {
                 <Link to="/add/telecom-opinion">
                   <Button size="lg">
                     Demander un devis
-                  </Button> 
+                  </Button>
                 </Link>
                 <Link to="/add/telecom-calendar">
                   <Button variant="outline" size="lg">
-	            Voir le calendrier des formations
-                  </Button> 
+                    Voir le calendrier des formations
+                  </Button>
                 </Link>
               </div>
             </div>

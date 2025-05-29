@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import PageLayout from '@/components/PageLayout';
+import SEO from '@/components/SEO'; // Importez le composant SEO
+
 const DevelopmentProcess = () => {
   const [activeProcess, setActiveProcess] = useState(1);
   const processRef = useRef<HTMLDivElement>(null);
@@ -37,7 +39,7 @@ const DevelopmentProcess = () => {
   }, {
     id: 5,
     title: "Support & Amélioration continue",
-    description: " Une fois la solution en place, le travail continue : garantir la stabilité, corriger les éventuels problèmes, et faire évoluer le système selon les besoins futurs. Cette phase favorise la pérennité de la solution.",
+    description: "Une fois la solution en place, le travail continue : garantir la stabilité, corriger les éventuels problèmes, et faire évoluer le système selon les besoins futurs. Cette phase favorise la pérennité de la solution.",
     steps: ["Mise en place du support technique (helpdesk, supervision)", "Maintenance corrective et préventive", "Suivi des indicateurs de performance", "Recueil des retours utilisateurs et implémentation d’évolutions."]
   }];
   useEffect(() => {
@@ -113,7 +115,13 @@ const DevelopmentProcess = () => {
     title: "7. Continuous Improvement",
     description: "Post-launch analytics and feedback loops drive ongoing improvements, updates, and potential new features."
   }];
-  return <PageLayout>
+  const title = "Notre Processus de Déploiement Structuré | ZL Technologies";
+  const description = "Découvrez notre processus de développement IT structuré, de la compréhension des besoins au support continu, pour des solutions innovantes et efficaces.";
+  const keywords = ["processus de développement", "déploiement IT", "méthodologie", "gestion de projet", "ZL Technologies"];
+
+  return (
+    <PageLayout>
+      <SEO title={title} description={description} keywords={keywords} />
       <section className="pt-24 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -121,51 +129,80 @@ const DevelopmentProcess = () => {
               <ArrowLeft className="mr-2 h-4 w-4" />
               Retour à l'accueil
             </Link>
-            
+
             <h1 className="text-4xl font-bold mb-8">Notre processus de déploiement structuré</h1>
-            
+
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-gray-600 mb-12">
-                Nous avons affiné notre méthodologie de développement pour minimiser les risques et maximiser l'innovation, 
-		en veillant à ce que votre solution IT passe efficacement du concept à la réalité.
+                Nous avons affiné notre méthodologie de développement pour minimiser les risques et maximiser l'innovation,
+                en veillant à ce que votre solution IT passe efficacement du concept à la réalité.
               </p>
-              
+
               {/* From Textile to Intelligence Process Section */}
               <div className="relative mt-12" ref={processRef} style={{
-              opacity: 0
-            }}>
+                opacity: 0
+              }}>
                 <div className="hidden md:block absolute top-0 left-1/2 w-0.5 h-full bg-gray-200 -translate-x-1/2"></div>
-                
+
                 <div className="space-y-10 relative">
-                  {processes.map((process, index) => <div key={process.id} ref={el => processSectionsRef.current[index] = el} className={cn("relative flex flex-col md:flex-row md:items-center gap-6", index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse text-right")}>
+                  {processes.map((process, index) => (
+                    <div
+                      key={process.id}
+                      ref={el => processSectionsRef.current[index] = el}
+                      className={cn(
+                        "relative flex flex-col md:flex-row md:items-center gap-6",
+                        index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse text-right"
+                      )}
+                    >
                       <div className="md:w-1/2">
-                        <div className={cn("md:absolute top-0 left-1/2 md:-translate-x-1/2 w-12 h-12 rounded-full flex items-center justify-center z-10 transition-all duration-300", activeProcess === process.id ? "bg-gray-700 text-white scale-110" : "bg-white text-gray-700 border border-gray-300")} onClick={() => setActiveProcess(process.id)}>
+                        <div
+                          className={cn(
+                            "md:absolute top-0 left-1/2 md:-translate-x-1/2 w-12 h-12 rounded-full flex items-center justify-center z-10 transition-all duration-300",
+                            activeProcess === process.id ? "bg-gray-700 text-white scale-110" : "bg-white text-gray-700 border border-gray-300"
+                          )}
+                          onClick={() => setActiveProcess(process.id)}
+                        >
                           <span className="font-bold">{process.id}</span>
                         </div>
-                        
+
                         <h3 className="text-xl font-bold mb-2 mt-3 md:mt-0">{process.title}</h3>
                         <p className="text-gray-600 mb-3 text-sm">{process.description}</p>
-                        
-                        <button onClick={() => setActiveProcess(process.id)} className={cn("text-sm font-medium transition-colors", activeProcess === process.id ? "text-gray-700" : "text-gray-500 hover:text-gray-700")}>
+
+                        <button
+                          onClick={() => setActiveProcess(process.id)}
+                          className={cn(
+                            "text-sm font-medium transition-colors",
+                            activeProcess === process.id ? "text-gray-700" : "text-gray-500 hover:text-gray-700"
+                          )}
+                        >
                           {activeProcess === process.id ? "actuellement en cours de visualisation" : "voir les détails"}
                         </button>
                       </div>
-                      
-                      <div className={cn("md:w-1/2 bg-white rounded-xl p-5 shadow-sm border border-gray-100 transition-all duration-300", activeProcess === process.id ? "opacity-100 translate-y-0 shadow-md border-gray-200" : "opacity-50 md:opacity-30 hover:opacity-70 cursor-pointer")} onClick={() => setActiveProcess(process.id)}>
+
+                      <div
+                        className={cn(
+                          "md:w-1/2 bg-white rounded-xl p-5 shadow-sm border border-gray-100 transition-all duration-300",
+                          activeProcess === process.id ? "opacity-100 translate-y-0 shadow-md border-gray-200" : "opacity-50 md:opacity-30 hover:opacity-70 cursor-pointer"
+                        )}
+                        onClick={() => setActiveProcess(process.id)}
+                      >
                         <h4 className="font-semibold mb-3 text-gray-700">Activités clés :</h4>
                         <ul className="space-y-2">
-                          {process.steps.map((step, stepIndex) => <li key={stepIndex} className="flex items-start">
+                          {process.steps.map((step, stepIndex) => (
+                            <li key={stepIndex} className="flex items-start">
                               <span className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 flex items-center justify-center mt-0.5 mr-2">
                                 <Check className="w-3 h-3 text-gray-700" />
                               </span>
                               <span className="text-gray-700 text-sm text-left">{step}</span>
-                            </li>)}
+                            </li>
+                          ))}
                         </ul>
                       </div>
-                    </div>)}
+                    </div>
+                  ))}
                 </div>
               </div>
-              
+
               <div className="bg-gray-50 p-8 rounded-lg my-12 border border-gray-100">
                 <h3 className="text-xl font-semibold mb-4">Notre principe de développement</h3>
                 <ul className="space-y-3">
@@ -195,7 +232,8 @@ const DevelopmentProcess = () => {
           </div>
         </div>
       </section>
-    </PageLayout>;
+    </PageLayout>
+  );
 };
 export default DevelopmentProcess;
 
@@ -204,7 +242,9 @@ const ArrowRight = ({
   className = "w-4 h-4"
 }: {
   className?: string;
-}) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+}) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <path d="M5 12h14" />
     <path d="m12 5 7 7-7 7" />
-  </svg>;
+  </svg>
+);

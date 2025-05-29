@@ -29,13 +29,24 @@ const Blog = () => {
     animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
+  const keywords = [
+    'smart textiles',
+    'sensor technology',
+    'wearable tech',
+    'innovation',
+    'textile sensors',
+    'Zetoun Labs'
+  ];
+
+  const description = "Découvrez les dernières actualités et informations sur les textiles intelligents, la technologie des capteurs et les innovations de Zetoun Labs.";
+
   return (
     <PageLayout>
       <SEO
         title="ZL - Les dernières actualités technologiques"
-        description="Stay updated with the latest news and insights about sensor-integrated textiles and smart technology from WRLDS Technologies."
+        description={description}
         imageUrl={featuredPost?.imageUrl || "/lovable-uploads/6b0637e9-4a7b-40d0-b219-c8b7f879f93e.png"}
-        keywords={['smart textiles', 'textile technology', 'industry news', 'sensor innovation', 'wearable tech', 'smart fabrics']}
+        keywords={keywords}
         type="website"
       />
 

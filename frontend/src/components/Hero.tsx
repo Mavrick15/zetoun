@@ -1,4 +1,4 @@
-import { ArrowRight, Headset, Layers, MessageSquare, GraduationCap, HandPlatter } from "lucide-react";
+import { ArrowRight, Code, Cpu, Layers, MessageSquare } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -45,7 +45,7 @@ const Hero = () => {
   return <motion.div className="relative mt-16 md:mt-0 w-full max-w-[100vw]" initial="hidden" animate="visible" variants={containerVariants}>
       <div className="banner-container bg-black relative overflow-hidden h-[700px] md:h-[750px] w-full">
         <div className="absolute inset-0 bg-black w-full">
-          <img src="/lovable-uploads/4bfa0d71-3ed2-4693-90b6-35142468907f.png" alt="Zetoun Labs" className={`w-full h-full object-cover opacity-70 grayscale ${isMobile ? 'object-right' : 'object-center'}`} />
+          <img src="/lovable-uploads/4bfa0d71-3ed2-4693-90b6-35142468907f.png" alt="WRLDS Technologies Connected People" className={`w-full h-full object-cover opacity-70 grayscale ${isMobile ? 'object-right' : 'object-center'}`} />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-white"></div>
         </div>
         
@@ -70,7 +70,7 @@ const Hero = () => {
                     }
                   }}
                 >
-                  Nos réalisations
+                  Découvrez nos projets
                   <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 
@@ -94,26 +94,26 @@ const Hero = () => {
       }}>
           <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
             <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <HandPlatter className="w-5 h-5 md:w-6 md:h-6" />
+              <Cpu className="w-5 h-5 md:w-6 md:h-6" />
             </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Services IT</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Des solutions sur mesure pour entreprises et particuliers, afin de répondre à tous vos besoins technologiques.</p>
+            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Smart Textiles</h3>
+            <p className="text-gray-600 text-xs md:text-sm">Intelligent fabric sensors that seamlessly integrate into clothing and footwear.</p>
           </motion.div>
           
           <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
             <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <GraduationCap className="w-5 h-5 md:w-6 md:h-6" />
+              <Code className="w-5 h-5 md:w-6 md:h-6" />
             </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Formations</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Développez vos compétences IT avec des formations concrètes, adaptées aux enjeux du terrain.</p>
+            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Adaptive AI</h3>
+            <p className="text-gray-600 text-xs md:text-sm">Industry-specific algorithms that transform textile sensor data into meaningful insights.</p>
           </motion.div>
           
           <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
             <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Headset className="w-5 h-5 md:w-6 md:h-6" />
+              <Layers className="w-5 h-5 md:w-6 md:h-6" />
             </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Support IT</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Une expertise IT réactive pour résoudre vos incidents, maintenir vos infrastructures et optimiser vos outils numériques.</p>
+            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Cross-Industry</h3>
+            <p className="text-gray-600 text-xs md:text-sm">Solutions for sports, military, healthcare, industrial, and professional environments.</p>
           </motion.div>
         </motion.div>
       </div>
@@ -121,4 +121,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
