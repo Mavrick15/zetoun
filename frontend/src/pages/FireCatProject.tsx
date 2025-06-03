@@ -1,5 +1,5 @@
 import ProjectPageLayout from '@/components/ProjectPageLayout';
-import { Shield, Radio, Activity, Box } from 'lucide-react';
+import { Shield, Network, Repeat, TrendingUp, ShieldCheck } from 'lucide-react'; // Icônes adaptées
 
 const FireCatProject = () => {
   return (
@@ -35,7 +35,7 @@ const FireCatProject = () => {
 
       <div className="grid md:grid-cols-2 gap-6 my-8">
         <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
-          <Radio className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
+          <Network className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" /> {/* Icône adaptée pour la refonte */}
           <div>
             <h4 className="text-lg font-semibold mb-2 text-gray-700">Refonte complète</h4>
             <p>Mise en place d’une topologie hiérarchisée et structurée pour optimiser les performances et simplifier la gestion.</p>
@@ -43,7 +43,7 @@ const FireCatProject = () => {
         </div>
 
         <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
-          <Shield className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
+          <ShieldCheck className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" /> {/* Icône adaptée pour la sécurité */}
           <div>
             <h4 className="text-lg font-semibold mb-2 text-gray-700">Sécurisation avancée</h4>
             <p>Déploiement de pare-feux, VLANs, contrôle d’accès et segmentation du réseau pour protéger les données sensibles</p>
@@ -51,7 +51,7 @@ const FireCatProject = () => {
         </div>
 
         <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
-          <Box className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
+          <Repeat className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" /> {/* Icône adaptée pour la haute disponibilité */}
           <div>
             <h4 className="text-lg font-semibold mb-2 text-gray-700">Haute disponibilité</h4>
             <p>Intégration de solutions redondantes (liens, équipements) pour assurer une continuité de service sans interruption.</p>
@@ -59,7 +59,7 @@ const FireCatProject = () => {
         </div>
 
         <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
-          <Activity className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
+          <TrendingUp className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" /> {/* Icône adaptée pour l'évolutivité */}
           <div>
             <h4 className="text-lg font-semibold mb-2 text-gray-700">Évolutivité</h4>
             <p>Conception d’une infrastructure évolutive, capable d’absorber la montée en charge et de s’adapter aux besoins futurs.</p>

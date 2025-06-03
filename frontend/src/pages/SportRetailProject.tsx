@@ -1,114 +1,121 @@
-
 import ProjectPageLayout from '@/components/ProjectPageLayout';
 import SEO from '@/components/SEO';
-import { Footprints, Zap, LineChart, Award, Sparkles, FlaskConical } from 'lucide-react';
+import { Camera, MapPin, ShieldCheck, HardDrive, Settings } from 'lucide-react'; // Importation des icônes pertinentes
 
-const SportRetailProject = () => {
+const EyanoSecurityProject = () => {
+  const title = "Sécurité renforcée Centre Diagnostic EYANO"; // Titre raccourci
+  const brandName = "Centre de Diagnostic EYANO";
+  // Proposition d'une image plus spécifique pour la vidéosurveillance
+  const imageUrl = "/lovable-uploads/img/Eyano.png"; 
+
   return (
     <ProjectPageLayout
-      title="Performance Athletic Footwear"
-      subtitle="Revolutionary R&D for next-generation athletic footwear"
-      imageUrl="/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png"
-      brandName="Global Sports Retail Leader"
+      title={title}
+      subtitle="Modernisation et déploiement étendu de la vidéosurveillance pour une sécurité optimale." // Sous-titre proposé
+      imageUrl={imageUrl}
+      brandName={brandName}
     >
-      <SEO 
-        title="WRLDS - Performance Athletic Footwear Project" 
-        description="Revolutionary R&D for next-generation athletic footwear with embedded textile sensors for real-time performance analytics and personalized footwear."
+      {/* Composant SEO pour l'optimisation des moteurs de recherche */}
+      <SEO
+        title={title}
+        description="Extension et renforcement du système de vidéosurveillance pour le Centre de Diagnostic EYANO, assurant une couverture étendue et une sécurité optimale de ses installations."
         type="article"
       />
-      
-      <div className="bg-yellow-50 p-4 rounded-lg mb-6 flex items-center">
-        <FlaskConical className="h-5 w-5 text-yellow-600 mr-2 flex-shrink-0" />
-        <p className="text-yellow-700 font-medium text-sm">Ongoing R&D Project — Currently in Prototyping Phase</p>
-      </div>
-      
-      <h2 className="text-3xl font-bold mb-6">Case Study: Smart Footwear Development</h2>
-      
+
+      <h2 className="text-3xl font-bold mb-6">Étude de Cas : Renforcement et extension du système de sécurité du Centre de Diagnostic EYANO</h2>
+
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h3 className="text-xl font-semibold mb-2">Background</h3>
+        <h3 className="text-xl font-semibold mb-2">Contexte du Projet</h3>
         <p>
-          A global sports retail leader approached WRLDS Technologies with a vision to revolutionize the development, 
-          fitting, and testing of athletic footwear. Their goal was to create a data-driven approach to footwear design 
-          that would enhance athlete performance while reducing development cycles.
+          Face à l'accroissement de ses activités et à l'expansion de ses infrastructures, le Centre de Diagnostic EYANO a ressenti un besoin impératif d'agrandir et de moderniser son système de surveillance. L'objectif était d'adapter l'infrastructure de sécurité aux nouvelles dimensions du centre, garantissant ainsi une protection complète et efficace de ses biens et de son personnel.
         </p>
       </div>
-      
-      <h3 className="text-2xl font-semibold mb-4">Challenge</h3>
+
+      <h3 className="text-2xl font-semibold mb-4">Défi à Relever</h3>
       <p>
-        Traditional footwear development relied heavily on subjective feedback and limited quantitative testing. 
-        The company needed a precise way to measure actual performance metrics, foot movements, and pressure 
-        distribution in real-world athletic scenarios. Additionally, they wanted to personalize footwear recommendations 
-        based on individual biomechanics.
+        Le principal défi consistait à concevoir et déployer un système de vidéosurveillance capable de couvrir une vaste superficie de plus de 70 m², incluant diverses zones d'activité du centre. Il était crucial d'assurer une intégration fluide des nouvelles caméras avec le système existant, tout en améliorant la qualité de l'image, la capacité d'enregistrement et la réactivité globale du dispositif de sécurité.
       </p>
-      
-      <h3 className="text-2xl font-semibold mb-4 mt-8">Solution</h3>
+
+      <h3 className="text-2xl font-semibold mb-4 mt-8">Solution Mise en Œuvre</h3>
       <p>
-        WRLDS Technologies developed a comprehensive smart footwear R&D platform that includes:
+        Notre équipe a conçu et déployé une solution de vidéosurveillance avancée, intégrant des technologies de pointe pour répondre aux exigences spécifiques du Centre de Diagnostic EYANO :
       </p>
-      
+
       <div className="grid md:grid-cols-2 gap-6 my-8">
         <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
-          <Footprints className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
+          <Camera className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
           <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-700">Embedded Sensors</h4>
-            <p>Textile-based pressure and motion sensors integrated directly into prototype footwear.</p>
+            <h4 className="text-lg font-semibold mb-2 text-gray-700">Déploiement de Caméras HIKVISION</h4>
+            <p>Installation stratégique de caméras de surveillance HIKVISION, reconnues pour leur robustesse, leur haute résolution et leurs fonctionnalités intelligentes (détection de mouvement, analyse comportementale).</p>
           </div>
         </div>
-        
+
         <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
-          <Zap className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
+          <MapPin className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
           <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-700">Real-time Analysis</h4>
-            <p>Instant feedback on gait, pressure points, and energy transfer during athletic movements.</p>
+            <h4 className="text-lg font-semibold mb-2 text-gray-700">Couverture Géographique Étendue</h4>
+            <p>Mise en place d'un réseau de caméras couvrant l'intégralité des 70 m² du centre, y compris les zones sensibles, les accès et les périmètres extérieurs, pour une surveillance sans angle mort.</p>
           </div>
         </div>
-        
+
         <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
-          <LineChart className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
+          <ShieldCheck className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
           <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-700">Performance Metrics</h4>
-            <p>Comprehensive data collection on acceleration, stability, and energy return across different sports movements.</p>
+            <h4 className="text-lg font-semibold mb-2 text-gray-700">Intégration et Centralisation</h4>
+            <p>Intégration des nouvelles caméras au système de gestion vidéo existant, permettant une surveillance centralisée et une gestion simplifiée de l'ensemble du dispositif.</p>
           </div>
         </div>
-        
+
         <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
-          <Award className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
+          <HardDrive className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
           <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-700">Athlete Cloud Platform</h4>
-            <p>AI-powered analytics comparing performance across prototype iterations and athlete profiles.</p>
+            <h4 className="text-lg font-semibold mb-2 text-gray-700">Capacité d'Enregistrement Améliorée</h4>
+            <p>Augmentation de la capacité de stockage et optimisation des systèmes d'enregistrement pour conserver les flux vidéo sur une période prolongée, conformément aux exigences de sécurité.</p>
           </div>
         </div>
       </div>
-      
-      <h4 className="text-xl font-semibold mb-4">Key Features</h4>
-      <ul className="list-disc pl-6 space-y-2 mb-8">
-        <li>Machine washable sensor technology for extended testing periods</li>
-        <li>Low-profile design that doesn't interfere with natural movement</li>
-        <li>Cross-platform mobile app for real-time coaching and feedback</li>
-        <li>Materials testing module to evaluate durability and performance longevity</li>
-      </ul>
-      
-      <h3 className="text-2xl font-semibold mb-4 mt-8">Preliminary Results</h3>
+
+      <h3 className="text-2xl font-semibold mb-4 mt-8">Avantages Clés</h3>
+      <div className="space-y-6 mb-8">
+        <div className="flex items-start">
+          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
+          <div>
+            <h4 className="font-semibold">Sécurité Renforcée et Dissuasion</h4>
+            <p>Une présence visible et efficace de caméras HIKVISION dissuade les intrusions et les actes malveillants, protégeant ainsi les actifs et les personnes.</p>
+          </div>
+        </div>
+
+        <div className="flex items-start">
+          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
+          <div>
+            <h4 className="font-semibold">Surveillance Complète et Continue</h4>
+            <p>La couverture étendue sur 70 m² assure une surveillance ininterrompue de toutes les zones critiques, de jour comme de nuit.</p>
+          </div>
+        </div>
+
+        <div className="flex items-start">
+          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
+          <div>
+            <h4 className="font-semibold">Réactivité Accrue en Cas d'Incident</h4>
+            <p>La surveillance en temps réel et les enregistrements de haute qualité permettent une détection rapide des incidents et facilitent les enquêtes post-événement.</p>
+          </div>
+        </div>
+
+        <div className="flex items-start">
+          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
+          <div>
+            <h4 className="font-semibold">Optimisation des Opérations de Sécurité</h4>
+            <p>La gestion centralisée du système simplifie la surveillance pour les équipes de sécurité, améliorant leur efficacité opérationnelle.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 className="text-2xl font-semibold mb-4 mt-8">Résultats Obtenus</h3>
       <p>
-        The smart footwear prototype platform has shown promising results in initial testing phases. 
-        The data-driven approach has not only provided valuable insights for product development but also opened 
-        new possibilities for personalized product recommendations in retail environments. Patent applications have 
-        been filed based on innovations developed during this ongoing project.
+        Grâce au renforcement et à l'extension de son système de vidéosurveillance, le Centre de Diagnostic EYANO dispose désormais d'une infrastructure de sécurité à la pointe de la technologie. Cette modernisation a significativement amélioré la capacité du centre à surveiller ses installations, à prévenir les risques et à réagir efficacement en cas d'incident, offrant ainsi un environnement plus sûr pour tous.
       </p>
-      
-      <div className="bg-blue-50 p-6 rounded-lg mt-8 flex items-start">
-        <Sparkles className="h-6 w-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
-        <div>
-          <h4 className="text-lg font-semibold mb-2 text-gray-700">Development Roadmap</h4>
-          <p>
-            WRLDS Technologies continues to partner with this client on this R&D initiative to refine the prototype and 
-            develop potential consumer versions of this technology, which could enable everyday athletes to benefit 
-            from professional-grade footwear analysis and recommendations.
-          </p>
-        </div>
-      </div>
     </ProjectPageLayout>
   );
 };
 
-export default SportRetailProject;
+export default EyanoSecurityProject;

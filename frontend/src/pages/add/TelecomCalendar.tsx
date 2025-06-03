@@ -16,10 +16,11 @@ import { useToast } from "@/components/ui/use-toast";
 const TelecomCalendar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  // State to keep track of the formation ID currently being enrolled
   const [enrollingId, setEnrollingId] = useState<string | null>(null);
   const { toast } = useToast();
 
-  // Gérer le debounce de la recherche pour de meilleures performances
+  // Handle search debounce for better performance
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearchTerm(searchTerm);
@@ -28,7 +29,9 @@ const TelecomCalendar = () => {
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
-  // Récupérer les formations depuis l'API
+  // Fetch formations from the API
+  // ASSUMPTION: The `useFormations` hook now provides an `isEnrolled` boolean
+  // property on each `Formation` object, indicating if the current user is already enrolled.
   const {
     formations,
     loading,
@@ -40,16 +43,27 @@ const TelecomCalendar = () => {
     searchTerm: debouncedSearchTerm
   });
 
+  /**
+   * Handles the enrollment process for a given formation.
+   * It simulates a 3-second loading time and disables the specific course card
+   * during the enrollment process.
+   * @param {string} formationId - The ID of the formation to enroll in.
+   */
   const handleEnrollment = async (formationId: string) => {
-    setEnrollingId(formationId); // Définir l'ID de la formation en cours d'inscription
+    // Set the enrolling ID to disable the specific course card and button
+    setEnrollingId(formationId);
+
     try {
-      const userDataString = localStorage.getItem('user'); // Récupérer sous la clé 'user'
+      // Simulate a 3-second loading time
+      await new Promise(resolve => setTimeout(resolve, 3000));
+
+      const userDataString = localStorage.getItem('user');
       let authToken = null;
 
       if (userDataString) {
         try {
           const userData = JSON.parse(userDataString);
-          authToken = userData.token; // Extraire le token depuis l'objet user
+          authToken = userData.token;
         } catch (error) {
           console.error("Erreur lors du parsing des informations utilisateur:", error);
           toast({
@@ -57,12 +71,11 @@ const TelecomCalendar = () => {
             title: "Erreur d'authentification",
             description: "Impossible de récupérer les informations d'authentification.",
           });
-          setEnrollingId(null);
-          return;
+          return; // Exit if user data parsing fails
         }
       }
 
-      console.log("Valeur de authToken avant la vérification:", authToken); // Vérifier le token récupéré
+      console.log("Valeur de authToken avant la vérification:", authToken);
 
       const headers: HeadersInit = {
         'Content-Type': 'application/json',
@@ -76,10 +89,10 @@ const TelecomCalendar = () => {
           title: "Non autorisé.",
           description: "Votre session semble invalide. Veuillez vous reconnecter.",
         });
-        setEnrollingId(null);
-        return;
+        return; // Exit if no auth token
       }
 
+      // Make the actual API call for enrollment
       const response = await fetch('http://10.0.0.3:5010/api/enrollments', {
         method: 'POST',
         headers: headers,
@@ -88,16 +101,14 @@ const TelecomCalendar = () => {
 
       const data = await response.json();
       if (response.ok) {
-        // Gérer le succès de l'enrôlement (afficher un message, rediriger, etc.)
         console.log('Enrôlement réussi:', data);
         toast({
           title: "Enrôlement réussi!",
           description: data.message || "Vous êtes maintenant enrôlé à cette formation.",
         });
-        // Si votre hook `useFormations` a une fonction `mutate` pour rafraîchir les données, vous pouvez l'appeler ici
+        // If your useFormations hook has a `mutate` function to refresh data, you can call it here
         // mutate();
       } else {
-        // Gérer l'erreur de l'enrôlement
         console.error('Erreur lors de l\'enrôlement:', data);
         toast({
           variant: "destructive",
@@ -113,11 +124,12 @@ const TelecomCalendar = () => {
         description: "Erreur de communication avec le serveur.",
       });
     } finally {
+      // Reset enrollingId regardless of success or failure
       setEnrollingId(null);
     }
   };
 
-  // Rendre les squelettes de chargement
+  // Render loading skeletons
   const renderSkeletons = () => {
     return Array(3).fill(0).map((_, index) => (
       <Card key={`skeleton-${index}`} className="overflow-hidden border-0 shadow-md">
@@ -189,7 +201,7 @@ const TelecomCalendar = () => {
               </p>
             </motion.div>
 
-            {/* Contrôles de recherche et de filtre */}
+            {/* Search and Filter Controls */}
             <div className="mb-8">
               <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100">
                 <div className="relative w-full sm:max-w-md">
@@ -209,7 +221,7 @@ const TelecomCalendar = () => {
               </div>
             </div>
 
-            {/* État d'erreur (récupération des formations) */}
+            {/* Error state (fetching formations) */}
             {error && (
               <div className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100 mb-8">
                 <AlertCircle className="h-12 w-12 mx-auto text-red-400 mb-3" />
@@ -225,10 +237,10 @@ const TelecomCalendar = () => {
               </div>
             )}
 
-            {/* État de chargement */}
+            {/* Loading state */}
             {loading && renderSkeletons()}
 
-            {/* État vide */}
+            {/* Empty state */}
             {!loading && !error && formations?.length === 0 && (
               <div className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100">
                 <Filter className="h-12 w-12 mx-auto text-gray-400 mb-3" />
@@ -237,7 +249,7 @@ const TelecomCalendar = () => {
               </div>
             )}
 
-            {/* Liste des formations */}
+            {/* List of formations */}
             {!loading && !error && formations?.length > 0 && (
               <div className="grid grid-cols-1 gap-8 mb-8">
                 {formations.map((course, index) => (
@@ -247,7 +259,8 @@ const TelecomCalendar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300 border-0 shadow-md">
+                    {/* Apply opacity and disable pointer events if enrolling in this specific course or if already enrolled */}
+                    <Card className={`overflow-hidden hover:shadow-lg transition-shadow duration-300 border-0 shadow-md ${enrollingId === course._id || course.isEnrolled ? 'opacity-50 pointer-events-none' : ''}`}>
                       <div className="grid md:grid-cols-3 gap-0">
                         {course.image && (
                           <div className="relative h-full min-h-[200px] md:min-h-0 bg-gray-100">
@@ -324,9 +337,17 @@ const TelecomCalendar = () => {
                                   size="lg"
                                   className="relative overflow-hidden group"
                                   onClick={() => handleEnrollment(course._id)}
-                                  disabled={enrollingId === course._id}
+                                  // Disable the button if this specific course is being enrolled or if already enrolled
+                                  disabled={enrollingId === course._id || course.isEnrolled}
                                 >
-                                  <span className="relative z-10">{enrollingId === course._id ? "Enrolling..." : "S'enroller"}</span>
+                                  <span className="relative z-10">
+                                    {/* Change button text based on enrollment status */}
+                                    {enrollingId === course._id
+                                      ? "Enrôlement..."
+                                      : course.isEnrolled
+                                        ? "Déjà enrôlé"
+                                        : "S'enroller"}
+                                  </span>
                                   <div className="absolute inset-0 bg-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                                 </Button>
                               </div>
