@@ -130,19 +130,6 @@ const Blog = () => {
               />
             </motion.div>
           ))}
-
-          {blogPosts.length < 4 && Array.from({ length: Math.max(0, 4 - blogPosts.length) }).map((_, index) => (
-            <motion.div key={`placeholder-${index}`} variants={cardVariants}>
-              <BlogPostCard
-                title="Upcoming article"
-                excerpt="Stay tuned for more exciting articles about smart textiles and sensor technology."
-                imageUrl={index % 2 === 0 ? "/lovable-uploads/6b0637e9-4a7b-40d0-b219-c8b7f879f93e.png" : "/lovable-uploads/700e27d7-0513-4bfa-8ac4-f7fd6087594c.png"}
-                date="Coming soon"
-                slug="#"
-                category="Upcoming"
-              />
-            </motion.div>
-          ))}
         </div>
       </motion.div>
     </PageLayout>
