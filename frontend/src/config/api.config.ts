@@ -1,5 +1,5 @@
 // api.config.ts
-export const API_URL = import.meta.env.VITE_API_URL || 'http://10.0.0.3:5010/api';
+export const API_URL = import.meta.env.VITE_API_URL || 'http://10.0.0.2:5010/api';
 
 export const ENDPOINTS = {
   // Authentication

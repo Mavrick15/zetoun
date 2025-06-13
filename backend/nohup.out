@@ -1,0 +1,25 @@
+undefined
+[2025-06-12T20:25:54.285Z] INFO: Server running on port 5010
+Server running on port 5010
+Error: connect EHOSTUNREACH 10.0.0.3:27017
+undefined
+[2025-06-12T20:42:11.130Z] INFO: Server running on port 5010
+Server running on port 5010
+MongoDB Connected: 10.0.0.2
+[2025-06-12T20:46:10.043Z] INFO: Utilisateur connecté: sfs@gmaa.com (ID: 6838adf195353900ee340fe4)
+undefined
+[2025-06-13T05:36:44.645Z] INFO: Server running on port 5010
+Server running on port 5010
+MongoDB Connected: 10.0.0.2
+[2025-06-13T05:41:57.831Z] INFO: Récupération de toutes les formations
+[2025-06-13T05:42:06.722Z] INFO: Récupération de toutes les formations
+[2025-06-13T05:42:25.255Z] INFO: Tentative d'enrôlement pour la formation ID: 683b38e5cd60a3a798c89fc3
+[2025-06-13T05:42:25.255Z] INFO: Token reçu: Présent
+[2025-06-13T05:42:25.261Z] INFO: Token décodé avec succès. ID utilisateur du token: 6838adf195353900ee340fe4
+[2025-06-13T05:42:25.261Z] INFO: Utilisateur authentifié (ID: 6838adf195353900ee340fe4) tente de s'enrôler.
+[2025-06-13T05:42:25.292Z] INFO: Utilisateur trouvé: sfs@gmaa.com, Formation trouvée: Audit de Sécurité des Systèmes d'Information
+[2025-06-13T05:42:25.301Z] INFO: Aucune inscription existante trouvée pour l'utilisateur 6838adf195353900ee340fe4 et la formation 683b38e5cd60a3a798c89fc3.
+[2025-06-13T05:42:25.331Z] INFO: Nouvel enrôlement créé: 684bba41ccc532712d2b9e3d
+[2025-06-13T05:42:25.341Z] INFO: Nombre de places mis à jour pour la formation 683b38e5cd60a3a798c89fc3. Nouvelles places: 7
+[2025-06-13T05:42:25.341Z] INFO: Utilisateur 6838adf195353900ee340fe4 enrôlé à la formation Audit de Sécurité des Systèmes d'Information (ID: 683b38e5cd60a3a798c89fc3), inscription ID: 684bba41ccc532712d2b9e3d
+[2025-06-13T05:47:03.784Z] INFO: Récupération de toutes les formations

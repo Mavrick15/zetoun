@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X, ChevronDown, Network, Shield, Globe, Server, HeadsetIcon } from "lucide-react";
+import { Menu, X, ChevronDown, Network, Shield, Globe, Server, HeadsetIcon, Sun } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import UserMenu from './UserMenu';
@@ -221,6 +221,22 @@ const Navbar = () => {
                           </Link>
                         </NavigationMenuLink>
                       </li>
+		      <li>
+			<NavigationMenuLink
+                          asChild // Use asChild to render Link component directly
+                          className="flex items-center p-3 space-x-3 rounded-md hover:bg-gray-100 transition-all"
+                        >
+                          <Link to="/services/solar-installation" className="flex items-center space-x-3">
+                            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-yellow-100 text-yellow-600">
+                              <Sun size={20} />
+                            </div>
+                            <div>
+                              <div className="font-medium">Installation solaire</div>
+                              <p className="text-sm text-gray-500">Conception et installation de systèmes solaires</p>
+                            </div>
+                          </Link>
+                        </NavigationMenuLink>
+		      </li>
                       <li>
                         <NavigationMenuLink
                           asChild // Use asChild to render Link component directly

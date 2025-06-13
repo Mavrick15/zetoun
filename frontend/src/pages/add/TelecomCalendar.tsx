@@ -93,7 +93,7 @@ const TelecomCalendar = () => {
       }
 
       // Make the actual API call for enrollment
-      const response = await fetch('http://10.0.0.3:5010/api/enrollments', {
+      const response = await fetch('http://10.0.0.2:5010/api/enrollments', {
         method: 'POST',
         headers: headers,
         body: JSON.stringify({ formationId }),

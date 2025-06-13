@@ -47,7 +47,7 @@ const Login = () => {
       await new Promise(resolve => setTimeout(resolve, 3000));
 
       // API endpoint for authentication, updated to use port 5010
-      const apiUrl = "http://10.0.0.3:5010/api/auth/login";
+      const apiUrl = "http://10.0.0.2:5010/api/auth/login";
 
       // Make the API call
       const response = await fetch(apiUrl, {

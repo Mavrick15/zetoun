@@ -57,7 +57,7 @@ const SignUp = () => {
       await new Promise(resolve => setTimeout(resolve, 3000));
 
       // Point de terminaison API pour l'enregistrement de l'utilisateur
-      const apiUrl = "http://10.0.0.3:5010/api/auth/signup";
+      const apiUrl = "http://10.0.0.2:5010/api/auth/signup";
 
       const response = await fetch(apiUrl, {
         method: 'POST',

@@ -25,7 +25,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Juin 3, 2    025',
     author: 'Zetoun Labs',
     category: 'Cybersécurité',
-    imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a padlock on a digital background]
+    imageUrl: 'lovable-uploads/blogs/cyberse.webp', // [Image of a padlock on a digital background]
     content: [
       {
         type: 'paragraph',
@@ -75,7 +75,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Mai 28, 2025',
     author: 'Zetoun Labs',
     category: 'Cloud Computing',
-    imageUrl: 'https://images.unsplash.com/photo-1593642532781-03e79ceac84a?auto=format&fit=crop&q=80&w=2069&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of clouds and connected devices]
+    imageUrl: 'lovable-uploads/blogs/edge-to-cloud-diagram.png', // [Image of clouds and connected devices]
     content: [
       {
         type: 'paragraph',
@@ -137,7 +137,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Mai 20, 2025',
     author: 'Zetoun Labs',
     category: 'Intelligence Artificielle',
-    imageUrl: 'https://images.unsplash.com/photo-1620712943567-cd6b3f6f8c7b?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a robot hand touching a human hand]
+    imageUrl: 'lovable-uploads/blogs/Intelligence.webp', // [Image of a robot hand touching a human hand]
     content: [
       {
         type: 'paragraph',
@@ -195,7 +195,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Juin 1, 2025',
     author: 'Zetoun Labs',
     category: 'Réseau',
-    imageUrl: 'https://images.unsplash.com/photo-1572049016259-29177112002f?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of network cables or a server rack]
+    imageUrl: 'lovable-uploads/blogs/network-discovery-meta.png', // [Image of network cables or a server rack]
     content: [
       {
         type: 'paragraph',
@@ -247,7 +247,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Juin 10, 2025',
     author: 'Zetoun Labs',
     category: 'Développement Web',
-    imageUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of code on a screen with web elements]
+    imageUrl: 'lovable-uploads/blogs/tendances-developpement.jpg', // [Image of code on a screen with web elements]
     content: [
       {
         type: 'paragraph',
@@ -295,7 +295,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Juin 15, 2025',
     author: 'Zetoun Labs',
     category: 'Informatique',
-    imageUrl: 'https://images.unsplash.com/photo-1587407627257-27b9c028a07c?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a technician working on a server]
+    imageUrl: 'lovable-uploads/blogs/maintenace.jpeg', // [Image of a technician working on a server]
     content: [
       {
         type: 'paragraph',
@@ -346,7 +346,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Juin 20, 2025',
     author: 'Zetoun Labs',
     category: 'Développement',
-    imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5a7c50a?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of gears turning or a continuous integration pipeline]
+    imageUrl: 'lovable-uploads/blogs/DevOps.webp', // [Image of gears turning or a continuous integration pipeline]
     content: [
       {
         type: 'paragraph',
@@ -394,7 +394,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Juin 25, 2025',
     author: 'Zetoun Labs',
     category: 'Cloud Computing',
-    imageUrl: 'https://images.unsplash.com/photo-1598986646512-ad942045d71c?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a secure cloud icon]
+    imageUrl: 'lovable-uploads/blogs/securite.webp', // [Image of a secure cloud icon]
     content: [
       {
         type: 'paragraph',
@@ -436,7 +436,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Juillet 1, 2025',
     author: 'Zetoun Labs',
     category: 'Vidéosurveillance',
-    imageUrl: 'https://images.unsplash.com/photo-1593642702821-c8fdc6a621d0?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a camera with AI elements]
+    imageUrl: 'lovable-uploads/blogs/camera-ia.jpg', // [Image of a camera with AI elements]
     content: [
       {
         type: 'paragraph',
@@ -483,7 +483,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Juillet 8, 2025',
     author: 'Zetoun Labs',
     category: 'Informatique',
-    imageUrl: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a business team with digital elements]
+    imageUrl: 'lovable-uploads/blogs/transformation-digital.jpg', // [Image of a business team with digital elements]
     content: [
       {
         type: 'paragraph',
@@ -531,7 +531,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Juillet 15, 2025',
     author: 'Zetoun Labs',
     category: 'Réseau',
-    imageUrl: 'https://images.unsplash.com/photo-1601762603335-539568915a7e?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a 5G tower or network visualization]
+    imageUrl: 'lovable-uploads/blogs/5g.jpg', // [Image of a 5G tower or network visualization]
     content: [
       {
         type: 'paragraph',
@@ -576,7 +576,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Juillet 22, 2025',
     author: 'Zetoun Labs',
     category: 'Développement App',
-    imageUrl: 'https://images.unsplash.com/photo-1610946123985-79a08e718b95?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a smartphone with app icons]
+    imageUrl: 'lovable-uploads/blogs/devapp.png', // [Image of a smartphone with app icons]
     content: [
       {
         type: 'paragraph',
@@ -624,7 +624,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Juillet 29, 2025',
     author: 'Zetoun Labs',
     category: 'Intelligence Artificielle',
-    imageUrl: 'https://images.unsplash.com/photo-1678601662580-0447385f95b6?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of AI creating art or text]
+    imageUrl: 'lovable-uploads/blogs/iagen.jpg', // [Image of AI creating art or text]
     content: [
       {
         type: 'paragraph',
@@ -666,7 +666,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Août 5, 2025',
     author: 'Zetoun Labs',
     category: 'Informatique',
-    imageUrl: 'https://images.unsplash.com/photo-1557804506-669a67965da9?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a Scrum board with sticky notes]
+    imageUrl: 'lovable-uploads/blogs/gestproj.png', // [Image of a Scrum board with sticky notes]
     content: [
       {
         type: 'paragraph',
@@ -715,7 +715,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Août 12, 2025',
     author: 'Zetoun Labs',
     category: 'Réseau',
-    imageUrl: 'https://images.unsplash.com/photo-1596558450268-963771501316?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a network diagram with SD-WAN elements]
+    imageUrl: 'lovable-uploads/blogs/sdwan.png', // [Image of a network diagram with SD-WAN elements]
     content: [
       {
         type: 'paragraph',
@@ -757,7 +757,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Août 19, 2025',
     author: 'Zetoun Labs',
     category: 'Cybersécurité',
-    imageUrl: 'https://images.unsplash.com/photo-1620712943567-cd6b3f6f8c7b?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of interconnected devices with a shield]
+    imageUrl: 'lovable-uploads/blogs/iotprot.webp', // [Image of interconnected devices with a shield]
     content: [
       {
         type: 'paragraph',
@@ -805,7 +805,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Août 26, 2025',
     author: 'Zetoun Labs',
     category: 'Informatique',
-    imageUrl: 'https://images.unsplash.com/photo-1551288259-f479d20d4349?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of data flowing into a brain or a dashboard]
+    imageUrl: 'lovable-uploads/blogs/bigdata.jpg', // [Image of data flowing into a brain or a dashboard]
     content: [
       {
         type: 'paragraph',
@@ -863,7 +863,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Septembre 2, 2025',
     author: 'Zetoun Labs',
     category: 'Cloud Computing',
-    imageUrl: 'https://images.unsplash.com/photo-1593642532781-03e79ceac84a?auto=format&fit=crop&q=80&w=2069&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of arrows pointing towards a cloud]
+    imageUrl: 'lovable-uploads/blogs/migcloud.jpg', // [Image of arrows pointing towards a cloud]
     content: [
       {
         type: 'paragraph',
@@ -911,7 +911,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Septembre 9, 2025',
     author: 'Zetoun Labs',
     category: 'Réseau',
-    imageUrl: 'https://images.unsplash.com/photo-1580894732444-8c871e765b2a?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of fiber optic cables]
+    imageUrl: 'lovable-uploads/blogs/fibreopt.png', // [Image of fiber optic cables]
     content: [
       {
         type: 'paragraph',
@@ -958,7 +958,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Septembre 16, 2025',
     author: 'Zetoun Labs',
     category: 'Informatique',
-    imageUrl: 'https://images.unsplash.com/photo-1639763784534-11802931671b?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of interconnected blocks or a ledger]
+    imageUrl: 'lovable-uploads/blogs/bloc.jpg', // [Image of interconnected blocks or a ledger]
     content: [
       {
         type: 'paragraph',
@@ -1005,7 +1005,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Septembre 23, 2025',
     author: 'Zetoun Labs',
     category: 'Développement',
-    imageUrl: 'https://images.unsplash.com/photo-1593642532781-03e79ceac84a?auto=format&fit=crop&q=80&w=2069&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of building blocks or a visual development interface]
+    imageUrl: 'lovable-uploads/blogs/nocode.jpg', // [Image of building blocks or a visual development interface]
     content: [
       {
         type: 'paragraph',
@@ -1050,7 +1050,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Septembre 30, 2025',
     author: 'Zetoun Labs',
     category: 'Réseau',
-    imageUrl: 'https://images.unsplash.com/photo-1620712943567-cd6b3f6f8c7b?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a "No Entry" sign on a network diagram]
+    imageUrl: 'lovable-uploads/blogs/zero_trust.jpg', // [Image of a "No Entry" sign on a network diagram]
     content: [
       {
         type: 'paragraph',
@@ -1097,7 +1097,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Octobre 7, 2025',
     author: 'Zetoun Labs',
     category: 'Intelligence Artificielle',
-    imageUrl: 'https://images.unsplash.com/photo-1620712943567-cd6b3f6f8c7b?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a balance scale with AI elements]
+    imageUrl: 'lovable-uploads/blogs/iaethique.webp', // [Image of a balance scale with AI elements]
     content: [
       {
         type: 'paragraph',
@@ -1139,7 +1139,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Octobre 14, 2025',
     author: 'Zetoun Labs',
     category: 'Vidéosurveillance',
-    imageUrl: 'https://images.unsplash.com/photo-1579547621113-e7a9c3d4f134?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of city cameras]
+    imageUrl: 'lovable-uploads/blogs/surveillancepublic.jpg', // [Image of city cameras]
     content: [
       {
         type: 'paragraph',
@@ -1181,7 +1181,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Octobre 21, 2025',
     author: 'Zetoun Labs',
     category: 'Informatique',
-    imageUrl: 'https://images.unsplash.com/photo-1579547621113-e7a9c3d4f134?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a GDPR logo or data privacy concept]
+    imageUrl: 'lovable-uploads/blogs/gdpr.webp', // [Image of a GDPR logo or data privacy concept]
     content: [
       {
         type: 'paragraph',
@@ -1231,7 +1231,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Octobre 28, 2025',
     author: 'Zetoun Labs',
     category: 'Cloud Computing',
-    imageUrl: 'https://images.unsplash.com/photo-1593642532781-03e79ceac84a?auto=format&fit=crop&q=80&w=2069&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a network edge device]
+    imageUrl: 'lovable-uploads/blogs/edge.png', // [Image of a network edge device]
     content: [
       {
         type: 'paragraph',
@@ -1279,7 +1279,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Novembre 4, 2025',
     author: 'Zetoun Labs',
     category: 'Intelligence Artificielle',
-    imageUrl: 'https://images.unsplash.com/photo-1593642702821-c8fdc6a621d0?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of an eye with digital elements]
+    imageUrl: 'lovable-uploads/blogs/vision.avif', // [Image of an eye with digital elements]
     content: [
       {
         type: 'paragraph',
@@ -1321,7 +1321,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Novembre 11, 2025',
     author: 'Zetoun Labs',
     category: 'Réseau',
-    imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5a7c50a?auto=format&fit=crop&q=80&w=2070&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of a secure tunnel or a VPN icon]
+    imageUrl: 'lovable-uploads/blogs/vpn.webp', // [Image of a secure tunnel or a VPN icon]
     content: [
       {
         type: 'paragraph',
@@ -1363,7 +1363,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Novembre 18, 2025',
     author: 'Zetoun Labs',
     category: 'Informatique',
-    imageUrl: 'https://images.unsplash.com/photo-1593642532781-03e79ceac84a?auto=format&fit=crop&q=80&w=2069&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of Linux and Windows logos]
+    imageUrl: 'lovable-uploads/blogs/Systemes_dexploitation.png', // [Image of Linux and Windows logos]
     content: [
       {
         type: 'paragraph',
@@ -1416,7 +1416,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Novembre 25, 2025',
     author: 'Zetoun Labs',
     category: 'Intelligence Artificielle',
-    imageUrl: 'https://images.unsplash.com/photo-1593642532781-03e79ceac84a?auto=format&fit=crop&q=80&w=2069&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3', // [Image of speech bubbles with AI elements]
+    imageUrl: 'lovable-uploads/blogs/naturel.jpg', // [Image of speech bubbles with AI elements]
     content: [
       {
         type: 'paragraph',

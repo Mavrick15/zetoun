@@ -36,7 +36,7 @@ const EyanoSecurityProject = () => {
         Le principal défi consistait à concevoir et déployer un système de vidéosurveillance capable de couvrir une vaste superficie de plus de 70 m², incluant diverses zones d'activité du centre. Il était crucial d'assurer une intégration fluide des nouvelles caméras avec le système existant, tout en améliorant la qualité de l'image, la capacité d'enregistrement et la réactivité globale du dispositif de sécurité.
       </p>
 
-      <h3 className="text-2xl font-semibold mb-4 mt-8">Solution Mise en Œuvre</h3>
+      <h3 className="text-2xl font-semibold mb-4 mt-8">Solution mise en oeuvre</h3>
       <p>
         Notre équipe a conçu et déployé une solution de vidéosurveillance avancée, intégrant des technologies de pointe pour répondre aux exigences spécifiques du Centre de Diagnostic EYANO :
       </p>
@@ -45,7 +45,7 @@ const EyanoSecurityProject = () => {
         <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
           <Camera className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
           <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-700">Déploiement de Caméras HIKVISION</h4>
+            <h4 className="text-lg font-semibold mb-2 text-gray-700">Déploiement de caméras HIKVISION</h4>
             <p>Installation stratégique de caméras de surveillance HIKVISION, reconnues pour leur robustesse, leur haute résolution et leurs fonctionnalités intelligentes (détection de mouvement, analyse comportementale).</p>
           </div>
         </div>
@@ -53,7 +53,7 @@ const EyanoSecurityProject = () => {
         <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
           <MapPin className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
           <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-700">Couverture Géographique Étendue</h4>
+            <h4 className="text-lg font-semibold mb-2 text-gray-700">Couverture géographique étendue</h4>
             <p>Mise en place d'un réseau de caméras couvrant l'intégralité des 70 m² du centre, y compris les zones sensibles, les accès et les périmètres extérieurs, pour une surveillance sans angle mort.</p>
           </div>
         </div>
@@ -61,7 +61,7 @@ const EyanoSecurityProject = () => {
         <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
           <ShieldCheck className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
           <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-700">Intégration et Centralisation</h4>
+            <h4 className="text-lg font-semibold mb-2 text-gray-700">Intégration et centralisation</h4>
             <p>Intégration des nouvelles caméras au système de gestion vidéo existant, permettant une surveillance centralisée et une gestion simplifiée de l'ensemble du dispositif.</p>
           </div>
         </div>
@@ -69,18 +69,18 @@ const EyanoSecurityProject = () => {
         <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
           <HardDrive className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
           <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-700">Capacité d'Enregistrement Améliorée</h4>
+            <h4 className="text-lg font-semibold mb-2 text-gray-700">Capacité d'enregistrement améliorée</h4>
             <p>Augmentation de la capacité de stockage et optimisation des systèmes d'enregistrement pour conserver les flux vidéo sur une période prolongée, conformément aux exigences de sécurité.</p>
           </div>
         </div>
       </div>
 
-      <h3 className="text-2xl font-semibold mb-4 mt-8">Avantages Clés</h3>
+      <h3 className="text-2xl font-semibold mb-4 mt-8">Avantages clés</h3>
       <div className="space-y-6 mb-8">
         <div className="flex items-start">
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
-            <h4 className="font-semibold">Sécurité Renforcée et Dissuasion</h4>
+            <h4 className="font-semibold">Sécurité renforcée et dissuasion</h4>
             <p>Une présence visible et efficace de caméras HIKVISION dissuade les intrusions et les actes malveillants, protégeant ainsi les actifs et les personnes.</p>
           </div>
         </div>
@@ -88,7 +88,7 @@ const EyanoSecurityProject = () => {
         <div className="flex items-start">
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
-            <h4 className="font-semibold">Surveillance Complète et Continue</h4>
+            <h4 className="font-semibold">Surveillance complète et continue</h4>
             <p>La couverture étendue sur 70 m² assure une surveillance ininterrompue de toutes les zones critiques, de jour comme de nuit.</p>
           </div>
         </div>
@@ -96,7 +96,7 @@ const EyanoSecurityProject = () => {
         <div className="flex items-start">
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
-            <h4 className="font-semibold">Réactivité Accrue en Cas d'Incident</h4>
+            <h4 className="font-semibold">Réactivité accrue en cas d'incident</h4>
             <p>La surveillance en temps réel et les enregistrements de haute qualité permettent une détection rapide des incidents et facilitent les enquêtes post-événement.</p>
           </div>
         </div>
@@ -104,13 +104,13 @@ const EyanoSecurityProject = () => {
         <div className="flex items-start">
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
-            <h4 className="font-semibold">Optimisation des Opérations de Sécurité</h4>
+            <h4 className="font-semibold">Optimisation des opérations de sécurité</h4>
             <p>La gestion centralisée du système simplifie la surveillance pour les équipes de sécurité, améliorant leur efficacité opérationnelle.</p>
           </div>
         </div>
       </div>
 
-      <h3 className="text-2xl font-semibold mb-4 mt-8">Résultats Obtenus</h3>
+      <h3 className="text-2xl font-semibold mb-4 mt-8">Résultats obtenus</h3>
       <p>
         Grâce au renforcement et à l'extension de son système de vidéosurveillance, le Centre de Diagnostic EYANO dispose désormais d'une infrastructure de sécurité à la pointe de la technologie. Cette modernisation a significativement amélioré la capacité du centre à surveiller ses installations, à prévenir les risques et à réagir efficacement en cas d'incident, offrant ainsi un environnement plus sûr pour tous.
       </p>

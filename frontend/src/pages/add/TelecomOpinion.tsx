@@ -27,7 +27,7 @@ const TelecomOpinion = () => {
       // Simuler un temps de chargement de 3 secondes
       await new Promise(resolve => setTimeout(resolve, 3000));
 
-      const response = await fetch('http://10.0.0.3:5010/api/telecom-opinions', {
+      const response = await fetch('http://10.0.0.2:5010/api/telecom-opinions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

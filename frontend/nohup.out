@@ -3,37 +3,63 @@
 > vite
 
 
-  VITE v5.4.10  ready in 504 ms
+  VITE v5.4.10  ready in 427 ms
 
   ➜  Local:   http://localhost:8080/
-  ➜  Network: http://10.0.0.3:8080/
+  ➜  Network: http://10.0.0.2:8080/
+21:45:36 [vite] hmr update /src/pages/Login.tsx, /src/index.css
+21:45:36 [vite] hmr update /src/pages/Login.tsx, /src/index.css
+21:46:01 [vite] hmr update /src/pages/SignUp.tsx, /src/index.css
+21:46:58 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+21:46:59 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+21:47:11 [vite] hmr update /src/pages/add/TelecomOpinion.tsx, /src/index.css
+21:48:05 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+21:48:08 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+21:48:20 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+21:48:30 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+21:48:41 [vite] hmr update /src/pages/add/TelecomOpinion.tsx, /src/index.css
 
 > vite_react_shadcn_ts@0.0.0 dev
 > vite
 
 
-  VITE v5.4.10  ready in 408 ms
+  VITE v5.4.10  ready in 795 ms
 
   ➜  Local:   http://localhost:8080/
-  ➜  Network: http://10.0.0.3:8080/
-18:47:54 [vite] hmr update /src/components/Hero.tsx, /src/index.css
-18:48:07 [vite] hmr update /src/components/Hero.tsx, /src/index.css
-18:48:17 [vite] hmr update /src/components/Hero.tsx, /src/index.css
-18:48:29 [vite] hmr update /src/components/Hero.tsx, /src/index.css
-18:48:40 [vite] hmr update /src/components/Hero.tsx, /src/index.css
-18:50:18 [vite] hmr update /src/components/Hero.tsx, /src/index.css
-18:50:22 [vite] hmr update /src/pages/Index.tsx, /src/index.css
-19:00:57 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
-19:01:00 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
-19:16:42 [vite] hmr update /src/pages/Blog.tsx, /src/index.css
-19:17:21 [vite] hmr update /src/pages/Blog.tsx, /src/index.css
-19:18:47 [vite] hmr update /src/pages/Blog.tsx, /src/index.css
-19:19:00 [vite] hmr update /src/pages/Blog.tsx, /src/index.css
-19:19:40 [vite] hmr update /src/components/BlogPostCard.tsx, /src/index.css
-19:30:33 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
-19:30:40 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
-19:33:40 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
-19:33:45 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
-19:42:12 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
-19:42:18 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
-19:48:55 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+  ➜  Network: http://10.0.0.2:8080/
+06:39:20 [vite] hmr update /src/pages/add/TelecomOpinion.tsx, /src/index.css
+06:40:16 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+06:40:36 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+06:40:38 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+06:41:56 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+06:57:23 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+07:49:10 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+07:52:05 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+07:54:13 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+07:57:05 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+07:58:23 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+07:59:56 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:00:37 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:03:49 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:04:03 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:07:29 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:08:19 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:09:09 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:09:51 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:10:43 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:11:20 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:12:08 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:13:01 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:14:25 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:15:16 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:17:21 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:18:00 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:18:39 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:19:23 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:19:59 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:20:42 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:22:14 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:23:05 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:24:28 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:24:39 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/pages/BlogPostDetail.tsx, /src/components/BlogPreview.tsx
+08:29:57 [vite] hmr update /src/pages/BlogPostDetail.tsx, /src/index.css
