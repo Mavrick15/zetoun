@@ -1,10 +1,9 @@
-
 import PageLayout from '@/components/PageLayout';
 import { ArrowLeft, HeadsetIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { useEffect } from 'react';
-import SEO from '@/components/SEO';
+import SEO from '@/components/SEO'; // Assurez-vous que le chemin est correct
 
 const TechnicalSupport = () => {
   useEffect(() => {
@@ -14,10 +13,25 @@ const TechnicalSupport = () => {
   return (
     <div className="min-h-screen bg-white">
       <PageLayout>
-        <SEO 
-          title="Support Technique | Assistance technique réactive" 
-          description="Service d'assistance technique multi-canal incluant support utilisateur, prise en main à distance, intervention sur site et hotline dédiée."
+        {/* Composant SEO avec les balises méta optimisées */}
+        <SEO
+          title="Support Technique Informatique | Assistance IT Réactive - Zetoun Labs"
+          description="Bénéficiez d'un support technique informatique rapide et fiable avec Zetoun Labs à Kinshasa : assistance multi-canal, dépannage à distance, interventions sur site et formation utilisateur."
+          keywords={[
+            'support technique',
+            'assistance informatique',
+            'dépannage informatique',
+            'helpdesk IT',
+            'support utilisateur',
+            'prise en main à distance',
+            'intervention sur site informatique',
+            'hotline entreprises',
+            'formation informatique',
+            'Zetoun Labs Kinshasa'
+          ]}
+          imageUrl="../lovable-uploads/services/3a.png"
         />
+
         <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto">
             <div className="max-w-6xl mx-auto">
@@ -35,7 +49,7 @@ const TechnicalSupport = () => {
                 <div className="bg-amber-100 p-4 rounded-full">
                   <HeadsetIcon className="h-8 w-8 text-amber-600" />
                 </div>
-                <h1 className="text-4xl font-bold">Support Technique</h1>
+                <h1 className="text-4xl font-bold">Support Technique Informatique</h1>
               </motion.div>
               
               <motion.p 
@@ -44,7 +58,7 @@ const TechnicalSupport = () => {
                 transition={{ duration: 0.5, delay: 0.2 }} 
                 className="text-xl text-gray-600 mb-8"
               >
-                Assistance technique réactive et efficace pour résoudre rapidement vos problèmes informatiques.
+                Zetoun Labs offre une assistance technique réactive et efficace à Kinshasa, garantissant la résolution rapide de tous vos problèmes informatiques pour maintenir la continuité de votre activité.
               </motion.p>
               
               <motion.div
@@ -54,8 +68,8 @@ const TechnicalSupport = () => {
                 className="w-full h-64 md:h-80 mb-12 overflow-hidden rounded-xl"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
-                  alt="Centre d'assistance technique" 
+                  src="../lovable-uploads/services/3a.png" 
+                  alt="Centre d'assistance technique avec opérateurs support informatique" // Description alt plus spécifique
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </motion.div>
@@ -67,48 +81,48 @@ const TechnicalSupport = () => {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-2xl font-semibold mb-4 text-amber-700">Nos services d'assistance</h2>
+                  <h2 className="text-2xl font-semibold mb-4 text-amber-700">Nos services d'assistance informatique</h2>
                   <ul className="space-y-4 text-lg">
                     <li className="flex items-start hover:-translate-y-1 transition-transform duration-300">
                       <span className="text-amber-500 font-bold mr-3 text-xl">•</span>
                       <div>
                         <span className="font-medium">Support utilisateur multi-canal</span>
-                        <p className="text-gray-600 text-base mt-1">Assistance par téléphone, email, chat ou visioconférence</p>
+                        <p className="text-gray-600 text-base mt-1">Assistance complète par téléphone, email, chat ou visioconférence pour toutes vos requêtes.</p>
                       </div>
                     </li>
                     <li className="flex items-start hover:-translate-y-1 transition-transform duration-300">
                       <span className="text-amber-500 font-bold mr-3 text-xl">•</span>
                       <div>
                         <span className="font-medium">Assistance téléphonique prioritaire</span>
-                        <p className="text-gray-600 text-base mt-1">Ligne directe avec temps d'attente minimal pour les urgences</p>
+                        <p className="text-gray-600 text-base mt-1">Ligne directe avec un temps d'attente minimal pour les urgences informatiques.</p>
                       </div>
                     </li>
                     <li className="flex items-start hover:-translate-y-1 transition-transform duration-300">
                       <span className="text-amber-500 font-bold mr-3 text-xl">•</span>
                       <div>
                         <span className="font-medium">Prise en main à distance sécurisée</span>
-                        <p className="text-gray-600 text-base mt-1">Intervention rapide sans déplacement via connexion sécurisée</p>
+                        <p className="text-gray-600 text-base mt-1">Intervention rapide et sécurisée sur vos systèmes sans nécessiter de déplacement.</p>
                       </div>
                     </li>
                     <li className="flex items-start hover:-translate-y-1 transition-transform duration-300">
                       <span className="text-amber-500 font-bold mr-3 text-xl">•</span>
                       <div>
                         <span className="font-medium">Intervention sur site si nécessaire</span>
-                        <p className="text-gray-600 text-base mt-1">Technicien qualifié disponible pour les problèmes complexes</p>
+                        <p className="text-gray-600 text-base mt-1">Techniciens qualifiés disponibles pour les problèmes matériels ou réseau complexes.</p>
                       </div>
                     </li>
                     <li className="flex items-start hover:-translate-y-1 transition-transform duration-300">
                       <span className="text-amber-500 font-bold mr-3 text-xl">•</span>
                       <div>
                         <span className="font-medium">Hotline dédiée pour entreprises</span>
-                        <p className="text-gray-600 text-base mt-1">Service personnalisé avec interlocuteur privilégié</p>
+                        <p className="text-gray-600 text-base mt-1">Service personnalisé avec un interlocuteur privilégié pour une gestion fluide de vos demandes.</p>
                       </div>
                     </li>
                     <li className="flex items-start hover:-translate-y-1 transition-transform duration-300">
                       <span className="text-amber-500 font-bold mr-3 text-xl">•</span>
                       <div>
-                        <span className="font-medium">Formation des utilisateurs</span>
-                        <p className="text-gray-600 text-base mt-1">Sessions de formation sur mesure pour votre équipe</p>
+                        <span className="font-medium">Formation et sensibilisation des utilisateurs</span>
+                        <p className="text-gray-600 text-base mt-1">Sessions de formation sur mesure pour votre équipe afin de renforcer l'autonomie et la sécurité informatique. Cela complète nos services d'<Link to="/services/it-management" className="text-amber-600 hover:underline font-semibold">infogérance IT</Link>.</p> {/* Lien interne ajouté */}
                       </div>
                     </li>
                   </ul>
@@ -121,12 +135,12 @@ const TechnicalSupport = () => {
                   className="flex flex-col space-y-8"
                 >
                   <div className="bg-amber-50 p-8 rounded-xl border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
-                    <h2 className="text-2xl font-semibold mb-4 text-amber-700">Notre philosophie</h2>
+                    <h2 className="text-2xl font-semibold mb-4 text-amber-700">Notre philosophie d'intervention</h2>
                     <p className="text-gray-700 mb-4">
-                      Un problème informatique peut rapidement paralyser votre activité. Notre équipe de techniciens qualifiés intervient dans les plus brefs délais pour diagnostiquer et résoudre vos incidents, qu'il s'agisse de problèmes matériels, logiciels ou réseau.
+                      Un problème informatique peut rapidement paralyser votre activité. Notre équipe de techniciens qualifiés à Kinshasa intervient dans les plus brefs délais pour diagnostiquer et résoudre vos incidents, qu'il s'agisse de problèmes matériels, logiciels ou réseau.
                     </p>
                     <p className="text-gray-700">
-                      Nous privilégions les solutions pérennes plutôt que les correctifs temporaires, et nous expliquons clairement les origines du problème pour éviter qu'il ne se reproduise.
+                      Nous privilégions les solutions pérennes plutôt que les correctifs temporaires, et nous expliquons clairement les origines du problème pour éviter qu'il ne se reproduise. Notre objectif est votre tranquillité d'esprit numérique.
                     </p>
                   </div>
                   
@@ -137,8 +151,8 @@ const TechnicalSupport = () => {
                     className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
                   >
                     <img 
-                      src="https://images.unsplash.com/photo-1581092921461-eab10380incrementedba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                      alt="Technicien support informatique" 
+                      src="../lovable-uploads/services/3b.png" 
+                      alt="Technicien de support informatique travaillant sur un ordinateur" // Description alt plus spécifique
                       className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </motion.div>
@@ -153,13 +167,13 @@ const TechnicalSupport = () => {
                   className="bg-amber-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1600267165855-32d0d07f7e54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                    alt="Support à distance" 
+                    src="../lovable-uploads/services/3c.png" 
+                    alt="Support informatique à distance pour résolution rapide" // Description alt plus spécifique
                     className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500" 
                   />
                   <div className="p-4">
                     <h3 className="text-lg font-medium text-amber-700">Support à distance</h3>
-                    <p className="text-gray-600 text-sm">Intervention rapide sans déplacement</p>
+                    <p className="text-gray-600 text-sm">Intervention rapide et efficace sans déplacement, où que vous soyez à Kinshasa.</p>
                   </div>
                 </motion.div>
                 
@@ -170,13 +184,13 @@ const TechnicalSupport = () => {
                   className="bg-amber-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1603731643507-150ef9bbcb4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80" 
-                    alt="Formation utilisateurs" 
+                    src="../lovable-uploads/services/3d.png" 
+                    alt="Formation des utilisateurs sur les outils informatiques" // Description alt plus spécifique
                     className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500" 
                   />
                   <div className="p-4">
-                    <h3 className="text-lg font-medium text-amber-700">Formation</h3>
-                    <p className="text-gray-600 text-sm">Accompagnement et montée en compétences</p>
+                    <h3 className="text-lg font-medium text-amber-700">Formation et sensibilisation</h3>
+                    <p className="text-gray-600 text-sm">Accompagnement de vos équipes pour une meilleure utilisation et sécurité de l'IT.</p>
                   </div>
                 </motion.div>
                 
@@ -187,13 +201,13 @@ const TechnicalSupport = () => {
                   className="bg-amber-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                    alt="Intervention sur site" 
+                    src="../lovable-uploads/services/3e.png" 
+                    alt="Intervention technique sur site pour dépannage complexe" // Description alt plus spécifique
                     className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500" 
                   />
                   <div className="p-4">
                     <h3 className="text-lg font-medium text-amber-700">Intervention sur site</h3>
-                    <p className="text-gray-600 text-sm">Techniciens qualifiés pour cas complexes</p>
+                    <p className="text-gray-600 text-sm">Nos techniciens qualifiés se déplacent pour les diagnostics et réparations complexes.</p>
                   </div>
                 </motion.div>
               </div>
@@ -204,14 +218,14 @@ const TechnicalSupport = () => {
                 transition={{ duration: 0.7, delay: 0.7 }}
                 className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow"
               >
-                <h3 className="text-xl font-semibold mb-4 text-amber-700">Un support adapté à vos besoins</h3>
+                <h3 className="text-xl font-semibold mb-4 text-amber-700">Un support informatique adapté à vos besoins à Kinshasa</h3>
                 <p className="text-gray-700 mb-6">
-                  Que vous soyez une petite entreprise avec quelques postes ou une structure plus importante avec des besoins spécifiques, nous proposons des formules de support technique adaptées à votre taille et à vos contraintes opérationnelles.
+                  Que vous soyez une petite entreprise avec quelques postes ou une structure plus importante avec des besoins spécifiques, Zetoun Labs propose des formules de support technique adaptées à votre taille et à vos contraintes opérationnelles à Kinshasa. Nous sommes votre partenaire de confiance pour une informatique sans souci.
                 </p>
                 
                 <div className="bg-amber-500 text-white p-6 rounded-lg hover:bg-amber-600 transition-colors">
                   <p className="font-medium">
-                    Contactez-nous pour découvrir nos formules de support et bénéficier d'une assistance rapide et efficace.
+                    Contactez-nous pour découvrir nos formules de support informatique et bénéficier d'une assistance rapide et efficace à Kinshasa.
                   </p>
                 </div>
               </motion.div>

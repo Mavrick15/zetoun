@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
@@ -13,47 +12,69 @@ interface SEOProps {
   modifiedDate?: string;
   author?: string;
   category?: string;
-  keywords?: string[];
+  keywords?: string[]; // La prop keywords recevra les mots-clés spécifiques de la page
   isBlogPost?: boolean;
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'ZL - IT Services & Training',
-  description = 'Zetoun Labs: Pioneering smart engineering solutions with textile sensors for sports, safety, and performance monitoring.',
+  title = 'Zetoun Labs - Services IT & Formations', // Titre par défaut mis à jour
+  description = 'Zetoun Labs : Votre partenaire expert en services IT (support, réseau, vidéosurveillance, web, infogérance, solaire) et formations professionnelles (Linux, Windows, Cisco, virtualisation, maintenance PC).', // Description par défaut mise à jour
   type = 'website',
-  name = 'Zetoun Labs',
-  imageUrl = '/lovable-uploads/icon.svg',
+  name = 'Zetoun Labs', // Nom de l'organisation mis à jour
+  imageUrl = '/lovable-uploads/icon.svg', // Assurez-vous que c'est bien l'icône de Zetoun Labs
   publishDate,
   modifiedDate,
   author,
   category,
-  keywords = ['smart textiles', 'wearable technology', 'textile sensors', 'sports tech', 'safety monitoring', 'performance analytics'],
+  // Mots-clés par défaut pour l'ensemble du site (à affiner par page)
+  keywords = [
+    'services IT',
+    'formation IT',
+    'support technique',
+    'ingénierie réseau',
+    'vidéosurveillance',
+    'conception web',
+    'infogérance',
+    'installation solaire',
+    'formation Linux',
+    'formation Windows',
+    'formation réseau Cisco',
+    'formation virtualisation',
+    'startup tech',
+    'Kinshasa', // Si votre cible est Kinshasa
+    'Zetoun Labs'
+  ],
   isBlogPost = false
 }) => {
   const location = useLocation();
-  const currentUrl = `https://wrlds.com${location.pathname}`;
-  const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://wrlds.com${imageUrl}`;
+  // Assurez-vous que l'URL de base est bien celle de votre site pour Zetoun Labs
+  // J'ai laissé "https://wrlds.com" car c'est dans votre code original,
+  // mais il faudrait le changer si "wrlds.com" n'est pas le domaine de Zetoun Labs
+  const baseUrl = 'https://wrlds.com';
+  const currentUrl = `${baseUrl}${location.pathname}`;
+  const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `${baseUrl}${imageUrl}`;
 
-  // Create base Organization JSON-LD structured data
+  // --- Mise à jour de l'Objet Organization JSON-LD ---
   const organizationStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'WRLDS Technologies',
-    url: 'https://wrlds.com',
-    logo: 'https://wrlds.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png',
-    description: 'Pioneering smart engineering solutions with textile sensors',
+    name: 'Zetoun Labs', // Nom de l'organisation mis à jour
+    url: 'https://zetounlabs.com', // URL de Zetoun Labs (à vérifier et modifier si différente)
+    logo: `${baseUrl}/lovable-uploads/logo-zetoun-labs.png`, // Chemin vers le logo de Zetoun Labs (à vérifier)
+    description: 'Zetoun Labs : Votre partenaire en services IT et formations professionnelles à Kinshasa.', // Description mise à jour
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'info@wrlds.com'
+      email: 'contact@zetounlabs.com' // Email de contact de Zetoun Labs (à vérifier)
     },
     sameAs: [
-      'https://www.linkedin.com/company/wrlds-technologies',
-      'https://twitter.com/wrldstechnologies'
+      // Liens vers les réseaux sociaux de Zetoun Labs
+      'https://www.linkedin.com/company/zetoun-labs', // Exemple
+      'https://twitter.com/zetounlabs' // Exemple
     ]
   };
 
-  // Create BlogPosting JSON-LD structured data if it's a blog post
+  // --- Mise à jour de l'Objet BlogPosting JSON-LD ---
   const blogPostStructuredData = isBlogPost && publishDate ? {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -67,23 +88,23 @@ const SEO: React.FC<SEOProps> = ({
     dateModified: modifiedDate || publishDate,
     author: {
       '@type': 'Organization',
-      name: author || 'WRLDS Technologies'
+      name: author || 'Zetoun Labs' // Nom de l'auteur par défaut ou de l'organisation
     },
     publisher: {
       '@type': 'Organization',
-      name: 'WRLDS Technologies',
+      name: 'Zetoun Labs', // Nom de l'éditeur mis à jour
       logo: {
         '@type': 'ImageObject',
-        url: 'https://wrlds.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png'
+        url: `${baseUrl}/lovable-uploads/logo-zetoun-labs.png` // Chemin du logo de l'éditeur (Zetoun Labs)
       }
     },
     description: description,
-    keywords: keywords.join(', ')
+    keywords: keywords.join(', ') // Les mots-clés spécifiques de la page sont déjà passés
   } : null;
 
-  // Combine keywords with any additional category terms
-  const keywordString = category 
-    ? [...keywords, category.toLowerCase()].join(', ') 
+  // Combine keywords avec tout terme de catégorie additionnel
+  const keywordString = category
+    ? [...keywords, category.toLowerCase()].join(', ')
     : keywords.join(', ');
 
   return (
@@ -92,7 +113,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="description" content={description} />
       <link rel="canonical" href={currentUrl} />
       <meta name="keywords" content={keywordString} />
-      
+
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={isBlogPost ? 'article' : type} />
       <meta property="og:url" content={currentUrl} />
@@ -104,27 +125,27 @@ const SEO: React.FC<SEOProps> = ({
       {isBlogPost && category && <meta property="article:section" content={category} />}
       {isBlogPost && publishDate && <meta property="article:published_time" content={publishDate} />}
       {isBlogPost && modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
-      
+
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={currentUrl} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={absoluteImageUrl} />
-      
+
       {/* LinkedIn specific */}
       <meta property="og:image:secure_url" content={absoluteImageUrl} />
       <meta name="author" content={author || name} />
-      
+
       {/* Pinterest specific */}
       <meta name="pinterest:description" content={description} />
       <meta name="pinterest:image" content={absoluteImageUrl} />
-      
+
       {/* JSON-LD structured data */}
       <script type="application/ld+json">
         {JSON.stringify(organizationStructuredData)}
       </script>
-      
+
       {blogPostStructuredData && (
         <script type="application/ld+json">
           {JSON.stringify(blogPostStructuredData)}

@@ -1,27 +1,46 @@
-import { ArrowLeft, ArrowRight, HardDrive, Wrench, Settings, Cpu, Monitor, Shield } from 'lucide-react';
+import { ArrowLeft, HardDrive, Wrench, Settings, Cpu, Monitor, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Card, CardContent } from "@/components/ui/card";
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from '@/components/ui/button';
-import SEO from '@/components/SEO'; // Importez le composant SEO
+import SEO from '@/components/SEO';
 
 const ComputerMaintenance = () => {
-  const isMobile = useIsMobile();
+  const isMobile = useIsMobile(); // Conservé si utilisé ailleurs, même s'il n'est pas directement dans le JSX renvoyé
 
-  // Scroll to top on mount
+  // Fait défiler la page vers le haut au montage du composant
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Définit les propriétés d'animation communes pour les éléments de liste
+  const listItemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0 }
+  };
+
   return (
     <PageLayout>
+      {/* Composant SEO avec les balises méta optimisées */}
       <SEO
-        title="Formation Maintenance Informatique | Dépannage PC"
-        description="Devenez expert en maintenance informatique : apprenez à diagnostiquer, réparer et optimiser les ordinateurs (matériel et logiciel)."
+        title="Formation Maintenance Informatique | Dépannage PC & Réparation - Zetoun Labs Kinshasa"
+        description="Devenez expert en maintenance informatique avec Zetoun Labs à Kinshasa : apprenez à diagnostiquer, réparer et optimiser les ordinateurs (matériel et logiciel), avec une formation pratique et certifiante."
+        keywords={[
+          'formation maintenance informatique',
+          'dépannage PC',
+          'réparation ordinateur',
+          'matériel informatique',
+          'logiciel informatique',
+          'certification informatique Kinshasa',
+          'cours maintenance PC',
+          'Zetoun Labs Kinshasa',
+          'formation technique informatique'
+        ]}
+        imageUrl="../lovable-uploads/training/1a.png"
       />
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
@@ -38,9 +57,9 @@ const ComputerMaintenance = () => {
               transition={{ duration: 0.6 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80"
-                alt="Maintenance des Ordinateurs"
-                className="w-full h-full object-cover"
+                src="../lovable-uploads/training/1a.png"
+                alt="Formation en maintenance et réparation d'ordinateurs"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" /* Effet de zoom ajouté ici */
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                 <div className="p-6 md:p-8">
@@ -50,7 +69,7 @@ const ComputerMaintenance = () => {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="text-3xl sm:text-4xl font-bold mb-2 text-white"
                   >
-                    Maintenance des Ordinateurs
+                    Formation en Maintenance des Ordinateurs
                   </motion.h1>
                   <motion.p
                     initial={{ opacity: 0 }}
@@ -58,14 +77,14 @@ const ComputerMaintenance = () => {
                     transition={{ duration: 0.5, delay: 0.4 }}
                     className="text-base sm:text-lg text-white/90"
                   >
-                    Formation pratique pour diagnostiquer et réparer les pannes matérielles/logiciels.
+                    Acquérez les compétences essentielles pour diagnostiquer, réparer et optimiser les systèmes informatiques.
                   </motion.p>
                 </div>
               </div>
             </motion.div>
 
             <div className="prose prose-lg max-w-none">
-              {/* Introduction Section */}
+              {/* Section d'introduction */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -74,15 +93,15 @@ const ComputerMaintenance = () => {
               >
                 <div className="flex items-center gap-2 mb-4">
                   <Wrench className="w-5 h-5 text-gray-700" />
-                  <h2 className="text-2xl font-bold">Objectifs pédagogiques</h2>
+                  <h2 className="text-2xl font-bold">Objectifs pédagogiques de notre formation</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                   {[
-                    { text: "Identifier composants PC", icon: <Cpu className="w-6 h-6 text-gray-600" /> },
-                    { text: "Dépanner matériel et OS", icon: <Wrench className="w-6 h-6 text-gray-600" /> },
-                    { text: "Installer Windows/Linux", icon: <Monitor className="w-6 h-6 text-gray-600" /> },
-                    { text: "Optimiser et sécuriser le système", icon: <Shield className="w-6 h-6 text-gray-600" /> }
+                    { text: "Identifier et comprendre l'architecture des composants d'un PC", icon: <Cpu className="w-6 h-6 text-gray-600" /> },
+                    { text: "Diagnostiquer et dépanner les problèmes matériels et logiciels courants", icon: <Wrench className="w-6 h-6 text-gray-600" /> },
+                    { text: "Maîtriser l'installation et la configuration des systèmes d'exploitation (Windows, Linux)", icon: <Monitor className="w-6 h-6 text-gray-600" /> },
+                    { text: "Optimiser les performances et sécuriser un système informatique", icon: <Shield className="w-6 h-6 text-gray-600" /> }
                   ].map((objective, i) => (
                     <motion.div
                       key={i}
@@ -106,14 +125,14 @@ const ComputerMaintenance = () => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80"
-                    alt="Computer Hardware"
-                    className="w-full h-64 md:h-80 object-cover rounded-lg"
+                    src="../lovable-uploads/training/1b.png"
+                    alt="Composants et matériel informatique pour l'apprentissage de la maintenance"
+                    className="w-full h-64 md:h-80 object-cover rounded-lg transition-transform duration-500 hover:scale-105" /* Effet de zoom ajouté ici */
                   />
                 </motion.div>
               </motion.div>
 
-              {/* Content Section */}
+              {/* Section du contenu */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -121,12 +140,12 @@ const ComputerMaintenance = () => {
               >
                 <div className="flex items-center gap-2 mb-4">
                   <HardDrive className="w-5 h-5 text-gray-700" />
-                  <h2 className="text-2xl font-bold">Contenu de la formation</h2>
+                  <h2 className="text-2xl font-bold">Contenu détaillé de la formation</h2>
                 </div>
 
                 <p className="text-gray-600 mb-8 text-base max-w-3xl">
-                  Notre formation de maintenance informatique vous apprendra à diagnostiquer et réparer efficacement
-                  les problèmes courants sur les ordinateurs, tant au niveau matériel que logiciel.
+                  Notre formation en maintenance informatique vous permettra d'acquérir les compétences pratiques pour diagnostiquer et réparer efficacement
+                  les problèmes courants sur les ordinateurs, qu'ils soient d'ordre matériel ou logiciel.
                 </p>
 
                 <Tabs defaultValue="content" className="w-full mb-12">
@@ -140,26 +159,32 @@ const ComputerMaintenance = () => {
                   <TabsContent value="content" className="space-y-4">
                     <Card>
                       <CardContent className="pt-6">
-                        <ul className="space-y-4">
+                        <motion.ul
+                          className="space-y-4"
+                          initial="hidden"
+                          animate="visible"
+                          variants={{
+                            visible: { transition: { staggerChildren: 0.1 } }
+                          }}
+                        >
                           {[
-                            { text: "Architecture PC", icon: <Cpu className="w-5 h-5 mr-2" /> },
-                            { text: "Remplacement matériel", icon: <HardDrive className="w-5 h-5 mr-2" /> },
-                            { text: "Résolution logicielle", icon: <Monitor className="w-5 h-5 mr-2" /> },
-                            { text: "Sécurité de base", icon: <Shield className="w-5 h-5 mr-2" /> },
-                            { text: "Notions réseau local", icon: <Settings className="w-5 h-5 mr-2" /> }
+                            { text: "Architecture et fonctionnement des ordinateurs (PC)", icon: <Cpu className="w-5 h-5 mr-2" /> },
+                            { text: "Assemblage et remplacement des composants matériels", icon: <HardDrive className="w-5 h-5 mr-2" /> },
+                            { text: "Diagnostic et résolution des problèmes logiciels et systèmes d'exploitation", icon: <Monitor className="w-5 h-5 mr-2" /> },
+                            { text: "Principes de sécurité informatique de base et bonnes pratiques", icon: <Shield className="w-5 h-5 mr-2" /> },
+                            { text: "Notions fondamentales sur les réseaux locaux et la connectivité", icon: <Settings className="w-5 h-5 mr-2" /> }
                           ].map((item, i) => (
                             <motion.li
                               key={i}
                               className="flex items-center"
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.3, delay: i * 0.1 }}
+                              variants={listItemVariants} // Applique les variantes communes
+                              transition={{ duration: 0.3 }} // Transition individuelle de l'élément
                             >
                               {item.icon}
                               <span>{item.text}</span>
                             </motion.li>
                           ))}
-                        </ul>
+                        </motion.ul>
                       </CardContent>
                     </Card>
                   </TabsContent>
@@ -167,13 +192,20 @@ const ComputerMaintenance = () => {
                   <TabsContent value="methodology">
                     <Card>
                       <CardContent className="pt-6">
-                        <p className="mb-4">Notre approche pédagogique combine :</p>
-                        <ul className="space-y-2">
-                          <li className="flex items-center"><HardDrive className="w-5 h-5 mr-2" /> Ateliers pratiques sur machines réelles</li>
-                          <li className="flex items-center"><Monitor className="w-5 h-5 mr-2" /> Démonstrations en direct</li>
-                          <li className="flex items-center"><Cpu className="w-5 h-5 mr-2" /> Fiches de dépannage et procédures</li>
-                          <li className="flex items-center"><Wrench className="w-5 h-5 mr-2" /> Exercices de diagnostic et résolution de problèmes</li>
-                        </ul>
+                        <p className="mb-4">Notre approche pédagogique est résolument pratique et interactive, combinant :</p>
+                        <motion.ul
+                          className="space-y-2"
+                          initial="hidden"
+                          animate="visible"
+                          variants={{
+                            visible: { transition: { staggerChildren: 0.1 } }
+                          }}
+                        >
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><HardDrive className="w-5 h-5 mr-2" /> Ateliers pratiques intensifs sur machines réelles</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Monitor className="w-5 h-5 mr-2" /> Démonstrations en direct des techniques de dépannage</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Cpu className="w-5 h-5 mr-2" /> Mise à disposition de fiches de dépannage et de procédures claires</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Wrench className="w-5 h-5 mr-2" /> Exercices de diagnostic et de résolution de problèmes concrets</motion.li>
+                        </motion.ul>
                       </CardContent>
                     </Card>
                   </TabsContent>
@@ -181,13 +213,20 @@ const ComputerMaintenance = () => {
                   <TabsContent value="audience">
                     <Card>
                       <CardContent className="pt-6">
-                        <p>Cette formation s'adresse principalement aux :</p>
-                        <ul className="space-y-2 mt-4">
-                          <li className="flex items-center"><Monitor className="w-5 h-5 mr-2" /> Débutants en informatique</li>
-                          <li className="flex items-center"><Wrench className="w-5 h-5 mr-2" /> Techniciens de maintenance junior</li>
-                          <li className="flex items-center"><HardDrive className="w-5 h-5 mr-2" /> Particuliers souhaitant savoir réparer leur matériel</li>
-                          <li className="flex items-center"><Cpu className="w-5 h-5 mr-2" /> Personnes en reconversion vers les métiers techniques</li>
-                        </ul>
+                        <p>Cette formation s'adresse à un large public souhaitant maîtriser la maintenance informatique :</p>
+                        <motion.ul
+                          className="space-y-2 mt-4"
+                          initial="hidden"
+                          animate="visible"
+                          variants={{
+                            visible: { transition: { staggerChildren: 0.1 } }
+                          }}
+                        >
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Monitor className="w-5 h-5 mr-2" /> Débutants en informatique avec un intérêt pour le matériel</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Wrench className="w-5 h-5 mr-2" /> Techniciens de maintenance junior ou en début de carrière</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><HardDrive className="w-5 h-5 mr-2" /> Particuliers souhaitant acquérir l'autonomie pour réparer leur propre matériel</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Cpu className="w-5 h-5 mr-2" /> Personnes en reconversion professionnelle vers les métiers techniques de l'informatique</motion.li>
+                        </motion.ul>
                       </CardContent>
                     </Card>
                   </TabsContent>
@@ -195,13 +234,20 @@ const ComputerMaintenance = () => {
                   <TabsContent value="duration">
                     <Card>
                       <CardContent className="pt-6">
-                        <p>La formation se déroule sur :</p>
-                        <ul className="space-y-2 mt-4">
-                          <li className="flex items-center"><HardDrive className="w-5 h-5 mr-2" /> 4 semaines au total</li>
-                          <li className="flex items-center"><Wrench className="w-5 h-5 mr-2" /> 3 sessions de 3 heures par semaine</li>
-                          <li className="flex items-center"><Monitor className="w-5 h-5 mr-2" /> Total : 36 heures de formation</li>
-                          <li className="flex items-center"><Cpu className="w-5 h-5 mr-2" /> Exercices pratiques supplémentaires recommandés</li>
-                        </ul>
+                        <p>La formation est structurée comme suit :</p>
+                        <motion.ul
+                          className="space-y-2 mt-4"
+                          initial="hidden"
+                          animate="visible"
+                          variants={{
+                            visible: { transition: { staggerChildren: 0.1 } }
+                          }}
+                        >
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><HardDrive className="w-5 h-5 mr-2" /> Durée totale : 4 semaines</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Wrench className="w-5 h-5 mr-2" /> Fréquence : 3 sessions de 3 heures par semaine</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Monitor className="w-5 h-5 mr-2" /> Volume horaire : 36 heures de formation encadrée</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Cpu className="w-5 h-5 mr-2" /> Recommandation : Exercices pratiques supplémentaires pour consolider les acquis</motion.li>
+                        </motion.ul>
                       </CardContent>
                     </Card>
                   </TabsContent>
@@ -210,39 +256,38 @@ const ComputerMaintenance = () => {
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-10">
                   <div className="flex items-center gap-2 mb-3">
                     <Settings className="w-5 h-5 text-gray-700" />
-                    <h3 className="text-xl font-bold">Matériel fourni</h3>
+                    <h3 className="text-xl font-bold">Matériel et ressources fournis</h3>
                   </div>
                   <p className="text-gray-600">
-                    Pendant la formation, vous aurez accès à des ordinateurs de différentes générations,
-                    des composants de rechange, et tous les outils nécessaires pour les travaux pratiques.
-                    Des systèmes d'exploitation et logiciels de diagnostic seront également mis à votre disposition.
+                    Pendant la formation, vous aurez accès à un environnement d'apprentissage complet comprenant des ordinateurs de différentes générations,
+                    des composants de rechange variés, et tous les outils nécessaires pour les travaux pratiques.
+                    Des systèmes d'exploitation et des logiciels de diagnostic performants seront également mis à votre disposition pour une immersion totale.
                   </p>
                 </div>
               </motion.div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              <div className="p-6 bg-gray-50 rounded-lg">
+            {/* Cartes d'informations supplémentaires */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-12">
+              <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Formateurs experts</h3>
-                <p className="text-gray-600">Des professionnels certifiés avec une expertise pratique dans la maintenance préventive et corrective des infrastructures i
-nformatiques et réseau.</p>
+                <p className="text-gray-600">Des professionnels certifiés avec une vaste expertise pratique dans la maintenance préventive et corrective des infrastructures informatiques et réseau.</p>
               </div>
-              <div className="p-6 bg-gray-50 rounded-lg">
+              <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Approche pratique</h3>
-                <p className="text-gray-600">Nos formations en maintenance allient théorie et pratique pour assurer le diagnostic, la réparation et la prévention des pa
-nnes informatiques.</p>
+                <p className="text-gray-600">Nos formations en maintenance allient théorie et pratique intensive pour assurer l'acquisition des compétences de diagnostic, de réparation et de prévention des pannes informatiques.</p>
               </div>
-              <div className="p-6 bg-gray-50 rounded-lg">
+              <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Certifications reconnues</h3>
-                <p className="text-gray-600">Préparation aux certifications de l'industrie les plus demandées sur le marché.</p>
+                <p className="text-gray-600">Préparez-vous aux certifications de l'industrie les plus demandées sur le marché de l'emploi en maintenance informatique.</p>
               </div>
             </div>
           </div>
 
-          <div className="mt-16 bg-blue-50 p-8 rounded-xl">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Vous souhaitez vous inscrire à l'une de nos formations ?</h2>
+          <div className="mt-16 bg-blue-50 p-8 rounded-xl text-center">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Prêt à devenir un expert en maintenance informatique ?</h2>
               <p className="text-gray-600 mb-6">
-                Contactez notre équipe pour obtenir plus d'informations sur les dates, les tarifs et les modalités d'inscription.
+                Contactez notre équipe de Zetoun Labs à Kinshasa dès aujourd'hui pour obtenir plus d'informations sur les dates de formation, les tarifs et les modalités d'inscription. Nous sommes là pour vous accompagner.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/add/telecom-opinion">

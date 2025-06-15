@@ -1,27 +1,45 @@
-import { ArrowLeft, ArrowRight, Network, Router, Computer, Wifi, Globe, Lock, Server } from 'lucide-react';
+import { ArrowLeft, Network, Router, Computer, Wifi, Globe, Lock, Server } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
-import { useIsMobile } from '@/hooks/use-mobile';
 import { Card, CardContent } from "@/components/ui/card";
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from '@/components/ui/button';
-import SEO from '@/components/SEO'; // Importez le composant SEO
+import SEO from '@/components/SEO';
 
 const NetworkAdministration = () => {
-  const isMobile = useIsMobile();
-
-  // Scroll to top on mount
+  // Fait défiler la page vers le haut au montage du composant
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Définit les propriétés d'animation communes pour les éléments de liste
+  const listItemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0 }
+  };
+
   return (
     <PageLayout>
+      {/* Composant SEO avec les balises méta optimisées */}
       <SEO
-        title="Formation Administration Réseau CISCO | CCNA"
-        description="Devenez administrateur réseau CISCO : configuration de routeurs, switches, sécurité et préparation à la certification CCNA."
+        title="Formation Administration Réseau CISCO | CCNA, Routage & Switching - Zetoun Labs Kinshasa"
+        description="Devenez un administrateur réseau CISCO certifié avec Zetoun Labs à Kinshasa : maîtrisez la configuration de routeurs, switches, la sécurité réseau et préparez la certification CCNA avec des TP intensifs."
+        keywords={[
+          'formation administration réseau',
+          'CISCO',
+          'CCNA',
+          'routage',
+          'switching',
+          'configuration réseau',
+          'sécurité réseau',
+          'GNS3',
+          'Packet Tracer',
+          'certifications réseau Kinshasa',
+          'Zetoun Labs Kinshasa'
+        ]}
+        imageUrl="../lovable-uploads/training/4a.png" // Chemin d'image mis à jour
       />
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
@@ -38,9 +56,9 @@ const NetworkAdministration = () => {
               transition={{ duration: 0.6 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80"
-                alt="Administration Réseau CISCO"
-                className="w-full h-full object-cover"
+                src="../lovable-uploads/training/4a.png"
+                alt="Équipement réseau CISCO pour formation en administration" // Alt text optimisé
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" /* Effet de zoom ajouté */
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                 <div className="p-6 md:p-8">
@@ -50,7 +68,7 @@ const NetworkAdministration = () => {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="text-3xl sm:text-4xl font-bold mb-2 text-white"
                   >
-                    Administration Réseau CISCO
+                    Formation Administration Réseau CISCO
                   </motion.h1>
                   <motion.p
                     initial={{ opacity: 0 }}
@@ -58,14 +76,14 @@ const NetworkAdministration = () => {
                     transition={{ duration: 0.5, delay: 0.4 }}
                     className="text-base sm:text-lg text-white/90"
                   >
-                    Formation orientée routage, switching et configuration CISCO pour débutants et préparations CCNA.
+                    Formation complète orientée routage, switching et configuration CISCO, idéale pour les débutants et la préparation à la certification CCNA.
                   </motion.p>
                 </div>
               </div>
             </motion.div>
 
             <div className="prose prose-lg max-w-none">
-              {/* Introduction Section */}
+              {/* Section d'introduction */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -74,15 +92,15 @@ const NetworkAdministration = () => {
               >
                 <div className="flex items-center gap-2 mb-4">
                   <Network className="w-5 h-5 text-gray-700" />
-                  <h2 className="text-2xl font-bold">Objectifs pédagogiques</h2>
+                  <h2 className="text-2xl font-bold">Objectifs pédagogiques de notre formation CISCO</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                   {[
-                    { text: "Comprendre les réseaux et OSI", icon: <Globe className="w-6 h-6 text-gray-600" /> },
-                    { text: "Configurer routeurs/switches CISCO", icon: <Router className="w-6 h-6 text-gray-600" /> },
-                    { text: "Maîtriser VLAN, OSPF, EIGRP", icon: <Network className="w-6 h-6 text-gray-600" /> },
-                    { text: "Sécurité de base et dépannage", icon: <Lock className="w-6 h-6 text-gray-600" /> }
+                    { text: "Comprendre les fondamentaux des réseaux informatiques et le modèle OSI", icon: <Globe className="w-6 h-6 text-gray-600" /> },
+                    { text: "Configurer les routeurs et switches CISCO pour des environnements complexes", icon: <Router className="w-6 h-6 text-gray-600" /> },
+                    { text: "Maîtriser les protocoles de routage (OSPF, EIGRP) et les VLAN", icon: <Network className="w-6 h-6 text-gray-600" /> },
+                    { text: "Implémenter la sécurité de base et dépanner les problèmes réseau courants", icon: <Lock className="w-6 h-6 text-gray-600" /> }
                   ].map((objective, i) => (
                     <motion.div
                       key={i}
@@ -106,14 +124,14 @@ const NetworkAdministration = () => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80"
-                    alt="Network Equipment"
-                    className="w-full h-64 md:h-80 object-cover rounded-lg"
+                    src="../lovable-uploads/training/4b.png"
+                    alt="Salle serveur avec équipement réseau CISCO" // Alt text optimisé
+                    className="w-full h-64 md:h-80 object-cover rounded-lg transition-transform duration-500 hover:scale-105" /* Effet de zoom ajouté */
                   />
                 </motion.div>
               </motion.div>
 
-              {/* Content Section */}
+              {/* Section du contenu */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -121,12 +139,12 @@ const NetworkAdministration = () => {
               >
                 <div className="flex items-center gap-2 mb-4">
                   <Router className="w-5 h-5 text-gray-700" />
-                  <h2 className="text-2xl font-bold">Contenu de la formation</h2>
+                  <h2 className="text-2xl font-bold">Contenu détaillé de la formation en administration réseau CISCO</h2>
                 </div>
 
                 <p className="text-gray-600 mb-8 text-base max-w-3xl">
                   Notre programme d'administration réseau CISCO vous donne toutes les compétences nécessaires
-                  pour configurer, gérer et dépanner des réseaux d'entreprise, et vous prépare aux certifications CCNA.
+                  pour configurer, gérer et dépanner des réseaux d'entreprise complexes, et vous prépare efficacement aux certifications CCNA.
                 </p>
 
                 <Tabs defaultValue="content" className="w-full mb-12">
@@ -140,26 +158,32 @@ const NetworkAdministration = () => {
                   <TabsContent value="content" className="space-y-4">
                     <Card>
                       <CardContent className="pt-6">
-                        <ul className="space-y-4">
+                        <motion.ul
+                          className="space-y-4"
+                          initial="hidden"
+                          animate="visible"
+                          variants={{
+                            visible: { transition: { staggerChildren: 0.1 } }
+                          }}
+                        >
                           {[
-                            { text: "Réseaux & OSI", icon: <Globe className="w-5 h-5 mr-2" /> },
-                            { text: "Routage dynamique", icon: <Router className="w-5 h-5 mr-2" /> },
-                            { text: "VLAN, ACL, NAT", icon: <Network className="w-5 h-5 mr-2" /> },
-                            { text: "DHCP, WAN", icon: <Wifi className="w-5 h-5 mr-2" /> },
-                            { text: "Simulations sur GNS3", icon: <Computer className="w-5 h-5 mr-2" /> }
+                            { text: "Fondamentaux des réseaux et du modèle OSI/TCP-IP", icon: <Globe className="w-5 h-5 mr-2" /> },
+                            { text: "Configuration et dépannage du routage dynamique (OSPF, EIGRP)", icon: <Router className="w-5 h-5 mr-2" /> },
+                            { text: "Mise en œuvre des VLAN, ACL et NAT", icon: <Network className="w-5 h-5 mr-2" /> },
+                            { text: "Protocoles DHCP, WAN et VPN", icon: <Wifi className="w-5 h-5 mr-2" /> },
+                            { text: "Travaux pratiques et simulations sur GNS3 et Packet Tracer", icon: <Computer className="w-5 h-5 mr-2" /> }
                           ].map((item, i) => (
                             <motion.li
                               key={i}
                               className="flex items-center"
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.3, delay: i * 0.1 }}
+                              variants={listItemVariants} // Applique les variantes communes
+                              transition={{ duration: 0.3 }} // Transition individuelle de l'élément
                             >
                               {item.icon}
                               <span>{item.text}</span>
                             </motion.li>
                           ))}
-                        </ul>
+                        </motion.ul>
                       </CardContent>
                     </Card>
                   </TabsContent>
@@ -167,13 +191,20 @@ const NetworkAdministration = () => {
                   <TabsContent value="methodology">
                     <Card>
                       <CardContent className="pt-6">
-                        <p className="mb-4">Notre approche pédagogique combine :</p>
-                        <ul className="space-y-2">
-                          <li className="flex items-center"><Computer className="w-5 h-5 mr-2" /> TP pratiques sur simulateurs réseau (GNS3, Packet Tracer)</li>
-                          <li className="flex items-center"><Network className="w-5 h-5 mr-2" /> Schémas et diagrammes détaillés</li>
-                          <li className="flex items-center"><Router className="w-5 h-5 mr-2" /> Exercices de configuration</li>
-                          <li className="flex items-center"><Globe className="w-5 h-5 mr-2" /> Mises en situation et dépannage</li>
-                        </ul>
+                        <p className="mb-4">Notre approche pédagogique est axée sur la pratique, combinant :</p>
+                        <motion.ul
+                          className="space-y-2"
+                          initial="hidden"
+                          animate="visible"
+                          variants={{
+                            visible: { transition: { staggerChildren: 0.1 } }
+                          }}
+                        >
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Computer className="w-5 h-5 mr-2" /> Travaux pratiques intensifs sur simulateurs réseau (GNS3, Packet Tracer)</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Network className="w-5 h-5 mr-2" /> Étude de cas concrets et schémas/diagrammes détaillés</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Router className="w-5 h-5 mr-2" /> Exercices de configuration et de dépannage réels</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Globe className="w-5 h-5 mr-2" /> Mises en situation pour le dépannage de réseaux complexes</motion.li>
+                        </motion.ul>
                       </CardContent>
                     </Card>
                   </TabsContent>
@@ -182,12 +213,19 @@ const NetworkAdministration = () => {
                     <Card>
                       <CardContent className="pt-6">
                         <p>Cette formation s'adresse principalement aux :</p>
-                        <ul className="space-y-2 mt-4">
-                          <li className="flex items-center"><Computer className="w-5 h-5 mr-2" /> Étudiants en réseaux informatiques</li>
-                          <li className="flex items-center"><Network className="w-5 h-5 mr-2" /> Techniciens réseaux débutants</li>
-                          <li className="flex items-center"><Router className="w-5 h-5 mr-2" /> Candidats aux certifications CCNA</li>
-                          <li className="flex items-center"><Lock className="w-5 h-5 mr-2" /> Professionnels IT souhaitant se spécialiser en réseaux</li>
-                        </ul>
+                        <motion.ul
+                          className="space-y-2 mt-4"
+                          initial="hidden"
+                          animate="visible"
+                          variants={{
+                            visible: { transition: { staggerChildren: 0.1 } }
+                          }}
+                        >
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Computer className="w-5 h-5 mr-2" /> Étudiants en réseaux informatiques et débutants</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Network className="w-5 h-5 mr-2" /> Techniciens réseaux débutants ou souhaitant une spécialisation CISCO</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Router className="w-5 h-5 mr-2" /> Candidats aux certifications CCNA de CISCO</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Lock className="w-5 h-5 mr-2" /> Professionnels IT souhaitant se spécialiser dans l'administration réseau</motion.li>
+                        </motion.ul>
                       </CardContent>
                     </Card>
                   </TabsContent>
@@ -196,12 +234,19 @@ const NetworkAdministration = () => {
                     <Card>
                       <CardContent className="pt-6">
                         <p>La formation se déroule sur :</p>
-                        <ul className="space-y-2 mt-4">
-                          <li className="flex items-center"><Network className="w-5 h-5 mr-2" /> 8 semaines au total</li>
-                          <li className="flex items-center"><Router className="w-5 h-5 mr-2" /> 2 sessions de 3 heures par semaine</li>
-                          <li className="flex items-center"><Computer className="w-5 h-5 mr-2" /> Total : 48 heures de formation</li>
-                          <li className="flex items-center"><Globe className="w-5 h-5 mr-2" /> Travaux pratiques supplémentaires sur simulateur</li>
-                        </ul>
+                        <motion.ul
+                          className="space-y-2 mt-4"
+                          initial="hidden"
+                          animate="visible"
+                          variants={{
+                            visible: { transition: { staggerChildren: 0.1 } }
+                          }}
+                        >
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Network className="w-5 h-5 mr-2" /> Durée totale : 8 semaines</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Router className="w-5 h-5 mr-2" /> Fréquence : 2 sessions de 3 heures par semaine</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Computer className="w-5 h-5 mr-2" /> Volume horaire total : 48 heures de formation encadrée</motion.li>
+                          <motion.li className="flex items-center" variants={listItemVariants} transition={{ duration: 0.3 }}><Globe className="w-5 h-5 mr-2" /> Travaux pratiques supplémentaires sur simulateur pour une meilleure maîtrise</motion.li>
+                        </motion.ul>
                       </CardContent>
                     </Card>
                   </TabsContent>
@@ -210,45 +255,44 @@ const NetworkAdministration = () => {
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-10">
                   <div className="flex items-center gap-2 mb-3">
                     <Computer className="w-5 h-5 text-gray-700" />
-                    <h3 className="text-xl font-bold">Équipement recommandé</h3>
+                    <h3 className="text-xl font-bold">Équipement et ressources de formation</h3>
                   </div>
                   <p className="text-gray-600">
                     Pour suivre cette formation, vous aurez besoin d'un ordinateur capable de faire fonctionner
-                    les simulateurs réseau comme GNS3 ou Packet Tracer. Nous recommandons un minimum de 8GB de RAM
-                    et un processeur multi-cœur. Tous les logiciels nécessaires sont gratuits et seront fournis
-                    pendant la formation.
+                    les simulateurs réseau professionnels comme GNS3 ou Packet Tracer. Nous recommandons un minimum de 8 Go de RAM
+                    et un processeur multi-cœur pour une expérience fluide. Tous les logiciels nécessaires sont gratuits et seront fournis
+                    ainsi que configurés pour vous pendant la formation.
                   </p>
                 </div>
               </motion.div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              <div className="p-6 bg-gray-50 rounded-lg">
-                <h3 className="font-semibold text-lg mb-2">Formateurs experts</h3>
-                <p className="text-gray-600">Des professionnels certifiés avec une solide expérience pratique dans la conception, le déploiement et la gestion d’infrast
-ructures réseau.</p>
+            {/* Cartes d'informations supplémentaires */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-12">
+              <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-lg mb-2">Formateurs experts CISCO</h3>
+                <p className="text-gray-600">Des professionnels certifiés avec une solide expérience pratique dans la conception, le déploiement et la gestion d’infrastructures réseau complexes.</p>
               </div>
-              <div className="p-6 bg-gray-50 rounded-lg">
-                <h3 className="font-semibold text-lg mb-2">Approche pratique</h3>
-                <p className="text-gray-600">Nos formations en administration réseau allient théorie et pratique sur équipements professionnels, axées sur la configurat
-ion, la sécurité et le dépannage des réseaux LAN et WAN.</p>
+              <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-lg mb-2">Approche pratique et certifiante</h3>
+                <p className="text-gray-600">Nos formations en administration réseau allient théorie et pratique intensive sur équipements professionnels simulés, axées sur la configuration, la sécurité et le dépannage des réseaux LAN et WAN, en préparation au CCNA.</p>
               </div>
-              <div className="p-6 bg-gray-50 rounded-lg">
-                <h3 className="font-semibold text-lg mb-2">Certifications reconnues</h3>
-                <p className="text-gray-600">Préparation aux certifications de l'industrie les plus demandées sur le marché.</p>
+              <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-lg mb-2">Préparation aux certifications</h3>
+                <p className="text-gray-600">Cette formation est conçue pour vous préparer efficacement aux certifications CISCO de l'industrie les plus demandées sur le marché de l'emploi en réseau.</p>
               </div>
             </div>
           </div>
 
-          <div className="mt-16 bg-blue-50 p-8 rounded-xl">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Vous souhaitez vous inscrire à l'une de nos formations ?</h2>
+          <div className="mt-16 bg-blue-50 p-8 rounded-xl text-center">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Prêt à devenir un expert en administration réseau CISCO ?</h2>
               <p className="text-gray-600 mb-6">
-                Contactez notre équipe pour obtenir plus d'informations sur les dates, les tarifs et les modalités d'inscription.
+                Contactez notre équipe de Zetoun Labs à Kinshasa dès aujourd'hui pour obtenir plus d'informations sur les dates de formation, les tarifs et les modalités d'inscription. Nous sommes là pour vous accompagner.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/add/telecom-opinion">
                   <Button size="lg">
-                    Demander un    devis
+                    Demander un devis
                   </Button>
                 </Link>
                 <Link to="/add/telecom-calendar">

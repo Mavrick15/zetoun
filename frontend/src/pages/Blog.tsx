@@ -10,7 +10,7 @@ import { motion } from "framer-motion"; // Import motion
 
 const Blog = () => {
   // Get the first blog post for the featured post section
-  const featuredPost = blogPosts.find(post => post.id === '3') || null; // Feature the new post about development process
+  const featuredPost = blogPosts.find(post => post.id === '4') || blogPosts[0]; // Feature the new post about development process
   // Get the rest of the blog posts for the grid section
   const otherPosts = blogPosts.filter(post => post.id !== featuredPost?.id);
 
@@ -29,23 +29,16 @@ const Blog = () => {
     animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
-  const keywords = [
-    'smart textiles',
-    'sensor technology',
-    'wearable tech',
-    'innovation',
-    'textile sensors',
-    'Zetoun Labs'
-  ];
-
-  const description = "Découvrez les dernières actualités et informations sur les textiles intelligents, la technologie des capteurs et les innovations de Zetoun Labs.";
+  const keywords = ['support tech','assistance info','ingénierie réseau','conception réseau','installation réseau','vidéosurveillance','sécurité vidéo','conception web','création site','infogérance IT','maintenance IT','supervision système','installation solaire','système solaire','formation Linux','admin Linux','serveurs Linux','formation Windows','admin Windows','formation réseau','Cisco routage','Cisco switching','maintenance PC','dépannage info','formation virtualisation','VMware formation','ITIL formation','cybersécurité formation','startup tech','innovation numérique','solutions IT','expert IT','consulting IT','Zetoun Labs'];
+  
+  const description = "Explorez les dernières actualités et les innovations proposées par Zetoun Labs, votre référence en services IT et formation.";
 
   return (
     <PageLayout>
       <SEO
         title="ZL - Les dernières actualités technologiques"
         description={description}
-        imageUrl={featuredPost?.imageUrl || "/lovable-uploads/6b0637e9-4a7b-40d0-b219-c8b7f879f93e.png"}
+        imageUrl={featuredPost?.imageUrl}
         keywords={keywords}
         type="website"
       />
@@ -62,13 +55,13 @@ const Blog = () => {
               variants={textVariants}
               className="text-4xl md:text-5xl font-bold mb-4"
             >
-              Zetoun Labs Actualités &amp; informations
+              Actualités &amp; informations
             </motion.h1>
             <motion.p
               variants={textVariants}
               className="text-xl text-gray-300 mb-6"
             >
-              The latest trends and news in sensor-integrated textiles and smart technology
+              Explorez les dernières actualités et les innovations proposées par Zetoun Labs, votre référence en services IT et formation.
             </motion.p>
           </div>
         </div>
@@ -123,7 +116,7 @@ const Blog = () => {
               <BlogPostCard
                 title={post.title}
                 excerpt={post.excerpt}
-                imageUrl={post.imageUrl || '/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png'}
+                imageUrl={post.imageUrl}
                 date={post.date}
                 slug={post.slug}
                 category={post.category}
