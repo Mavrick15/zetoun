@@ -25,7 +25,8 @@ const VirtualizationTraining = () => {
       {/* Composant SEO avec les balises méta optimisées */}
       <SEO
         title="Formation Virtualisation | Hyperviseurs, VM & Conteneurs - Zetoun Labs Kinshasa"
-        description="Maîtrisez la virtualisation avec Zetoun Labs à Kinshasa : apprenez les concepts, les hyperviseurs (VirtualBox, VMware, KVM), la création et la gestion de machines virtuelles (VMs), les réseaux virtuels et les conteneurs (Docker) pour une infrastructure agile."
+        description="Maîtrisez la virtualisation avec Zetoun Labs à Kinshasa : apprenez les concepts, les hyperviseurs (VirtualBox, VMware, KVM),
+        la création et la gestion de machines virtuelles (VMs), les réseaux virtuels et les conteneurs (Docker) pour une infrastructure agile."
         keywords={[
           'formation virtualisation',
           'hyperviseurs',
@@ -58,7 +59,12 @@ const VirtualizationTraining = () => {
               <img
                 src="../lovable-uploads/training/5a.png"
                 alt="Concepts de virtualisation et serveurs virtuels" // Alt text optimisé
-                className="w-full h-full transition-transform duration-500 hover:scale-105" /* object-contain pour taille réelle, mx-auto pour centrer */
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" // Modifié de object-contain à object-cover
+                onError={(e) => {
+                  e.currentTarget.onerror = null; // Empêche la boucle infinie en cas d'erreur de chargement
+                  e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Formation+Virtualisation"; // Placeholder générique
+                  e.currentTarget.alt = "Image de remplacement pour la formation virtualisation";
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                 <div className="p-6 md:p-8">
@@ -127,6 +133,11 @@ const VirtualizationTraining = () => {
                     src="../lovable-uploads/training/5b.png"
                     alt="Infrastructure de virtualisation avec plusieurs machines virtuelles" // Alt text optimisé
                     className="w-full h-64 md:h-80 object-cover rounded-lg transition-transform duration-500 hover:scale-105" /* Effet de zoom maintenu */
+                    onError={(e) => {
+                      e.currentTarget.onerror = null; // Empêche la boucle infinie en cas d'erreur de chargement
+                      e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Machines+Virtuelles"; // Placeholder générique
+                      e.currentTarget.alt = "Image de remplacement pour l'infrastructure de virtualisation";
+                    }}
                   />
                 </motion.div>
               </motion.div>
@@ -237,8 +248,8 @@ const VirtualizationTraining = () => {
                   </div>
                   <p className="text-gray-600">
                     Pour suivre cette formation de manière optimale, vous aurez besoin d'un ordinateur avec au moins 8 Go de RAM et un
-                    processeur multi-cœur récent, compatible avec les technologies de virtualisation. Tous les logiciels nécessaires sont gratuits ou disponibles en version
-                    d'évaluation, et seront fournis ainsi que configurés pour vous pendant la formation.
+                    processeur multi-cœur récent, compatible avec les technologies de virtualisation. Tous les logiciels nécessaires sont
+                    gratuits ou disponibles en version d'évaluation, et seront fournis ainsi que configurés pour vous pendant la formation.
                   </p>
                 </div>
               </motion.div>
@@ -247,15 +258,18 @@ const VirtualizationTraining = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-12">
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Formateurs experts en virtualisation</h3>
-                <p className="text-gray-600">Des professionnels certifiés disposant d’une expérience pratique et approfondie dans le déploiement et la gestion d’environnements virtualisés complexes.</p>
+                <p className="text-gray-600">Des professionnels certifiés disposant d’une expérience pratique et approfondie dans le
+                  déploiement et la gestion d’environnements virtualisés complexes.</p>
               </div>
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Approche pratique et cas réels</h3>
-                <p className="text-gray-600">Nos formations en virtualisation combinent théorie et pratique intensive sur des environnements virtualisés modernes, couvrant le déploiement, la gestion, la surveillance et l’optimisation de VM et conteneurs.</p>
+                <p className="text-gray-600">Nos formations en virtualisation combinent théorie et pratique intensive sur des
+                  environnements virtualisés modernes, couvrant le déploiement, la gestion, la surveillance et l’optimisation de VM et conteneurs.</p>
               </div>
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Compétences recherchées sur le marché</h3>
-                <p className="text-gray-600">Développez des compétences clés en virtualisation, fortement demandées dans les environnements IT actuels et futures, pour renforcer votre employabilité.</p>
+                <p className="text-gray-600">Développez des compétences clés en virtualisation, fortement demandées dans les
+                  environnements IT actuels et futures, pour renforcer votre employabilité.</p>
               </div>
             </div>
           </div>
@@ -264,7 +278,8 @@ const VirtualizationTraining = () => {
             <div className="max-w-3xl mx-auto">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Prêt à maîtriser la virtualisation pour des infrastructures agiles ?</h2>
               <p className="text-gray-600 mb-6">
-                Contactez notre équipe de Zetoun Labs à Kinshasa dès aujourd'hui pour obtenir plus d'informations sur les dates de formation, les tarifs et les modalités d'inscription. Nous sommes là pour vous accompagner.
+                Contactez notre équipe de Zetoun Labs à Kinshasa dès aujourd'hui pour obtenir plus d'informations
+                sur les dates de formation, les tarifs et les modalités d'inscription. Nous sommes là pour vous accompagner.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/add/telecom-opinion">

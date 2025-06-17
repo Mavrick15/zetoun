@@ -15,15 +15,16 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   redirectTo = '/signup'
 }) => {
   const navigate = useNavigate();
+  // State pour suivre l'état d'authentification de l'utilisateur
   const [isAuthenticated, setIsAuthenticated] = React.useState<boolean | null>(null);
 
   React.useEffect(() => {
-    // Check if user is authenticated
+    // Vérifie si l'utilisateur est authentifié en lisant le localStorage
     const user = localStorage.getItem('user');
     setIsAuthenticated(!!user && JSON.parse(user).isAuthenticated);
-  }, []);
+  }, []); // Exécuté une seule fois au montage du composant
 
-  // Styles pour les transitions
+  // Définition des variantes pour les animations Framer Motion
   const containerVariants = {
     initial: { opacity: 0 },
     animate: { opacity: 1, transition: { duration: 0.3 } },
@@ -42,7 +43,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     exit: { opacity: 0, y: -10, transition: { duration: 0.2 } },
   };
 
-  // While checking authentication status
+  // Afficher un état de chargement pendant que l'authentification est vérifiée
   if (isAuthenticated === null) {
     return (
       <motion.div
@@ -60,7 +61,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     );
   }
 
-  // If not authenticated, show a custom alert
+  // Si l'utilisateur n'est pas authentifié, afficher une alerte personnalisée
   if (!isAuthenticated) {
     return (
       <motion.div
@@ -109,7 +110,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     );
   }
 
-  // User is authenticated, render children
+  // Si l'utilisateur est authentifié, rendre les composants enfants
   return <>{children}</>;
 };
 

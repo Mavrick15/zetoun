@@ -18,7 +18,8 @@ interface SEOProps {
 
 const SEO: React.FC<SEOProps> = ({
   title = 'Zetoun Labs - Services IT & Formations', // Titre par défaut mis à jour
-  description = 'Zetoun Labs : Votre partenaire expert en services IT (support, réseau, vidéosurveillance, web, infogérance, solaire) et formations professionnelles (Linux, Windows, Cisco, virtualisation, maintenance PC).', // Description par défaut mise à jour
+  description = `Zetoun Labs : Votre partenaire expert en services IT (support, réseau, vidéosurveillance, web, infogérance, solaire)
+    et formations professionnelles (Linux, Windows, Cisco, virtualisation, maintenance PC).`, // Description par défaut mise à jour
   type = 'website',
   name = 'Zetoun Labs', // Nom de l'organisation mis à jour
   imageUrl = '/lovable-uploads/icon.svg', // Assurez-vous que c'est bien l'icône de Zetoun Labs
@@ -48,9 +49,7 @@ const SEO: React.FC<SEOProps> = ({
 }) => {
   const location = useLocation();
   // Assurez-vous que l'URL de base est bien celle de votre site pour Zetoun Labs
-  // J'ai laissé "https://wrlds.com" car c'est dans votre code original,
-  // mais il faudrait le changer si "wrlds.com" n'est pas le domaine de Zetoun Labs
-  const baseUrl = 'https://wrlds.com';
+  const baseUrl = 'https://zetounlabs.com'; // Corrected base URL to Zetoun Labs domain
   const currentUrl = `${baseUrl}${location.pathname}`;
   const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `${baseUrl}${imageUrl}`;
 
@@ -68,9 +67,9 @@ const SEO: React.FC<SEOProps> = ({
       email: 'contact@zetounlabs.com' // Email de contact de Zetoun Labs (à vérifier)
     },
     sameAs: [
-      // Liens vers les réseaux sociaux de Zetoun Labs
-      'https://www.linkedin.com/company/zetoun-labs', // Exemple
-      'https://twitter.com/zetounlabs' // Exemple
+      // Liens vers les réseaux sociaux de Zetoun Labs (exemples à vérifier et modifier)
+      'https://www.linkedin.com/company/zetoun-labs',
+      'https://twitter.com/zetounlabs'
     ]
   };
 
@@ -142,10 +141,12 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="pinterest:image" content={absoluteImageUrl} />
 
       {/* JSON-LD structured data */}
+      {/* Organization Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(organizationStructuredData)}
       </script>
 
+      {/* Blog Post Structured Data (conditionally rendered) */}
       {blogPostStructuredData && (
         <script type="application/ld+json">
           {JSON.stringify(blogPostStructuredData)}

@@ -53,10 +53,11 @@ const SignUp = () => {
     setError(null);
 
     try {
-      // Simuler un délai de 3 secondes
+      // Simuler un délai de 3 secondes pour l'expérience utilisateur
       await new Promise(resolve => setTimeout(resolve, 3000));
 
-      // Point de terminaison API pour l'enregistrement de l'utilisateur
+      // Point de terminaison API pour l'enregistrement de l'utilisateur.
+      // IMPORTANT: Remplacez cette IP par votre véritable endpoint de backend.
       const apiUrl = "http://10.0.0.2:5010/api/auth/signup";
 
       const response = await fetch(apiUrl, {
@@ -73,6 +74,8 @@ const SignUp = () => {
 
       if (response.ok) {
         const data = await response.json();
+        // Stocker les informations de l'utilisateur.
+        // Pour la production, envisagez des méthodes de stockage plus sécurisées comme les cookies HttpOnly.
         localStorage.setItem('user', JSON.stringify({
           name: values.name,
           email: values.email,
@@ -85,8 +88,10 @@ const SignUp = () => {
           description: "Bienvenue sur notre plateforme de formations.",
         });
 
+        // Rediriger vers la page du calendrier des formations après une inscription réussie
         navigate('/add/telecom-calendar');
       } else {
+        // Gérer les erreurs API (ex: email déjà enregistré, erreurs serveur)
         const errorData = await response.json();
         setError(errorData.message || 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.');
         toast({

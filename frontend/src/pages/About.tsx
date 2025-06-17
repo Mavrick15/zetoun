@@ -8,12 +8,42 @@ import { Button } from "@/components/ui/button";
 import SEO from '@/components/SEO'; // Importez le composant SEO
 
 const About = () => {
+  // Défilement en haut de page au chargement
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const teamRef = useRef<HTMLDivElement>(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const teamRef = useRef(null); // Suppression de l'annotation de type TypeScript
+  // Suppression de l'état `scrollPosition` car il n'est pas utilisé
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  // Fonction pour vérifier si le défilement est possible
+  const checkScrollability = () => {
+    if (teamRef.current) {
+      const { scrollWidth, clientWidth, scrollLeft } = teamRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      // Ajustement pour la détection de la fin du défilement avec une petite tolérance
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 5);
+    }
+  };
+
+  // Ajout d'un écouteur d'événements pour le défilement et le redimensionnement
+  useEffect(() => {
+    const currentTeamRef = teamRef.current;
+    if (currentTeamRef) {
+      currentTeamRef.addEventListener('scroll', checkScrollability);
+      window.addEventListener('resize', checkScrollability);
+      // Vérification initiale après le rendu
+      checkScrollability();
+    }
+    return () => {
+      if (currentTeamRef) {
+        currentTeamRef.removeEventListener('scroll', checkScrollability);
+      }
+      window.removeEventListener('resize', checkScrollability);
+    };
+  }, []);
 
   const handleScrollLeft = () => {
     teamRef.current?.scrollBy({ left: -300, behavior: 'smooth' });
@@ -173,7 +203,7 @@ const About = () => {
                 </p>
 
                 <div className="relative">
-                  <div ref={teamRef} className="flex overflow-x-auto gap-6 py-4 scroll-smooth">
+                  <div ref={teamRef} className="flex overflow-x-auto gap-6 py-4 scroll-smooth scrollbar-hide">
                     {teamMembers.map((member, i) => (
                       <motion.div
                         key={i}
@@ -185,11 +215,16 @@ const About = () => {
                         <Card className="bg-gray-50 border border-gray-100 overflow-hidden">
                           <CardContent className="p-6">
                             <div className="flex flex-col items-center text-center">
-                              <div className="w-32 h-32 relative mb-4 rounded-full overflow-hidden">
+                              <div className="w-32 h-32 relative mb-4 rounded-full overflow-hidden flex items-center justify-center bg-gray-200">
                                 <img
                                   src={member.image}
                                   alt={member.name}
                                   className="w-full h-full object-cover filter grayscale"
+                                  onError={(e) => {
+                                    // Fallback text or icon if image fails to load
+                                    e.currentTarget.onerror = null;
+                                    e.currentTarget.src = `https://placehold.co/128x128/e2e8f0/64748b?text=${member.name.split(' ').map(n => n[0]).join('')}`;
+                                  }}
                                 />
                               </div>
                               <h3 className="font-bold text-lg">{member.name}</h3>
@@ -201,13 +236,28 @@ const About = () => {
                       </motion.div>
                     ))}
                   </div>
-                  <div className="absolute top-1/2 left-2 transform -translate-y-1/2">
-                    <Button size="icon" variant="outline" onClick={handleScrollLeft} className="rounded-full border-gray-300">
+                  {/* Boutons de défilement, désactivés si le défilement n'est pas possible */}
+                  <div className="absolute top-1/2 left-2 transform -translate-y-1/2 z-10">
+                    <Button
+                      size="icon"
+                      variant="outline"
+                      onClick={handleScrollLeft}
+                      className="rounded-full border-gray-300 shadow-md"
+                      disabled={!canScrollLeft}
+                      aria-label="Défiler les membres de l'équipe vers la gauche"
+                    >
                       <ChevronLeft className="h-5 w-5" />
                     </Button>
                   </div>
-                  <div className="absolute top-1/2 right-2 transform -translate-y-1/2">
-                    <Button size="icon" variant="outline" onClick={handleScrollRight} className="rounded-full border-gray-300">
+                  <div className="absolute top-1/2 right-2 transform -translate-y-1/2 z-10">
+                    <Button
+                      size="icon"
+                      variant="outline"
+                      onClick={handleScrollRight}
+                      className="rounded-full border-gray-300 shadow-md"
+                      disabled={!canScrollRight}
+                      aria-label="Défiler les membres de l'équipe vers la droite"
+                    >
                       <ChevronRight className="h-5 w-5" />
                     </Button>
                   </div>
@@ -215,6 +265,7 @@ const About = () => {
               </motion.div>
             </div>
             <div className="mt-16 pt-8 border-t border-gray-200">
+              {/* Contenu supplémentaire ou un appel à l'action pourrait être ajouté ici */}
             </div>
           </div>
         </div>

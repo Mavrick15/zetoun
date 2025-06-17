@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect } from 'react';
-import { useNavigate } from "react-router-dom"; // Assurez-vous que cette importation est nécessaire, sinon elle peut être retirée
 import PageLayout from '@/components/PageLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from '@/components/ui/button';
@@ -26,7 +25,8 @@ const LinuxAdministration = () => {
       {/* Composant SEO avec les balises méta optimisées */}
       <SEO
         title="Formation Administration Système Linux | Serveurs & Réseaux - Zetoun Labs Kinshasa"
-        description="Devenez un administrateur système Linux expert avec Zetoun Labs à Kinshasa : maîtrisez la gestion de serveurs, la sécurité, les réseaux et l'automatisation avec notre formation complète et pratique."
+        description="Devenez un administrateur système Linux expert avec Zetoun Labs à Kinshasa : maîtrisez la gestion de serveurs,
+        la sécurité, les réseaux et l'automatisation avec notre formation complète et pratique."
         keywords={[
           'formation Linux',
           'administration système Linux',
@@ -59,6 +59,11 @@ const LinuxAdministration = () => {
                 src="../lovable-uploads/training/2a.png"
                 alt="Administration Système sous Linux avec terminal" // Alt text optimisé
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" /* Effet de zoom ajouté */
+                onError={(e) => {
+                  e.currentTarget.onerror = null; // Empêche la boucle infinie en cas d'erreur de chargement
+                  e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Formation+Linux"; // Placeholder générique
+                  e.currentTarget.alt = "Image de remplacement pour la formation Linux";
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                 <div className="p-6 md:p-8">
@@ -76,7 +81,8 @@ const LinuxAdministration = () => {
                     transition={{ duration: 0.5, delay: 0.4 }}
                     className="text-base sm:text-lg text-white/90"
                   >
-                    Formation complète et pratique pour administrer un système Linux en entreprise, essentielle pour tout professionnel IT.
+                    Formation complète et pratique pour administrer un système Linux en entreprise,
+                    essentielle pour tout professionnel IT.
                   </motion.p>
                 </div>
               </div>
@@ -127,6 +133,11 @@ const LinuxAdministration = () => {
                     src="../lovable-uploads/training/2b.png"
                     alt="Terminal Linux et ligne de commande pour l'administration système" // Alt text optimisé
                     className="w-full h-64 md:h-80 object-cover rounded-lg transition-transform duration-500 hover:scale-105"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null; // Empêche la boucle infinie en cas d'erreur de chargement
+                      e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Terminal+Linux"; // Placeholder générique
+                      e.currentTarget.alt = "Image de remplacement pour le terminal Linux";
+                    }}
                   />
                 </motion.div>
               </motion.div>
@@ -238,7 +249,8 @@ const LinuxAdministration = () => {
                   <p className="text-gray-600">
                     À l'issue de cette formation, vous recevrez un certificat de compétences validant vos acquis
                     en administration système Linux. Cette formation constitue également une excellente base pour
-                    préparer des certifications Linux professionnelles reconnues mondialement comme LPIC-1 ou Red Hat Certified System Administrator (RHCSA).
+                    préparer des certifications Linux professionnelles reconnues mondialement comme LPIC-1 ou Red Hat
+                    Certified System Administrator (RHCSA).
                   </p>
                 </div>
               </motion.div>
@@ -247,15 +259,18 @@ const LinuxAdministration = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-12">
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Formateurs experts</h3>
-                <p className="text-gray-600">Des professionnels certifiés avec une expérience concrète dans l'administration, la sécurisation et l'optimisation de systèmes Linux en environnement de production.</p>
+                <p className="text-gray-600">Des professionnels certifiés avec une expérience concrète dans
+                  l'administration, la sécurisation et l'optimisation de systèmes Linux en environnement de production.</p>
               </div>
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Approche pratique</h3>
-                <p className="text-gray-600">Nos formations en administration Linux allient théorie et ateliers pratiques sur des systèmes Linux réels, avec des cas concrets de gestion, de sécurité et de dépannage.</p>
+                <p className="text-gray-600">Nos formations en administration Linux allient théorie et ateliers pratiques
+                  sur des systèmes Linux réels, avec des cas concrets de gestion, de sécurité et de dépannage.</p>
               </div>
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Certifications reconnues</h3>
-                <p className="text-gray-600">Préparez-vous aux certifications de l'industrie les plus demandées sur le marché de l'emploi en administration système Linux.</p>
+                <p className="text-gray-600">Préparez-vous aux certifications de l'industrie les plus demandées sur le marché
+                  de l'emploi en administration système Linux.</p>
               </div>
             </div>
           </div>
@@ -263,7 +278,8 @@ const LinuxAdministration = () => {
             <div className="max-w-3xl mx-auto">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Prêt à devenir un expert en administration système Linux ?</h2>
               <p className="text-gray-600 mb-6">
-                Contactez notre équipe de Zetoun Labs à Kinshasa dès aujourd'hui pour obtenir plus d'informations sur les dates de formation, les tarifs et les modalités d'inscription. Nous sommes là pour vous accompagner.
+                Contactez notre équipe de Zetoun Labs à Kinshasa dès aujourd'hui pour obtenir plus d'informations sur
+                les dates de formation, les tarifs et les modalités d'inscription. Nous sommes là pour vous accompagner.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/add/telecom-opinion">

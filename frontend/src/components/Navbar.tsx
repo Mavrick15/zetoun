@@ -31,7 +31,7 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Function to scroll to a specific section on the page
+  // Function to scroll to a specific section on the page (used in mobile menu)
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -84,7 +84,10 @@ const Navbar = () => {
                   >
                     <Link
                       to="/"
-                      className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800"
+                      )}
                     >
                       Accueil
                     </Link>
@@ -98,7 +101,10 @@ const Navbar = () => {
                   >
                     <Link
                       to="/about"
-                      className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800"
+                      )}
                     >
                       À propos
                     </Link>
@@ -115,7 +121,6 @@ const Navbar = () => {
                       <li>
                         <NavigationMenuLink
                           asChild // Use asChild to render Link component directly
-                          // Removed 'to' prop from NavigationMenuLink as it's handled by the inner Link
                           className="block p-3 space-y-1 rounded-md hover:bg-gray-100"
                         >
                           <Link to="/projects/firecat"> {/* Added 'to' prop to Link */}
@@ -221,8 +226,8 @@ const Navbar = () => {
                           </Link>
                         </NavigationMenuLink>
                       </li>
-		      <li>
-			<NavigationMenuLink
+                      <li>
+                        <NavigationMenuLink
                           asChild // Use asChild to render Link component directly
                           className="flex items-center p-3 space-x-3 rounded-md hover:bg-gray-100 transition-all"
                         >
@@ -236,7 +241,7 @@ const Navbar = () => {
                             </div>
                           </Link>
                         </NavigationMenuLink>
-		      </li>
+                      </li>
                       <li>
                         <NavigationMenuLink
                           asChild // Use asChild to render Link component directly
@@ -330,18 +335,21 @@ const Navbar = () => {
                   >
                     <Link
                       to="/blog"
-                      className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800"
+                      )}
                     >
                       Nouveautés
                     </Link>
-		  </NavigationMenuLink>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
               <div className={cn("h-6 w-px mx-4", isScrolled ? "bg-gray-300" : "bg-gray-600")}></div>
               <div className="flex items-center "> <UserMenu /> </div>
 
             </NavigationMenu>
-	  </div>
+          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -441,6 +449,12 @@ const Navbar = () => {
                 window.scrollTo(0, 0);
               }}>
                 Infogérance
+              </Link>
+              <Link to="/services/solar-installation" className={cn("block px-3 py-2 rounded-md", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
+                setIsMenuOpen(false);
+                window.scrollTo(0, 0);
+              }}>
+                Installation solaire
               </Link>
               <Link to="/services/technical-support" className={cn("block px-3 py-2 rounded-md", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
                 setIsMenuOpen(false);

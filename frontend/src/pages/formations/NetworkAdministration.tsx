@@ -1,4 +1,4 @@
-import { ArrowLeft, Network, Router, Computer, Wifi, Globe, Lock, Server } from 'lucide-react';
+import { ArrowLeft, Network, Router, Computer, Wifi, Globe, Lock, Server, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
@@ -25,7 +25,8 @@ const NetworkAdministration = () => {
       {/* Composant SEO avec les balises méta optimisées */}
       <SEO
         title="Formation Administration Réseau CISCO | CCNA, Routage & Switching - Zetoun Labs Kinshasa"
-        description="Devenez un administrateur réseau CISCO certifié avec Zetoun Labs à Kinshasa : maîtrisez la configuration de routeurs, switches, la sécurité réseau et préparez la certification CCNA avec des TP intensifs."
+        description="Devenez un administrateur réseau CISCO certifié avec Zetoun Labs à Kinshasa : maîtrisez la configuration de routeurs,
+        switches, la sécurité réseau et préparez la certification CCNA avec des TP intensifs."
         keywords={[
           'formation administration réseau',
           'CISCO',
@@ -59,6 +60,11 @@ const NetworkAdministration = () => {
                 src="../lovable-uploads/training/4a.png"
                 alt="Équipement réseau CISCO pour formation en administration" // Alt text optimisé
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" /* Effet de zoom ajouté */
+                onError={(e) => {
+                  e.currentTarget.onerror = null; // Empêche la boucle infinie en cas d'erreur de chargement
+                  e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Réseau+Cisco"; // Placeholder générique
+                  e.currentTarget.alt = "Image de remplacement pour la formation Cisco";
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                 <div className="p-6 md:p-8">
@@ -76,7 +82,8 @@ const NetworkAdministration = () => {
                     transition={{ duration: 0.5, delay: 0.4 }}
                     className="text-base sm:text-lg text-white/90"
                   >
-                    Formation complète orientée routage, switching et configuration CISCO, idéale pour les débutants et la préparation à la certification CCNA.
+                    Formation complète orientée routage, switching et configuration CISCO, idéale pour les débutants
+                    et la préparation à la certification CCNA.
                   </motion.p>
                 </div>
               </div>
@@ -127,6 +134,11 @@ const NetworkAdministration = () => {
                     src="../lovable-uploads/training/4b.png"
                     alt="Salle serveur avec équipement réseau CISCO" // Alt text optimisé
                     className="w-full h-64 md:h-80 object-cover rounded-lg transition-transform duration-500 hover:scale-105" /* Effet de zoom ajouté */
+                    onError={(e) => {
+                      e.currentTarget.onerror = null; // Empêche la boucle infinie en cas d'erreur de chargement
+                      e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Équipement+Réseau"; // Placeholder générique
+                      e.currentTarget.alt = "Image de remplacement pour l'équipement réseau";
+                    }}
                   />
                 </motion.div>
               </motion.div>
@@ -144,7 +156,8 @@ const NetworkAdministration = () => {
 
                 <p className="text-gray-600 mb-8 text-base max-w-3xl">
                   Notre programme d'administration réseau CISCO vous donne toutes les compétences nécessaires
-                  pour configurer, gérer et dépanner des réseaux d'entreprise complexes, et vous prépare efficacement aux certifications CCNA.
+                  pour configurer, gérer et dépanner des réseaux d'entreprise complexes,
+                  et vous prépare efficacement aux certifications CCNA.
                 </p>
 
                 <Tabs defaultValue="content" className="w-full mb-12">
@@ -259,9 +272,9 @@ const NetworkAdministration = () => {
                   </div>
                   <p className="text-gray-600">
                     Pour suivre cette formation, vous aurez besoin d'un ordinateur capable de faire fonctionner
-                    les simulateurs réseau professionnels comme GNS3 ou Packet Tracer. Nous recommandons un minimum de 8 Go de RAM
-                    et un processeur multi-cœur pour une expérience fluide. Tous les logiciels nécessaires sont gratuits et seront fournis
-                    ainsi que configurés pour vous pendant la formation.
+                    les simulateurs réseau professionnels comme GNS3 ou Packet Tracer. Nous recommandons un minimum
+                    de 8 Go de RAM et un processeur multi-cœur pour une expérience fluide. Tous les logiciels
+                    nécessaires sont gratuits et seront fournis ainsi que configurés pour vous pendant la formation.
                   </p>
                 </div>
               </motion.div>
@@ -270,15 +283,19 @@ const NetworkAdministration = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-12">
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Formateurs experts CISCO</h3>
-                <p className="text-gray-600">Des professionnels certifiés avec une solide expérience pratique dans la conception, le déploiement et la gestion d’infrastructures réseau complexes.</p>
+                <p className="text-gray-600">Des professionnels certifiés avec une solide expérience pratique dans la
+                  conception, le déploiement et la gestion d’infrastructures réseau complexes.</p>
               </div>
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Approche pratique et certifiante</h3>
-                <p className="text-gray-600">Nos formations en administration réseau allient théorie et pratique intensive sur équipements professionnels simulés, axées sur la configuration, la sécurité et le dépannage des réseaux LAN et WAN, en préparation au CCNA.</p>
+                <p className="text-gray-600">Nos formations en administration réseau allient théorie et pratique intensive
+                  sur équipements professionnels simulés, axées sur la configuration, la sécurité et le dépannage
+                  des réseaux LAN et WAN, en préparation au CCNA.</p>
               </div>
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Préparation aux certifications</h3>
-                <p className="text-gray-600">Cette formation est conçue pour vous préparer efficacement aux certifications CISCO de l'industrie les plus demandées sur le marché de l'emploi en réseau.</p>
+                <p className="text-gray-600">Cette formation est conçue pour vous préparer efficacement aux certifications
+                  CISCO de l'industrie les plus demandées sur le marché de l'emploi en réseau.</p>
               </div>
             </div>
           </div>
@@ -287,7 +304,8 @@ const NetworkAdministration = () => {
             <div className="max-w-3xl mx-auto">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Prêt à devenir un expert en administration réseau CISCO ?</h2>
               <p className="text-gray-600 mb-6">
-                Contactez notre équipe de Zetoun Labs à Kinshasa dès aujourd'hui pour obtenir plus d'informations sur les dates de formation, les tarifs et les modalités d'inscription. Nous sommes là pour vous accompagner.
+                Contactez notre équipe de Zetoun Labs à Kinshasa dès aujourd'hui pour obtenir plus d'informations
+                sur les dates de formation, les tarifs et les modalités d'inscription. Nous sommes là pour vous accompagner.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/add/telecom-opinion">

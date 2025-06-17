@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Mail, Linkedin, Phone, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -19,9 +18,9 @@ const ContactInfo = () => {
           <div className="max-w-6xl mx-auto">
             <Link to="/" className="inline-flex items-center text-gray-500 hover:text-gray-700 mb-6 transition-colors">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Home
+              Retour à l'accueil
             </Link>
-            
+
             <motion.h1
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -30,30 +29,35 @@ const ContactInfo = () => {
             >
               Contactez-nous
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-base sm:text-lg text-gray-600 mb-12"
             >
-              Vous souhaitez en savoir plus sur nos formations ou avoir des informations personnalisées ? 
+              Vous souhaitez en savoir plus sur nos formations ou avoir des informations personnalisées ?
               N'hésitez pas à nous contacter directement.
             </motion.p>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
               {/* Felix's Contact Info */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="bg-white rounded-xl shadow-xl p-6 md:p-8 border border-gray-200"
               >
                 <div className="flex flex-col items-center text-center">
-                  <img 
+                  <img
                     src="/lovable-uploads/aa5291bd-2417-4c1e-9a02-0bcc71a92507.png"
                     alt="Felix von Heland"
                     className="w-32 h-32 rounded-full mb-4 object-cover filter grayscale"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "https://placehold.co/128x128/e2e8f0/64748b?text=FVH"; // Placeholder for Felix von Heland
+                      e.currentTarget.alt = "Image de remplacement pour Felix von Heland";
+                    }}
                   />
                   <h3 className="text-xl font-bold text-gray-900">Felix von Heland</h3>
                   <p className="text-gray-600 mb-4">Directeur des formations</p>
@@ -62,8 +66,8 @@ const ContactInfo = () => {
                       <Mail className="w-5 h-5 mr-2" />
                       felix@wrlds.com
                     </a>
-                    <a 
-                      href="https://www.linkedin.com/in/felixvonheland/" 
+                    <a
+                      href="https://www.linkedin.com/in/felixvonheland/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center text-gray-700 hover:text-blue-600"
@@ -76,17 +80,22 @@ const ContactInfo = () => {
               </motion.div>
 
               {/* Love's Contact Info */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="bg-white rounded-xl shadow-xl p-6 md:p-8 border border-gray-200"
               >
                 <div className="flex flex-col items-center text-center">
-                  <img 
+                  <img
                     src="/lovable-uploads/a9bb9110-964a-43b0-a5ab-7162140cd133.png"
                     alt="Love Anderberg"
                     className="w-32 h-32 rounded-full mb-4 object-cover filter grayscale"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "https://placehold.co/128x128/e2e8f0/64748b?text=LA"; // Placeholder for Love Anderberg
+                      e.currentTarget.alt = "Image de remplacement pour Love Anderberg";
+                    }}
                   />
                   <h3 className="text-xl font-bold text-gray-900">Love Anderberg</h3>
                   <p className="text-gray-600 mb-4">Responsable pédagogique</p>
@@ -95,8 +104,8 @@ const ContactInfo = () => {
                       <Mail className="w-5 h-5 mr-2" />
                       love@wrlds.com
                     </a>
-                    <a 
-                      href="https://www.linkedin.com/in/love-anderberg-67549a174/" 
+                    <a
+                      href="https://www.linkedin.com/in/love-anderberg-67549a174/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center text-gray-700 hover:text-blue-600"
@@ -112,8 +121,8 @@ const ContactInfo = () => {
                 </div>
               </motion.div>
             </div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -121,7 +130,7 @@ const ContactInfo = () => {
             >
               <h3 className="text-xl font-semibold mb-4">Informations complémentaires</h3>
               <p className="mb-4">
-                Nos formations sont disponibles en présentiel et en distanciel. Nous proposons également des solutions 
+                Nos formations sont disponibles en présentiel et en distanciel. Nous proposons également des solutions
                 sur mesure pour les entreprises qui souhaitent former leurs équipes sur des technologies spécifiques.
               </p>
               <p className="mb-2">

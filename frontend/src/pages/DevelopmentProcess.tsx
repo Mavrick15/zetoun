@@ -7,7 +7,7 @@ import SEO from '@/components/SEO'; // Importez le composant SEO
 
 const DevelopmentProcess = () => {
   const [activeProcess, setActiveProcess] = useState(1);
-  const processRef = useRef<HTMLDivElement>(null);
+  const processRef = useRef(null);
   const processSectionsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // Scroll to top on mount
@@ -16,35 +16,77 @@ const DevelopmentProcess = () => {
   }, []);
 
   // Process component logic
-  const processes = [{
-    id: 1,
-    title: "Compréhension des besoins",
-    description: "Cette première étape vise à établir une vision claire et partagée du projet. Elle consiste à analyser l’environnement du client, comprendre ses enjeux métiers, identifier ses objectifs et déterminer les contraintes techniques ou budgétaires. L’objectif est de poser des bases solides pour une solution réellement adaptée.",
-    steps: ["Organisation de réunions d’échange avec les parties prenantes", "Analyse de l’existant (infrastructure, logiciels, flux de travail)", "Identification des points de douleur et des opportunités", "Rédaction d’un cahier des charges fonctionnel et technique"]
-  }, {
-    id: 2,
-    title: "Conception de la solution",
-    description: "À partir des besoins identifiés, cette étape permet de concevoir l’architecture de la solution IT. Elle comprend le choix des technologies, la définition des modules fonctionnels, ainsi que la planification globale du projet. C’est ici que la solution prend forme sur le papier.",
-    steps: ["Élaboration de l’architecture logicielle et réseau", "Sélection des outils, frameworks et plateformes adaptés", "Modélisation des processus (diagrammes, maquettes, wireframes)", "Construction du planning projet (jalons, livrables, ressources nécessaires)"]
-  }, {
-    id: 3,
-    title: "Développement & Intégration",
-    description: "L’étape de mise en œuvre technique où la solution est construite et intégrée à l’environnement IT existant. Elle requiert des tests rigoureux, un contrôle qualité permanent, et une communication continue avec le client.",
-    steps: ["Développement des composants logiciels, API, bases de données", "Configuration des serveurs, réseaux et environnements cloud", "Intégration avec les systèmes internes ou tiers (ERP, CRM, etc.)", "Réalisation des tests unitaires et tests d’intégration"]
-  }, {
-    id: 4,
-    title: "Déploiement & Mise en production",
-    description: "C’est le moment de rendre la solution pleinement opérationnelle. Elle est installée dans l’environnement final, testée à grande échelle, et les utilisateurs sont accompagnés pour une adoption fluide.",
-    steps: ["Déploiement dans l’environnement de production", "Exécution des tests de validation (charge, sécurité, stabilité)", "Migration des données et synchronisation des systèmes", "Formation des utilisateurs finaux et livraison de la documentation"]
-  }, {
-    id: 5,
-    title: "Support & Amélioration continue",
-    description: "Une fois la solution en place, le travail continue : garantir la stabilité, corriger les éventuels problèmes, et faire évoluer le système selon les besoins futurs. Cette phase favorise la pérennité de la solution.",
-    steps: ["Mise en place du support technique (helpdesk, supervision)", "Maintenance corrective et préventive", "Suivi des indicateurs de performance", "Recueil des retours utilisateurs et implémentation d’évolutions."]
-  }];
+  const processes = [
+    {
+      id: 1,
+      title: "Compréhension des besoins",
+      description: `Cette première étape vise à établir une vision claire et partagée du projet.
+        Elle consiste à analyser l’environnement du client, comprendre ses enjeux métiers,
+        identifier ses objectifs et déterminer les contraintes techniques ou budgétaires.
+        L’objectif est de poser des bases solides pour une solution réellement adaptée.`,
+      steps: [
+        "Organisation de réunions d’échange avec les parties prenantes",
+        "Analyse de l’existant (infrastructure, logiciels, flux de travail)",
+        "Identification des points de douleur et des opportunités",
+        "Rédaction d’un cahier des charges fonctionnel et technique"
+      ]
+    },
+    {
+      id: 2,
+      title: "Conception de la solution",
+      description: `À partir des besoins identifiés, cette étape permet de concevoir l’architecture de la solution IT.
+        Elle comprend le choix des technologies, la définition des modules fonctionnels, ainsi que la planification
+        globale du projet. C’est ici que la solution prend forme sur le papier.`,
+      steps: [
+        "Élaboration de l’architecture logicielle et réseau",
+        "Sélection des outils, frameworks et plateformes adaptés",
+        "Modélisation des processus (diagrammes, maquettes, wireframes)",
+        "Construction du planning projet (jalons, livrables, ressources nécessaires)"
+      ]
+    },
+    {
+      id: 3,
+      title: "Développement & Intégration",
+      description: `L’étape de mise en œuvre technique où la solution est construite et intégrée à l’environnement IT existant.
+        Elle requiert des tests rigoureux, un contrôle qualité permanent, et une communication continue avec le client.`,
+      steps: [
+        "Développement des composants logiciels, API, bases de données",
+        "Configuration des serveurs, réseaux et environnements cloud",
+        "Intégration avec les systèmes internes ou tiers (ERP, CRM, etc.)",
+        "Réalisation des tests unitaires et tests d’intégration"
+      ]
+    },
+    {
+      id: 4,
+      title: "Déploiement & Mise en production",
+      description: `C’est le moment de rendre la solution pleinement opérationnelle. Elle est installée dans l’environnement final,
+        testée à grande échelle, et les utilisateurs sont accompagnés pour une adoption fluide.`,
+      steps: [
+        "Déploiement dans l’environnement de production",
+        "Exécution des tests de validation (charge, sécurité, stabilité)",
+        "Migration des données et synchronisation des systèmes",
+        "Formation des utilisateurs finaux et livraison de la documentation"
+      ]
+    },
+    {
+      id: 5,
+      title: "Support & Amélioration continue",
+      description: `Une fois la solution en place, le travail continue : garantir la stabilité, corriger les éventuels problèmes,
+        et faire évoluer le système selon les besoins futurs. Cette phase favorise la pérennité de la solution.`,
+      steps: [
+        "Mise en place du support technique (helpdesk, supervision)",
+        "Maintenance corrective et préventive",
+        "Suivi des indicateurs de performance",
+        "Recueil des retours utilisateurs et implémentation d’évolutions."
+      ]
+    }
+  ];
+
   useEffect(() => {
+    // Initialize processSectionsRef with nulls to match the length of `processes`
     processSectionsRef.current = processes.map((_, i) => processSectionsRef.current[i] || null);
   }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
@@ -55,37 +97,50 @@ const DevelopmentProcess = () => {
     }, {
       threshold: 0.1
     });
+
     if (processRef.current) {
       observer.observe(processRef.current);
     }
+
     return () => observer.disconnect();
   }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const viewportHeight = window.innerHeight;
       const viewportCenter = viewportHeight / 2;
       let closestSection = null;
       let closestDistance = Infinity;
+
       processSectionsRef.current.forEach((section, index) => {
         if (!section) return;
+
         const rect = section.getBoundingClientRect();
         const sectionCenter = rect.top + rect.height / 2;
         const distance = Math.abs(sectionCenter - viewportCenter);
+
         if (distance < closestDistance) {
           closestDistance = distance;
           closestSection = index;
         }
       });
+
       if (closestSection !== null) {
         setActiveProcess(closestSection + 1);
       }
     };
+
     window.addEventListener('scroll', handleScroll, {
       passive: true
     });
+    // Call once on mount to set initial active process
     setTimeout(handleScroll, 100);
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // developmentSteps is currently unused in this component based on the provided code.
+  // It could be used for an alternative display or removed if not needed.
   const developmentSteps = [{
     icon: <FileSearch className="h-6 w-6" />,
     title: "1. Discovery & Requirements",
@@ -115,8 +170,10 @@ const DevelopmentProcess = () => {
     title: "7. Continuous Improvement",
     description: "Post-launch analytics and feedback loops drive ongoing improvements, updates, and potential new features."
   }];
+
   const title = "Notre Processus de Déploiement Structuré | ZL Technologies";
-  const description = "Découvrez notre processus de développement IT structuré, de la compréhension des besoins au support continu, pour des solutions innovantes et efficaces.";
+  const description = `Découvrez notre processus de développement IT structuré, de la compréhension des besoins au support continu,
+    pour des solutions innovantes et efficaces.`;
   const keywords = ["processus de développement", "déploiement IT", "méthodologie", "gestion de projet", "ZL Technologies"];
 
   return (
@@ -237,7 +294,7 @@ const DevelopmentProcess = () => {
 };
 export default DevelopmentProcess;
 
-// Helper icon component for later
+// Helper icon component for later - currently unused
 const ArrowRight = ({
   className = "w-4 h-4"
 }: {
@@ -248,3 +305,4 @@ const ArrowRight = ({
     <path d="m12 5 7 7-7 7" />
   </svg>
 );
+

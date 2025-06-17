@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
 import { Badge } from "../../components/ui/badge";
-import { CalendarIcon, MapPin, Clock, Users, UserCircle, Search, Filter, AlertCircle, ArrowLeft } from "lucide-react";
+import { CalendarIcon, MapPin, Clock, Users, UserCircle, Search, Filter, AlertCircle, ArrowLeft, Loader2 } from "lucide-react"; // Importation de Loader2 pour le spinner
 import { Input } from "../../components/ui/input";
 import { motion, AnimatePresence } from "framer-motion";
 import PageLayout from '../../components/PageLayout';
@@ -17,14 +17,14 @@ const TelecomCalendar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   // State to keep track of the formation ID currently being enrolled
-  const [enrollingId, setEnrollingId] = useState<string | null>(null);
+  const [enrollingId, setEnrollingId] = useState(null);
   const { toast } = useToast();
 
   // Handle search debounce for better performance
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearchTerm(searchTerm);
-    }, 2000);
+    }, 500); // Délais réduit à 500ms pour une meilleure UX
 
     return () => clearTimeout(timer);
   }, [searchTerm]);
@@ -32,12 +32,14 @@ const TelecomCalendar = () => {
   // Fetch formations from the API
   // ASSUMPTION: The `useFormations` hook now provides an `isEnrolled` boolean
   // property on each `Formation` object, indicating if the current user is already enrolled.
+  // **MODIFICATION ICI : Ajout de `refetch` dans la déstructuration.**
   const {
     formations,
     loading,
     error,
     pagination,
-    goToPage
+    goToPage,
+    refetch // <--- Ajout de la fonction refetch
   } = useFormations({
     limit: 5,
     searchTerm: debouncedSearchTerm
@@ -49,7 +51,7 @@ const TelecomCalendar = () => {
    * during the enrollment process.
    * @param {string} formationId - The ID of the formation to enroll in.
    */
-  const handleEnrollment = async (formationId: string) => {
+  const handleEnrollment = async (formationId) => {
     // Set the enrolling ID to disable the specific course card and button
     setEnrollingId(formationId);
 
@@ -69,15 +71,16 @@ const TelecomCalendar = () => {
           toast({
             variant: "destructive",
             title: "Erreur d'authentification",
-            description: "Impossible de récupérer les informations d'authentification.",
+            description: "Impossible de récupérer les informations d'authentification. Veuillez vous reconnecter.",
           });
+          setEnrollingId(null); // Ensure enrollingId is reset on parse error
           return; // Exit if user data parsing fails
         }
       }
 
       console.log("Valeur de authToken avant la vérification:", authToken);
 
-      const headers: HeadersInit = {
+      const headers = {
         'Content-Type': 'application/json',
       };
 
@@ -89,6 +92,7 @@ const TelecomCalendar = () => {
           title: "Non autorisé.",
           description: "Votre session semble invalide. Veuillez vous reconnecter.",
         });
+        setEnrollingId(null); // Ensure enrollingId is reset if no auth token
         return; // Exit if no auth token
       }
 
@@ -106,8 +110,10 @@ const TelecomCalendar = () => {
           title: "Enrôlement réussi!",
           description: data.message || "Vous êtes maintenant enrôlé à cette formation.",
         });
-        // If your useFormations hook has a `mutate` function to refresh data, you can call it here
-        // mutate();
+        // **MODIFICATION ICI : Appel de refetch pour rafraîchir les données et l'état isEnrolled.**
+        if (refetch) {
+          refetch(); // Rafraîchit les données des formations pour que isEnrolled soit mis à jour
+        }
       } else {
         console.error('Erreur lors de l\'enrôlement:', data);
         toast({
@@ -226,20 +232,20 @@ const TelecomCalendar = () => {
               {loading ? (
                 <motion.div
                   key="loading-skeletons"
-                  initial={{ opacity: 0, y: 20 }} // Ajout de l'effet d'entrée
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }} // Ajout de l'effet de sortie
-                  transition={{ duration: 0.4 }} // Durée légèrement augmentée
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
                 >
                   {renderSkeletons()}
                 </motion.div>
               ) : error ? (
                 <motion.div
                   key="error-message"
-                  initial={{ opacity: 0, y: 20 }} // Ajout de l'effet d'entrée
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }} // Ajout de l'effet de sortie
-                  transition={{ duration: 0.4 }} // Durée légèrement augmentée
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
                   className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100 mb-8"
                 >
                   <AlertCircle className="h-12 w-12 mx-auto text-red-400 mb-3" />
@@ -256,10 +262,10 @@ const TelecomCalendar = () => {
               ) : formations?.length === 0 ? (
                 <motion.div
                   key="empty-state"
-                  initial={{ opacity: 0, y: 20 }} // Ajout de l'effet d'entrée
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }} // Ajout de l'effet de sortie
-                  transition={{ duration: 0.4 }} // Durée légèrement augmentée
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
                   className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100"
                 >
                   <Filter className="h-12 w-12 mx-auto text-gray-400 mb-3" />
@@ -269,9 +275,9 @@ const TelecomCalendar = () => {
               ) : (
                 <motion.div
                   key="formations-list"
-                  initial={{ opacity: 0, y: 20 }} // Ajout de l'effet d'entrée
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }} // Durée légèrement augmentée
+                  transition={{ duration: 0.6 }}
                   className="grid grid-cols-1 gap-8 mb-8"
                 >
                   {formations.map((course, index) => (
@@ -282,15 +288,18 @@ const TelecomCalendar = () => {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
                       {/* Apply opacity and disable pointer events if enrolling in this specific course or if already enrolled */}
-                      <Card className={`overflow-hidden hover:shadow-lg transition-shadow duration-300 border-0 shadow-md ${enrollingId === course._id || course.isEnrolled
-                        ? 'opacity-50 pointer-events-none' : ''}`}>
+                      <Card className={`overflow-hidden hover:shadow-lg transition-shadow duration-300 border-0 shadow-md ${enrollingId === course._id || course.isEnrolled ? 'opacity-50 pointer-events-none' : ''}`}>
                         <div className="grid md:grid-cols-3 gap-0">
                           {course.image && (
-                            <div className="relative h-full min-h-[200px] md:min-h-0 bg-gray-100">
+                            <div className="relative h-full min-h-[200px] md:min-h-0 bg-gray-100 flex items-center justify-center overflow-hidden">
                               <img
                                 src={course.image}
                                 alt={course.title}
                                 className="w-full h-full object-cover absolute inset-0"
+                                onError={(e) => {
+                                  e.currentTarget.onerror = null; // Prevent infinite loop
+                                  e.currentTarget.src = `https://placehold.co/300x200/e2e8f0/64748b?text=${course.title.split(' ').map(n => n[0]).join('')}`;
+                                }}
                               />
                               <div className="absolute top-4 left-4">
                                 <Badge className="bg-white/90 text-blue-600 hover:bg-white/80 backdrop-blur-sm font-medium px-3 py-1">
@@ -362,12 +371,15 @@ const TelecomCalendar = () => {
                                     onClick={() => handleEnrollment(course._id)}
                                     disabled={enrollingId === course._id || course.isEnrolled}
                                   >
-                                    <span className="relative z-10">
+                                    <span className="relative z-10 flex items-center justify-center">
+                                      {enrollingId === course._id && (
+                                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                      )}
                                       {enrollingId === course._id
                                         ? "Enrôlement..."
                                         : course.isEnrolled
                                           ? "Déjà enrôlé"
-                                          : "S'enroller"}
+                                          : "S'enrôler"}
                                     </span>
                                     <div className="absolute inset-0 bg-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                                   </Button>

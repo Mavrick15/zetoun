@@ -43,10 +43,11 @@ const Login = () => {
     setError(null);
 
     try {
-      // Simuler un délai de 3 secondes
+      // Simuler un délai de 3 secondes pour l'expérience utilisateur
       await new Promise(resolve => setTimeout(resolve, 3000));
 
-      // API endpoint for authentication, updated to use port 5010
+      // API endpoint for authentication.
+      // IMPORTANT: Replace this placeholder IP with your actual backend endpoint.
       const apiUrl = "http://10.0.0.2:5010/api/auth/login";
 
       // Make the API call
@@ -62,6 +63,7 @@ const Login = () => {
       if (response.ok) {
         const data = await response.json();
         // Assuming the API returns a user object with an isAuthenticated field
+        // For production, consider more secure storage like HttpOnly cookies for tokens.
         localStorage.setItem('user', JSON.stringify({
           email: values.email,
           isAuthenticated: true, // Or use data.isAuthenticated if provided by API
@@ -73,7 +75,7 @@ const Login = () => {
           description: "Vous êtes maintenant connecté à votre compte.",
         });
 
-        // Redirect to telecom-calendar page
+        // Redirect to telecom-calendar page upon successful login
         navigate('/add/telecom-calendar');
       } else {
         // Handle API errors (e.g., invalid credentials, server errors)

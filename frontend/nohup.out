@@ -201,3 +201,142 @@ Error processing file src/App.tsx: SyntaxError: Identifier 'TechnicalSupport' ha
 09:47:10 [vite] hmr update /src/App.tsx, /src/index.css
 09:48:12 [vite] hmr update /src/pages/services/SolarInstallation.tsx, /src/index.css
 09:48:15 [vite] hmr update /src/App.tsx, /src/index.css
+
+> vite_react_shadcn_ts@0.0.0 dev
+> vite
+
+
+  VITE v5.4.10  ready in 230 ms
+
+  ➜  Local:   http://localhost:8080/
+  ➜  Network: http://10.0.0.2:8080/
+
+> vite_react_shadcn_ts@0.0.0 dev
+> vite
+
+
+  VITE v5.4.10  ready in 372 ms
+
+  ➜  Local:   http://localhost:8080/
+  ➜  Network: http://10.0.0.2:8080/
+15:43:01 [vite] hmr update /src/pages/Index.tsx, /src/index.css
+15:43:42 [vite] hmr update /src/pages/Index.tsx, /src/index.css
+Error processing file src/pages/Index.tsx: SyntaxError: Unterminated JSX contents. (46:17)
+    at constructor (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:362:19)
+    at TypeScriptParserMixin.raise (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:3259:19)
+    at TypeScriptParserMixin.jsxReadToken (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:6495:20)
+    at TypeScriptParserMixin.getTokenFromCode (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:6821:12)
+    at TypeScriptParserMixin.getTokenFromCode (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:9634:11)
+    at TypeScriptParserMixin.nextToken (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:2443:10)
+    at TypeScriptParserMixin.next (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:2356:10)
+    at TypeScriptParserMixin.eat (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:2360:12)
+    at TypeScriptParserMixin.expect (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:3588:15)
+    at TypeScriptParserMixin.jsxParseClosingElementAt (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:6727:10) {
+  code: 'BABEL_PARSER_SYNTAX_ERROR',
+  reasonCode: 'UnterminatedJsxContent',
+  loc: Position { line: 46, column: 17, index: 1572 },
+  pos: 1572,
+  syntaxPlugin: 'jsx'
+}
+15:43:42 [vite] Internal server error:   [31mx[0m Unexpected token `PageLayout`. Expected jsx identifier
+    ,-[[36;1;4m/home/rva/Zetoun/frontend/src/pages/Index.tsx[0m:29:1]
+ [2m26[0m |   };
+ [2m27[0m | 
+ [2m28[0m |   return (
+ [2m29[0m |     <PageLayout>
+    : [35;1m     ^^^^^^^^^^[0m
+ [2m30[0m |       <SEO
+ [2m31[0m |         title="ZL - IT Services & Training"
+ [2m32[0m |         description="Zetoun Labs: Pioneering smart engineering solutions with textile sensors for sports, safety, and performance monitoring."
+    `----
+
+
+Caused by:
+    Syntax Error
+  Plugin: vite:react-swc
+  File: /home/rva/Zetoun/frontend/src/pages/Index.tsx
+  
+15:56:02 [vite] hmr update /src/pages/Index.tsx, /src/index.css
+15:56:10 [vite] hmr update /src/App.tsx, /src/index.css
+16:02:41 [vite] hmr update /src/App.tsx, /src/index.css
+16:03:10 [vite] page reload src/App.tsx
+16:04:08 [vite] hmr update /src/pages/About.tsx, /src/index.css
+16:08:10 [vite] hmr update /src/pages/About.tsx, /src/index.css
+16:13:27 [vite] hmr update /src/App.tsx, /src/index.css
+16:14:04 [vite] page reload src/App.tsx
+16:18:33 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+16:18:39 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+16:23:47 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+16:23:49 [vite] hmr update /src/App.tsx, /src/index.css
+16:34:52 [vite] hmr update /src/pages/add/TelecomOpinion.tsx, /src/index.css
+16:34:57 [vite] hmr update /src/pages/add/TelecomOpinion.tsx, /src/index.css
+16:42:49 [vite] hmr update /src/pages/formations/ComputerMaintenance.tsx, /src/index.css
+16:42:53 [vite] hmr update /src/pages/formations/ComputerMaintenance.tsx, /src/index.css
+16:43:36 [vite] hmr update /src/pages/formations/ComputerMaintenance.tsx, /src/index.css
+16:45:41 [vite] hmr update /src/pages/formations/LinuxAdministration.tsx, /src/index.css
+16:45:47 [vite] hmr update /src/App.tsx, /src/index.css
+16:45:59 [vite] hmr update /src/App.tsx, /src/index.css
+16:50:06 [vite] hmr update /src/App.tsx, /src/index.css
+16:50:09 [vite] hmr update /src/App.tsx, /src/index.css
+16:50:23 [vite] hmr update /src/App.tsx, /src/index.css
+16:52:19 [vite] hmr update /src/App.tsx, /src/index.css
+16:52:31 [vite] hmr update /src/App.tsx, /src/index.css
+16:52:54 [vite] hmr update /src/App.tsx, /src/index.css
+16:53:02 [vite] hmr update /src/App.tsx, /src/index.css
+16:53:12 [vite] hmr update /src/App.tsx, /src/index.css
+16:53:30 [vite] hmr update /src/pages/formations/NetworkAdministration.tsx, /src/index.css
+16:53:38 [vite] hmr update /src/pages/formations/NetworkAdministration.tsx, /src/index.css
+16:53:41 [vite] hmr update /src/pages/formations/NetworkAdministration.tsx, /src/index.css
+16:55:22 [vite] hmr update /src/pages/formations/VirtualizationTraining.tsx, /src/index.css
+16:55:28 [vite] hmr update /src/pages/formations/VirtualizationTraining.tsx, /src/index.css
+16:55:52 [vite] hmr update /src/pages/formations/VirtualizationTraining.tsx, /src/index.css
+16:56:59 [vite] hmr update /src/pages/formations/WindowsAdministration.tsx, /src/index.css
+16:57:03 [vite] hmr update /src/pages/formations/WindowsAdministration.tsx, /src/index.css
+17:03:24 [vite] hmr update /src/pages/services/ITManagement.tsx, /src/index.css
+17:03:30 [vite] hmr update /src/pages/services/ITManagement.tsx, /src/index.css
+17:05:33 [vite] hmr update /src/pages/services/NetworkEngineering.tsx, /src/index.css
+17:05:38 [vite] hmr update /src/App.tsx, /src/index.css
+17:05:46 [vite] hmr update /src/App.tsx, /src/index.css
+17:06:45 [vite] hmr update /src/pages/services/SolarInstallation.tsx, /src/index.css
+17:07:18 [vite] hmr update /src/App.tsx, /src/index.css
+17:09:31 [vite] hmr update /src/pages/services/TechnicalSupport.tsx, /src/index.css
+17:09:36 [vite] hmr update /src/pages/services/TechnicalSupport.tsx, /src/index.css
+17:10:53 [vite] hmr update /src/pages/services/VideoSurveillance.tsx, /src/index.css
+17:10:57 [vite] hmr update /src/pages/services/VideoSurveillance.tsx, /src/index.css
+17:12:25 [vite] hmr update /src/pages/services/WebDevelopment.tsx, /src/index.css
+17:12:28 [vite] hmr update /src/pages/services/WebDevelopment.tsx, /src/index.css
+17:14:44 [vite] page reload src/pages/ContactInfo.tsx
+17:14:46 [vite] page reload src/pages/ContactInfo.tsx
+17:16:44 [vite] hmr update /src/pages/DevelopmentProcess.tsx, /src/index.css
+17:16:49 [vite] hmr update /src/pages/DevelopmentProcess.tsx, /src/index.css
+17:18:59 [vite] hmr update /src/pages/FireCatProject.tsx, /src/index.css
+17:19:02 [vite] hmr update /src/pages/FireCatProject.tsx, /src/index.css
+17:20:16 [vite] hmr update /src/pages/SportRetailProject.tsx, /src/index.css
+17:20:30 [vite] hmr update /src/pages/SportRetailProject.tsx, /src/index.css
+17:21:01 [vite] hmr update /src/pages/Login.tsx, /src/index.css
+17:21:40 [vite] hmr update /src/pages/Login.tsx, /src/index.css
+17:24:40 [vite] hmr update /src/pages/Login.tsx, /src/index.css
+17:25:49 [vite] hmr update /src/pages/SignUp.tsx, /src/index.css
+17:25:52 [vite] hmr update /src/App.tsx, /src/index.css
+17:27:18 [vite] hmr update /src/pages/NotFound.tsx, /src/index.css
+17:27:23 [vite] hmr update /src/pages/NotFound.tsx, /src/index.css
+17:28:47 [vite] hmr update /src/pages/PrivacyPolicy.tsx, /src/index.css
+17:28:50 [vite] hmr update /src/pages/PrivacyPolicy.tsx, /src/index.css
+17:30:00 [vite] hmr update /src/components/Navbar.tsx, /src/index.css
+17:30:47 [vite] hmr update /src/components/PageLayout.tsx, /src/index.css
+17:32:08 [vite] hmr update /src/components/Hero.tsx, /src/index.css
+17:34:00 [vite] hmr update /src/components/Hero.tsx, /src/index.css
+17:35:56 [vite] hmr update /src/components/Footer.tsx, /src/index.css
+17:35:59 [vite] hmr update /src/components/PageLayout.tsx, /src/index.css
+17:37:12 [vite] hmr update /src/components/ProtectedRoute.tsx, /src/index.css
+17:37:15 [vite] hmr update /src/components/ProtectedRoute.tsx, /src/index.css
+17:37:59 [vite] hmr update /src/components/BlogPostCard.tsx, /src/index.css
+17:38:14 [vite] hmr update /src/pages/Blog.tsx, /src/index.css, /src/components/BlogPreview.tsx
+17:38:59 [vite] page reload src/components/BlogPost.tsx
+17:39:18 [vite] page reload src/components/BlogPost.tsx
+17:40:05 [vite] hmr update /src/components/BlogPreview.tsx, /src/index.css
+17:40:17 [vite] hmr update /src/pages/Index.tsx, /src/index.css
+17:42:01 [vite] hmr update /src/components/SEO.tsx, /src/index.css
+17:42:06 [vite] hmr update /src/pages/Index.tsx, /src/index.css, /src/pages/SportRetailProject.tsx, /src/pages/DevelopmentProcess.tsx, /src/pages/FireCatProject.tsx, /src/pages/Blog.tsx, /src/pages/BlogPostDetail.tsx, /src/pages/About.tsx, /src/pages/PrivacyPolicy.tsx, /src/pages/services/WebDevelopment.tsx, /src/pages/services/ITManagement.tsx, /src/App.tsx, /src/pages/services/VideoSurveillance.tsx, /src/pages/services/TechnicalSupport.tsx, /src/pages/services/SolarInstallation.tsx, /src/pages/formations/ComputerMaintenance.tsx, /src/pages/formations/WindowsAdministration.tsx, /src/pages/add/TelecomOpinion.tsx, /src/pages/add/TelecomCalendar.tsx, /src/pages/formations/NetworkAdministration.tsx, /src/pages/formations/VirtualizationTraining.tsx, /src/pages/SignUp.tsx, /src/pages/Login.tsx, /src/components/ProjectPageLayout.tsx
+17:43:18 [vite] hmr update /src/components/UserMenu.tsx, /src/index.css
+17:43:22 [vite] hmr update /src/components/Navbar.tsx, /src/index.css

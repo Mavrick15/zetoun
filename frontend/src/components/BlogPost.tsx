@@ -1,7 +1,7 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
+import React from 'react'; // Explicitly import React
 
 interface BlogPostProps {
   title: string;
@@ -16,7 +16,7 @@ const BlogPost = ({
   title, 
   content, 
   date = new Date(), 
-  author = "WRLDS Technologies", 
+  author = "Zetoun Labs", // Corrected author name for consistency
   category = "Actualités", 
   imageUrl 
 }: BlogPostProps) => {
@@ -26,6 +26,12 @@ const BlogPost = ({
         <div 
           className="w-full h-64 bg-cover bg-center"
           style={{ backgroundImage: `url(${imageUrl})` }}
+          onError={(e) => {
+            // Fallback to a placeholder if the image fails to load
+            e.currentTarget.onerror = null; // Prevents infinite loops if placeholder also fails
+            e.currentTarget.style.backgroundImage = `url('https://placehold.co/800x256/cccccc/333333?text=Article+Image')`;
+            e.currentTarget.title = `Image de remplacement pour l'article: ${title}`;
+          }}
         />
       )}
       <CardHeader className="pb-2">
@@ -40,11 +46,14 @@ const BlogPost = ({
             <span className="ml-1">{author}</span>
           </div>
         </div>
-        <CardTitle className="text-2xl font-bold">{title}</CardTitle>
+        <CardTitle className="text-2xl font-bold">
+          {title}
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="prose max-w-none">
           {content.split('\n').map((paragraph, index) => (
+            // Render paragraph if not empty, otherwise a line break
             paragraph ? <p key={index} className="mb-4 text-gray-700">{paragraph}</p> : <br key={index} />
           ))}
         </div>
@@ -54,3 +63,4 @@ const BlogPost = ({
 };
 
 export default BlogPost;
+

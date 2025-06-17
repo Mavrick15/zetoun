@@ -1,11 +1,12 @@
 import PageLayout from '@/components/PageLayout';
-import { ArrowLeft, Router } from 'lucide-react';
+import { ArrowLeft, Router, Monitor, Shield, Settings, Database, Layers, Network, Computer, Wifi, Globe, Lock, Server, Box, Terminal, Code } from 'lucide-react'; // Importation de tous les icônes potentiellement nécessaires
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { useEffect } from 'react';
 import SEO from '@/components/SEO'; // Assurez-vous que le chemin est correct
 
 const NetworkEngineering = () => {
+  // Fait défiler la page vers le haut au montage du composant
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -16,7 +17,8 @@ const NetworkEngineering = () => {
         {/* Composant SEO avec les balises méta optimisées */}
         <SEO
           title="Ingénierie Réseau | Conception & Installation - Zetoun Labs"
-          description="Optimisez votre infrastructure avec l'ingénierie réseau de Zetoun Labs à Kinshasa : conception LAN/WAN, câblage structuré, configuration d'équipements Cisco et sécurité réseau."
+          description="Optimisez votre infrastructure avec l'ingénierie réseau de Zetoun Labs à Kinshasa :
+          conception LAN/WAN, câblage structuré, configuration d'équipements Cisco et sécurité réseau."
           keywords={[
             'ingénierie réseau',
             'conception réseau',
@@ -61,7 +63,8 @@ const NetworkEngineering = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-xl text-gray-600 mb-8"
               >
-                Zetoun Labs est votre expert en ingénierie réseau à Kinshasa, spécialisé dans la conception et la mise en place d'infrastructures réseau performantes, sécurisées et évolutives.
+                Zetoun Labs est votre expert en ingénierie réseau à Kinshasa, spécialisé dans la conception et la mise en
+                place d'infrastructures réseau performantes, sécurisées et évolutives.
               </motion.p>
 
               <motion.div
@@ -74,6 +77,11 @@ const NetworkEngineering = () => {
                   src="../lovable-uploads/services/11.jpg"
                   alt="Infrastructure réseau moderne et performante installée par Zetoun Labs" // Description alt plus spécifique
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Réseau+Moderne";
+                    e.currentTarget.alt = "Image de remplacement pour l'ingénierie réseau";
+                  }}
                 />
               </motion.div>
 
@@ -90,42 +98,53 @@ const NetworkEngineering = () => {
                       <span className="text-blue-500 font-bold mr-3 text-xl">•</span>
                       <div>
                         <span className="font-medium">Conception d'architectures LAN/WAN évolutives</span>
-                        <p className="text-gray-600 text-base mt-1">Optimisées pour répondre aux besoins actuels et futurs de votre entreprise à Kinshasa.</p>
+                        <p className="text-gray-600 text-base mt-1">Optimisées pour répondre aux besoins actuels et
+                          futurs de votre entreprise à Kinshasa.</p>
                       </div>
                     </li>
                     <li className="flex items-start hover:-translate-y-1 transition-transform duration-300">
                       <span className="text-blue-500 font-bold mr-3 text-xl">•</span>
                       <div>
                         <span className="font-medium">Installation de câblage structuré professionnel</span>
-                        <p className="text-gray-600 text-base mt-1">Fibre optique, cuivre catégorie 6A/7, certifications et tests de performance fiables.</p>
+                        <p className="text-gray-600 text-base mt-1">Fibre optique, cuivre catégorie 6A/7,
+                          certifications et tests de performance fiables.</p>
                       </div>
                     </li>
                     <li className="flex items-start hover:-translate-y-1 transition-transform duration-300">
                       <span className="text-blue-500 font-bold mr-3 text-xl">•</span>
                       <div>
                         <span className="font-medium">Configuration de routeurs et switches managés</span>
-                        <p className="text-gray-600 text-base mt-1">Équipements de grade professionnel pour une performance et une fiabilité inégalées.</p>
+                        <p className="text-gray-600 text-base mt-1">Équipements de grade professionnel pour une
+                          performance et une fiabilité inégalées.</p>
                       </div>
                     </li>
                     <li className="flex items-start hover:-translate-y-1 transition-transform duration-300">
                       <span className="text-blue-500 font-bold mr-3 text-xl">•</span>
                       <div>
                         <span className="font-medium">Mise en place de solutions Wi-Fi haute densité</span>
-                        <p className="text-gray-600 text-base mt-1">Couverture optimale et gestion centralisée pour grandes surfaces et environnements exigeants.</p>
+                        <p className="text-gray-600 text-base mt-1">Couverture optimale et gestion centralisée pour
+                          grandes surfaces et environnements exigeants.</p>
                       </div>
                     </li>
                     <li className="flex items-start hover:-translate-y-1 transition-transform duration-300">
                       <span className="text-blue-500 font-bold mr-3 text-xl">•</span>
                       <div>
                         <span className="font-medium">Sécurisation de l'infrastructure réseau</span>
-                        <p className="text-gray-600 text-base mt-1">Déploiement de firewalls nouvelle génération, segmentation réseau et détection d'intrusion avancée. Découvrez aussi nos services de <Link to="/services/video-surveillance" className="text-blue-600 hover:underline font-semibold">vidéosurveillance et sécurité</Link>.</p> {/* Lien interne ajouté */}
+                        <p className="text-gray-600 text-base mt-1">Déploiement de firewalls nouvelle génération,
+                          segmentation réseau et détection d'intrusion avancée. Découvrez aussi nos services de
+                          <Link to="/services/video-surveillance" className="text-blue-600 hover:underline font-semibold">vidéosurveillance et sécurité</Link>.
+                        </p>
                       </div>
                     </li>
                     <li className="flex items-start hover:-translate-y-1 transition-transform duration-300">
                       <span className="text-blue-500 font-bold mr-3 text-xl">•</span>
                       <div>
                         <span className="font-medium">Documentation technique détaillée et formation</span> {/* Ajout de "et formation" */}
-                        <p className="text-gray-600 text-base mt-1">Schémas, rapports complets et documentation pour une maintenance facilitée. Pensez également à notre <Link to="/formations/network-administration" className="text-blue-600 hover:underline font-semibold">formation en administration réseau</Link> pour vos équipes.</p> {/* Lien interne ajouté */}
+                        <p className="text-gray-600 text-base mt-1">Schémas, rapports complets et documentation pour une
+                          maintenance facilitée. Pensez également à notre
+                          <Link to="/formations/network-administration" className="text-blue-600 hover:underline font-semibold">formation en administration réseau</Link>
+                          pour vos équipes.
+                        </p>
                       </div>
                     </li>
                   </ul>
@@ -140,10 +159,13 @@ const NetworkEngineering = () => {
                   <div className="bg-blue-50 p-8 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
                     <h2 className="text-2xl font-semibold mb-4 text-blue-700">Notre approche personnalisée</h2>
                     <p className="text-gray-700 mb-4">
-                      Chaque entreprise a des besoins spécifiques en matière de réseau. Notre équipe d'experts analyse vos exigences pour concevoir une infrastructure sur mesure qui répond à vos besoins actuels tout en anticipant votre croissance future.
+                      Chaque entreprise a des besoins spécifiques en matière de réseau. Notre équipe d'experts
+                      analyse vos exigences pour concevoir une infrastructure sur mesure qui répond à vos besoins
+                      actuels tout en anticipant votre croissance future.
                     </p>
                     <p className="text-gray-700">
-                      Nous privilégions la qualité des composants, la rigueur de l'installation et la documentation complète pour garantir la fiabilité et la pérennité de votre réseau.
+                      Nous privilégions la qualité des composants, la rigueur de l'installation et la documentation
+                      complète pour garantir la fiabilité et la pérennité de votre réseau.
                     </p>
                   </div>
 
@@ -157,6 +179,11 @@ const NetworkEngineering = () => {
                       src="../lovable-uploads/services/reseau.webp"
                       alt="Technicien configurant du matériel réseau Cisco" // Description alt plus spécifique
                       className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Technicien+Réseau";
+                        e.currentTarget.alt = "Image de remplacement pour la configuration réseau";
+                      }}
                     />
                   </motion.div>
                 </motion.div>
@@ -173,6 +200,11 @@ const NetworkEngineering = () => {
                     src="../lovable-uploads/services/2.avif"
                     alt="Centre de données moderne avec serveurs réseau" // Description alt plus spécifique
                     className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Centre+Données";
+                      e.currentTarget.alt = "Image de remplacement pour le centre de données";
+                    }}
                   />
                   <div className="p-4">
                     <h3 className="text-lg font-medium text-blue-700">Infrastructure évolutive</h3>
@@ -190,6 +222,11 @@ const NetworkEngineering = () => {
                     src="../lovable-uploads/services/1.avif"
                     alt="Câblage réseau structuré dans un rack informatique" // Description alt plus spécifique
                     className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Câblage+Réseau";
+                      e.currentTarget.alt = "Image de remplacement pour le câblage réseau";
+                    }}
                   />
                   <div className="p-4">
                     <h3 className="text-lg font-medium text-blue-700">Performance optimale</h3>
@@ -207,6 +244,11 @@ const NetworkEngineering = () => {
                     src="../lovable-uploads/services/3.avif"
                     alt="Firewall protégeant un réseau d'entreprise contre les menaces" // Description alt plus spécifique
                     className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Sécurité+Réseau";
+                      e.currentTarget.alt = "Image de remplacement pour le firewall réseau";
+                    }}
                   />
                   <div className="p-4">
                     <h3 className="text-lg font-medium text-blue-700">Sécurité intégrée</h3>
@@ -223,7 +265,9 @@ const NetworkEngineering = () => {
               >
                 <h3 className="text-xl font-semibold mb-4 text-blue-700">Un réseau adapté à vos enjeux</h3>
                 <p className="text-gray-700 mb-6">
-                  Que vous soyez une PME en pleine croissance ou une grande entreprise avec des besoins complexes, nous concevons des architectures réseau qui s'adaptent à vos contraintes techniques et budgétaires. Notre objectif est de vous offrir une infrastructure fiable, performante et évolutive à Kinshasa.
+                  Que vous soyez une PME en pleine croissance ou une grande entreprise avec des besoins complexes,
+                  nous concevons des architectures réseau qui s'adaptent à vos contraintes techniques et budgétaires.
+                  Notre objectif est de vous offrir une infrastructure fiable, performante et évolutive à Kinshasa.
                 </p>
 
                 <div className="bg-blue-500 text-white p-6 rounded-lg hover:bg-blue-600 transition-colors">
@@ -241,3 +285,4 @@ const NetworkEngineering = () => {
 };
 
 export default NetworkEngineering;
+

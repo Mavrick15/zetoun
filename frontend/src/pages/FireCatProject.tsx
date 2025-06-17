@@ -24,11 +24,17 @@ const FireCatProject = () => {
       imageUrl="/lovable-uploads/img/police.jpg" // Image principale du layout
       brandName="Zetoun Labs"
       darkMode={true}
+      imageOnError={(e) => { // Passer la prop onError au ProjectPageLayout si supporté
+        e.currentTarget.onerror = null;
+        e.currentTarget.src = "https://placehold.co/1200x600/e0e0e0/6a6a6a?text=Police+Judiciaire"; // [Image of Police Judiciaire]
+        e.currentTarget.alt = "Image de remplacement pour l'infrastructure IT de la Police judiciaire";
+      }}
     >
       {/* Composant SEO pour une meilleure visibilité */}
       <SEO
         title="Étude de Cas : Infrastructure IT Police Judiciaire | Zetoun Labs Kinshasa"
-        description="Découvrez comment Zetoun Labs a modernisé l'infrastructure réseau de la Police judiciaire à Kinshasa, améliorant performances, sécurité et disponibilité des services IT."
+        description="Découvrez comment Zetoun Labs a modernisé l'infrastructure réseau de la Police judiciaire à Kinshasa,
+          améliorant performances, sécurité et disponibilité des services IT."
         keywords={[
           'infrastructure IT',
           'réhabilitation réseau',
@@ -53,8 +59,9 @@ const FireCatProject = () => {
         <h3 className="text-xl font-semibold mb-2">Contexte</h3>
         <p>
           L’infrastructure réseau de la Police judiciaire était devenue obsolète et dysfonctionnelle depuis un certain temps,
-          compromettant gravement la qualité et l’efficacité des services administratifs. Le réseau souffrait de performances médiocres,
-          de limitations en termes de capacité et de fiabilité, ainsi que d’une sécurité défaillante, exposant ainsi les systèmes à des menaces importantes.
+          compromettant gravement la qualité et l’efficacité des services administratifs. Le réseau souffrait de performances
+          médiocres, de limitations en termes de capacité et de fiabilité, ainsi que d’une sécurité défaillante,
+          exposant ainsi les systèmes à des menaces importantes.
         </p>
       </motion.div>
 
@@ -88,8 +95,8 @@ const FireCatProject = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        Notre équipe a conçu et déployé une infrastructure réseau moderne, sécurisée et redondante intégrant des équipements de dernière génération.
-        Les actions clés incluent :
+        Notre équipe a conçu et déployé une infrastructure réseau moderne, sécurisée et redondante intégrant des équipements de
+        dernière génération. Les actions clés incluent :
       </motion.p>
 
       <motion.div
@@ -203,10 +210,10 @@ const FireCatProject = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.7 }}
       >
-        La réhabilitation du réseau informatique du commissariat avait permis d’atteindre un niveau de performance et de fiabilité nettement supérieur.
-        Grâce à une infrastructure modernisée, sécurisée et évolutive, le commissariat avait disposé d’un environnement numérique stable,
-        capable de soutenir efficacement ses missions critiques, avec une réduction notable des interruptions de service et une meilleure gestion
-        des flux d’informations sensibles.
+        La réhabilitation du réseau informatique du commissariat avait permis d’atteindre un niveau de performance et de fiabilité
+        nettement supérieur. Grâce à une infrastructure modernisée, sécurisée et évolutive, le commissariat avait disposé d’un
+        environnement numérique stable, capable de soutenir efficacement ses missions critiques, avec une réduction notable des
+        interruptions de service et une meilleure gestion des flux d’informations sensibles.
       </motion.p>
     </ProjectPageLayout>
   );

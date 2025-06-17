@@ -221,3 +221,93 @@ Server running on port 5010
 [2025-06-17T08:22:59.443Z] INFO: Récupération de toutes les formations
 [2025-06-17T08:23:10.153Z] INFO: Récupération de toutes les formations
 [2025-06-17T08:23:27.289Z] INFO: Récupération de toutes les formations
+URI: mongodb://zetoun:zetounlabs@10.0.0.2:27017/zetoundb
+[2025-06-17T14:26:29.850Z] INFO: Server running on port 5010
+Server running on port 5010
+✅ MongoDB Connected: 10.0.0.2
+URI: mongodb://zetoun:zetounlabs@10.0.0.2:27017/zetoundb
+[2025-06-17T14:39:24.096Z] INFO: Server running on port 5010
+Server running on port 5010
+✅ MongoDB Connected: 10.0.0.2
+[2025-06-17T15:18:50.270Z] INFO: Récupération de toutes les formations
+[2025-06-17T15:18:56.659Z] INFO: Tentative d'enrôlement pour la formation ID: 68508f10af77dddfecb16e8d
+[2025-06-17T15:18:56.659Z] INFO: Token reçu: Présent
+[2025-06-17T15:18:56.661Z] INFO: Token décodé avec succès. ID utilisateur du token: 684f11784708ceccefed070a
+[2025-06-17T15:18:56.661Z] INFO: Utilisateur authentifié (ID: 684f11784708ceccefed070a) tente de s'enrôler.
+[2025-06-17T15:18:56.669Z] INFO: Utilisateur trouvé: Benjamin@gmail.com, Formation trouvée: Réseaux d'entreprise : Conception et Déploiement
+[2025-06-17T15:18:56.672Z] INFO: Aucune inscription existante trouvée pour l'utilisateur 684f11784708ceccefed070a et la formation 68508f10af77dddfecb16e8d.
+[2025-06-17T15:18:56.682Z] INFO: Nouvel enrôlement créé: 685187609d1c0589e3059831
+[2025-06-17T15:18:56.685Z] INFO: Nombre de places mis à jour pour la formation 68508f10af77dddfecb16e8d. Nouvelles places: 9
+[2025-06-17T15:18:56.685Z] INFO: Utilisateur 684f11784708ceccefed070a enrôlé à la formation Réseaux d'entreprise : Conception et Déploiement (ID: 68508f10af77dddfecb16e8d), inscription ID: 685187609d1c0589e3059831
+[2025-06-17T15:19:05.903Z] INFO: Tentative d'enrôlement pour la formation ID: 68508f10af77dddfecb16e8d
+[2025-06-17T15:19:05.903Z] INFO: Token reçu: Présent
+[2025-06-17T15:19:05.904Z] INFO: Token décodé avec succès. ID utilisateur du token: 684f11784708ceccefed070a
+[2025-06-17T15:19:05.904Z] INFO: Utilisateur authentifié (ID: 684f11784708ceccefed070a) tente de s'enrôler.
+[2025-06-17T15:19:05.909Z] INFO: Utilisateur trouvé: Benjamin@gmail.com, Formation trouvée: Réseaux d'entreprise : Conception et Déploiement
+[2025-06-17T15:19:05.911Z] WARN: Utilisateur 684f11784708ceccefed070a déjà inscrit à la formation 68508f10af77dddfecb16e8d.
+[2025-06-17T15:19:12.119Z] INFO: Tentative d'enrôlement pour la formation ID: 68508f10af77dddfecb16e80
+[2025-06-17T15:19:12.119Z] INFO: Token reçu: Présent
+[2025-06-17T15:19:12.120Z] INFO: Token décodé avec succès. ID utilisateur du token: 684f11784708ceccefed070a
+[2025-06-17T15:19:12.120Z] INFO: Utilisateur authentifié (ID: 684f11784708ceccefed070a) tente de s'enrôler.
+[2025-06-17T15:19:12.124Z] INFO: Utilisateur trouvé: Benjamin@gmail.com, Formation trouvée: Routage et Switching CISCO
+[2025-06-17T15:19:12.125Z] INFO: Aucune inscription existante trouvée pour l'utilisateur 684f11784708ceccefed070a et la formation 68508f10af77dddfecb16e80.
+[2025-06-17T15:19:12.127Z] INFO: Nouvel enrôlement créé: 685187709d1c0589e305983a
+[2025-06-17T15:19:12.130Z] INFO: Nombre de places mis à jour pour la formation 68508f10af77dddfecb16e80. Nouvelles places: 9
+[2025-06-17T15:19:12.130Z] INFO: Utilisateur 684f11784708ceccefed070a enrôlé à la formation Routage et Switching CISCO (ID: 68508f10af77dddfecb16e80), inscription ID: 685187709d1c0589e305983a
+[2025-06-17T15:19:17.522Z] INFO: Tentative d'enrôlement pour la formation ID: 68508f10af77dddfecb16e95
+[2025-06-17T15:19:17.522Z] INFO: Token reçu: Présent
+[2025-06-17T15:19:17.523Z] INFO: Token décodé avec succès. ID utilisateur du token: 684f11784708ceccefed070a
+[2025-06-17T15:19:17.523Z] INFO: Utilisateur authentifié (ID: 684f11784708ceccefed070a) tente de s'enrôler.
+[2025-06-17T15:19:17.527Z] INFO: Utilisateur trouvé: Benjamin@gmail.com, Formation trouvée: Audit de sécurité des systèmes d'information
+[2025-06-17T15:19:17.529Z] INFO: Aucune inscription existante trouvée pour l'utilisateur 684f11784708ceccefed070a et la formation 68508f10af77dddfecb16e95.
+[2025-06-17T15:19:17.531Z] INFO: Nouvel enrôlement créé: 685187759d1c0589e3059840
+[2025-06-17T15:19:17.533Z] INFO: Nombre de places mis à jour pour la formation 68508f10af77dddfecb16e95. Nouvelles places: 7
+[2025-06-17T15:19:17.533Z] INFO: Utilisateur 684f11784708ceccefed070a enrôlé à la formation Audit de sécurité des systèmes d'information (ID: 68508f10af77dddfecb16e95), inscription ID: 685187759d1c0589e3059840
+[2025-06-17T15:19:22.922Z] INFO: Tentative d'enrôlement pour la formation ID: 68508f10af77dddfecb16e95
+[2025-06-17T15:19:22.922Z] INFO: Token reçu: Présent
+[2025-06-17T15:19:22.923Z] INFO: Token décodé avec succès. ID utilisateur du token: 684f11784708ceccefed070a
+[2025-06-17T15:19:22.923Z] INFO: Utilisateur authentifié (ID: 684f11784708ceccefed070a) tente de s'enrôler.
+[2025-06-17T15:19:22.927Z] INFO: Utilisateur trouvé: Benjamin@gmail.com, Formation trouvée: Audit de sécurité des systèmes d'information
+[2025-06-17T15:19:22.929Z] WARN: Utilisateur 684f11784708ceccefed070a déjà inscrit à la formation 68508f10af77dddfecb16e95.
+[2025-06-17T15:19:28.306Z] INFO: Tentative d'enrôlement pour la formation ID: 68508f10af77dddfecb16e93
+[2025-06-17T15:19:28.306Z] INFO: Token reçu: Présent
+[2025-06-17T15:19:28.307Z] INFO: Token décodé avec succès. ID utilisateur du token: 684f11784708ceccefed070a
+[2025-06-17T15:19:28.307Z] INFO: Utilisateur authentifié (ID: 684f11784708ceccefed070a) tente de s'enrôler.
+[2025-06-17T15:19:28.311Z] INFO: Utilisateur trouvé: Benjamin@gmail.com, Formation trouvée: Réseaux sans fil : Wi-Fi 6 et au-delà
+[2025-06-17T15:19:28.313Z] INFO: Aucune inscription existante trouvée pour l'utilisateur 684f11784708ceccefed070a et la formation 68508f10af77dddfecb16e93.
+[2025-06-17T15:19:28.316Z] INFO: Nouvel enrôlement créé: 685187809d1c0589e3059849
+[2025-06-17T15:19:28.317Z] INFO: Nombre de places mis à jour pour la formation 68508f10af77dddfecb16e93. Nouvelles places: 14
+[2025-06-17T15:19:28.317Z] INFO: Utilisateur 684f11784708ceccefed070a enrôlé à la formation Réseaux sans fil : Wi-Fi 6 et au-delà (ID: 68508f10af77dddfecb16e93), inscription ID: 685187809d1c0589e3059849
+[2025-06-17T15:19:31.786Z] INFO: Récupération de toutes les formations
+[2025-06-17T15:19:38.439Z] INFO: Tentative d'enrôlement pour la formation ID: 68508f10af77dddfecb16e9b
+[2025-06-17T15:19:38.439Z] INFO: Token reçu: Présent
+[2025-06-17T15:19:38.439Z] INFO: Token décodé avec succès. ID utilisateur du token: 684f11784708ceccefed070a
+[2025-06-17T15:19:38.439Z] INFO: Utilisateur authentifié (ID: 684f11784708ceccefed070a) tente de s'enrôler.
+[2025-06-17T15:19:38.442Z] INFO: Utilisateur trouvé: Benjamin@gmail.com, Formation trouvée: Gestion des services IT (ITSM) avec ITIL
+[2025-06-17T15:19:38.443Z] INFO: Aucune inscription existante trouvée pour l'utilisateur 684f11784708ceccefed070a et la formation 68508f10af77dddfecb16e9b.
+[2025-06-17T15:19:38.446Z] INFO: Nouvel enrôlement créé: 6851878a9d1c0589e3059851
+[2025-06-17T15:19:38.447Z] INFO: Nombre de places mis à jour pour la formation 68508f10af77dddfecb16e9b. Nouvelles places: 14
+[2025-06-17T15:19:38.447Z] INFO: Utilisateur 684f11784708ceccefed070a enrôlé à la formation Gestion des services IT (ITSM) avec ITIL (ID: 68508f10af77dddfecb16e9b), inscription ID: 6851878a9d1c0589e3059851
+[2025-06-17T15:23:50.176Z] INFO: Récupération de toutes les formations
+[2025-06-17T15:23:58.534Z] INFO: Tentative d'enrôlement pour la formation ID: 68508f10af77dddfecb16e8d
+[2025-06-17T15:23:58.534Z] INFO: Token reçu: Présent
+[2025-06-17T15:23:58.535Z] INFO: Token décodé avec succès. ID utilisateur du token: 684f11784708ceccefed070a
+[2025-06-17T15:23:58.536Z] INFO: Utilisateur authentifié (ID: 684f11784708ceccefed070a) tente de s'enrôler.
+[2025-06-17T15:23:58.539Z] INFO: Utilisateur trouvé: Benjamin@gmail.com, Formation trouvée: Réseaux d'entreprise : Conception et Déploiement
+[2025-06-17T15:23:58.540Z] WARN: Utilisateur 684f11784708ceccefed070a déjà inscrit à la formation 68508f10af77dddfecb16e8d.
+[2025-06-17T15:24:11.943Z] INFO: Tentative d'enrôlement pour la formation ID: 68508f10af77dddfecb16e91
+[2025-06-17T15:24:11.943Z] INFO: Token reçu: Présent
+[2025-06-17T15:24:11.944Z] INFO: Token décodé avec succès. ID utilisateur du token: 684f11784708ceccefed070a
+[2025-06-17T15:24:11.944Z] INFO: Utilisateur authentifié (ID: 684f11784708ceccefed070a) tente de s'enrôler.
+[2025-06-17T15:24:11.947Z] INFO: Utilisateur trouvé: Benjamin@gmail.com, Formation trouvée: Développement mobile : Android avec Kotlin
+[2025-06-17T15:24:11.948Z] INFO: Aucune inscription existante trouvée pour l'utilisateur 684f11784708ceccefed070a et la formation 68508f10af77dddfecb16e91.
+[2025-06-17T15:24:11.952Z] INFO: Nouvel enrôlement créé: 6851889b9d1c0589e305985c
+[2025-06-17T15:24:11.954Z] INFO: Nombre de places mis à jour pour la formation 68508f10af77dddfecb16e91. Nouvelles places: 9
+[2025-06-17T15:24:11.955Z] INFO: Utilisateur 684f11784708ceccefed070a enrôlé à la formation Développement mobile : Android avec Kotlin (ID: 68508f10af77dddfecb16e91), inscription ID: 6851889b9d1c0589e305985c
+[2025-06-17T15:24:11.963Z] INFO: Récupération de toutes les formations
+[2025-06-17T15:24:26.213Z] INFO: Récupération de toutes les formations
+[2025-06-17T15:35:08.680Z] INFO: Récupération de toutes les formations
+[2025-06-17T15:35:14.192Z] INFO: Récupération de toutes les formations
+[2025-06-17T15:58:06.537Z] INFO: Récupération de toutes les formations
+[2025-06-17T15:58:54.565Z] INFO: Récupération de toutes les formations
+[2025-06-17T15:59:44.605Z] INFO: Récupération de toutes les formations

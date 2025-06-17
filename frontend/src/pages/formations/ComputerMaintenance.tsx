@@ -1,7 +1,6 @@
 import { ArrowLeft, HardDrive, Wrench, Settings, Cpu, Monitor, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
-import { useIsMobile } from '@/hooks/use-mobile';
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect } from 'react';
 import PageLayout from '@/components/PageLayout';
@@ -10,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import SEO from '@/components/SEO';
 
 const ComputerMaintenance = () => {
-  const isMobile = useIsMobile(); // Conservé si utilisé ailleurs, même s'il n'est pas directement dans le JSX renvoyé
+  // const isMobile = useIsMobile(); // Conservé si utilisé ailleurs, même s'il n'est pas directement dans le JSX renvoyé
 
   // Fait défiler la page vers le haut au montage du composant
   useEffect(() => {
@@ -28,7 +27,8 @@ const ComputerMaintenance = () => {
       {/* Composant SEO avec les balises méta optimisées */}
       <SEO
         title="Formation Maintenance Informatique | Dépannage PC & Réparation - Zetoun Labs Kinshasa"
-        description="Devenez expert en maintenance informatique avec Zetoun Labs à Kinshasa : apprenez à diagnostiquer, réparer et optimiser les ordinateurs (matériel et logiciel), avec une formation pratique et certifiante."
+        description="Devenez expert en maintenance informatique avec Zetoun Labs à Kinshasa : apprenez à diagnostiquer, réparer et optimiser les ordinateurs (matériel et
+ logiciel), avec une formation pratique et certifiante."
         keywords={[
           'formation maintenance informatique',
           'dépannage PC',
@@ -60,6 +60,11 @@ const ComputerMaintenance = () => {
                 src="../lovable-uploads/training/1a.png"
                 alt="Formation en maintenance et réparation d'ordinateurs"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" /* Effet de zoom ajouté ici */
+                onError={(e) => {
+                  e.currentTarget.onerror = null; // Empêche la boucle infinie en cas d'erreur de chargement
+                  e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Image+de+Formation"; // Placeholder générique
+                  e.currentTarget.alt = "Image de remplacement pour la formation en maintenance informatique";
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                 <div className="p-6 md:p-8">
@@ -128,6 +133,11 @@ const ComputerMaintenance = () => {
                     src="../lovable-uploads/training/1b.png"
                     alt="Composants et matériel informatique pour l'apprentissage de la maintenance"
                     className="w-full h-64 md:h-80 object-cover rounded-lg transition-transform duration-500 hover:scale-105" /* Effet de zoom ajouté ici */
+                    onError={(e) => {
+                      e.currentTarget.onerror = null; // Empêche la boucle infinie en cas d'erreur de chargement
+                      e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Matériel+informatique"; // Placeholder générique
+                      e.currentTarget.alt = "Image de remplacement pour le matériel informatique";
+                    }}
                   />
                 </motion.div>
               </motion.div>
@@ -144,8 +154,9 @@ const ComputerMaintenance = () => {
                 </div>
 
                 <p className="text-gray-600 mb-8 text-base max-w-3xl">
-                  Notre formation en maintenance informatique vous permettra d'acquérir les compétences pratiques pour diagnostiquer et réparer efficacement
-                  les problèmes courants sur les ordinateurs, qu'ils soient d'ordre matériel ou logiciel.
+                  Notre formation en maintenance informatique vous permettra d'acquérir les compétences pratiques pour
+                  diagnostiquer et réparer efficacement les problèmes courants sur les ordinateurs, qu'ils soient
+                  d'ordre matériel ou logiciel.
                 </p>
 
                 <Tabs defaultValue="content" className="w-full mb-12">
@@ -259,9 +270,10 @@ const ComputerMaintenance = () => {
                     <h3 className="text-xl font-bold">Matériel et ressources fournis</h3>
                   </div>
                   <p className="text-gray-600">
-                    Pendant la formation, vous aurez accès à un environnement d'apprentissage complet comprenant des ordinateurs de différentes générations,
-                    des composants de rechange variés, et tous les outils nécessaires pour les travaux pratiques.
-                    Des systèmes d'exploitation et des logiciels de diagnostic performants seront également mis à votre disposition pour une immersion totale.
+                    Pendant la formation, vous aurez accès à un environnement d'apprentissage complet comprenant des
+                    ordinateurs de différentes générations, des composants de rechange variés, et tous les outils
+                    nécessaires pour les travaux pratiques. Des systèmes d'exploitation et des logiciels de diagnostic
+                    performants seront également mis à votre disposition pour une immersion totale.
                   </p>
                 </div>
               </motion.div>
@@ -270,15 +282,18 @@ const ComputerMaintenance = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-12">
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Formateurs experts</h3>
-                <p className="text-gray-600">Des professionnels certifiés avec une vaste expertise pratique dans la maintenance préventive et corrective des infrastructures informatiques et réseau.</p>
+                <p className="text-gray-600">Des professionnels certifiés avec une vaste expertise pratique dans la
+                  maintenance préventive et corrective des infrastructures informatiques et réseau.</p>
               </div>
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Approche pratique</h3>
-                <p className="text-gray-600">Nos formations en maintenance allient théorie et pratique intensive pour assurer l'acquisition des compétences de diagnostic, de réparation et de prévention des pannes informatiques.</p>
+                <p className="text-gray-600">Nos formations en maintenance allient théorie et pratique intensive pour
+                  assurer l'acquisition des compétences de diagnostic, de réparation et de prévention des pannes informatiques.</p>
               </div>
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Certifications reconnues</h3>
-                <p className="text-gray-600">Préparez-vous aux certifications de l'industrie les plus demandées sur le marché de l'emploi en maintenance informatique.</p>
+                <p className="text-gray-600">Préparez-vous aux certifications de l'industrie les plus demandées sur le marché
+                  de l'emploi en maintenance informatique.</p>
               </div>
             </div>
           </div>
@@ -287,7 +302,8 @@ const ComputerMaintenance = () => {
             <div className="max-w-3xl mx-auto">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Prêt à devenir un expert en maintenance informatique ?</h2>
               <p className="text-gray-600 mb-6">
-                Contactez notre équipe de Zetoun Labs à Kinshasa dès aujourd'hui pour obtenir plus d'informations sur les dates de formation, les tarifs et les modalités d'inscription. Nous sommes là pour vous accompagner.
+                Contactez notre équipe de Zetoun Labs à Kinshasa dès aujourd'hui pour obtenir plus d'informations
+                sur les dates de formation, les tarifs et les modalités d'inscription. Nous sommes là pour vous accompagner.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/add/telecom-opinion">

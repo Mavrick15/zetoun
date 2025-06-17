@@ -2,7 +2,7 @@ import { ArrowRight, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client"; // Assurez-vous que Supabase est correctement configuré
 import { Textarea } from "@/components/ui/textarea";
 
 const Footer = () => {
@@ -26,14 +26,14 @@ const Footer = () => {
     setIsSubmitting(true);
     
     try {
-      // Vérifier d'abord si l'email existe déjà
+      // Vérifier d'abord si l'email existe déjà dans la base de données
       const { data: existingEmail } = await supabase
         .from('newsletter_subscribers')
         .select('email')
         .eq('email', email)
         .limit(1);
       
-      // Si l'email existe déjà
+      // Si l'email existe déjà, informer l'utilisateur
       if (existingEmail && existingEmail.length > 0) {
         toast({
           title: "Information",
@@ -55,8 +55,8 @@ const Footer = () => {
         });
       }
       
-      setEmail("");
-      setMessage("");
+      setEmail(""); // Réinitialiser le champ email
+      setMessage(""); // Réinitialiser le champ message
     } catch (error) {
       console.error("Erreur lors de l'inscription:", error);
       
@@ -81,12 +81,19 @@ const Footer = () => {
                   src="/lovable-uploads/logo/Logo2.png" 
                   alt="ZetounLabs Logo" 
                   className="h-full w-full object-contain"
+                  onError={(e) => { // Fallback for image loading error
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = "https://placehold.co/48x48/000000/FFFFFF?text=ZL"; // Placeholder image
+                    e.currentTarget.alt = "ZetounLabs Logo Placeholder";
+                  }}
                 />
              </div>
-              <span className="text-2xl font-bold text-white">Zetoun Labs</span>
+             <span className="text-2xl font-bold text-white">Zetoun Labs</span>
             </div>
             <p className="text-gray-300 mb-6">
-              Zetoun Labs est une plateforme tout-en-un pour le développement et le déploiement de solutions informatiques intelligentes, offrant à ses clients une maîtrise totale de leurs outils tout en assurant la prise en charge complète du développement technologique.
+              Zetoun Labs est une plateforme tout-en-un pour le développement et le déploiement
+              de solutions informatiques intelligentes, offrant à ses clients une maîtrise totale
+              de leurs outils tout en assurant la prise en charge complète du développement technologique.
             </p>
             <p className="text-gray-300 mb-6">
               6284 1st Street<br />

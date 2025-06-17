@@ -1,10 +1,10 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight, Newspaper } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import BlogPostCard from '@/components/BlogPostCard';
 import { blogPosts } from '@/data/blogPosts';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import React from 'react'; // Explicitly import React for JSX
 
 const BlogPreview = () => {
   // Get the 3 most recent blog posts
@@ -19,9 +19,13 @@ const BlogPreview = () => {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <Newspaper size={20} className="text-black" />
-              <span className="text-black font-medium">Our Blog</span>
+              <span className="text-black font-medium">
+                Our Blog
+              </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Latest Updates</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
+              Latest Updates
+            </h2>
             <p className="text-gray-800 max-w-xl">
               Explore our latest insights on smart textile technology, industry trends, and innovation.
             </p>

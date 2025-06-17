@@ -1,4 +1,4 @@
-import { ArrowLeft, Monitor, Shield, Settings, Database, Layers, Network } from 'lucide-react';
+import { ArrowLeft, Server, Monitor, Shield, Settings, Database, Layers, Network } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
@@ -25,7 +25,8 @@ const WindowsAdministration = () => {
       {/* Composant SEO avec les balises méta optimisées */}
       <SEO
         title="Formation Administration Système Windows Server | AD, GPO, Réseau - Zetoun Labs Kinshasa"
-        description="Devenez administrateur Windows Server avec Zetoun Labs à Kinshasa : maîtrisez l'installation, la configuration et la gestion des rôles clés (Active Directory, DNS, DHCP, GPO) et la sécurité de l'infrastructure."
+        description="Devenez administrateur Windows Server avec Zetoun Labs à Kinshasa : maîtrisez l'installation, la configuration
+        et la gestion des rôles clés (Active Directory, DNS, DHCP, GPO) et la sécurité de l'infrastructure."
         keywords={[
           'formation Windows Server',
           'administration Windows',
@@ -60,6 +61,11 @@ const WindowsAdministration = () => {
                 src="../lovable-uploads/training/3a.png"
                 alt="Administration Système sous Windows Server avec interface graphique" // Alt text optimisé
                 className="w-full h-full object-cover mx-auto transition-transform duration-500 hover:scale-105" /* Effet de zoom ajouté */
+                onError={(e) => {
+                  e.currentTarget.onerror = null; // Empêche la boucle infinie en cas d'erreur de chargement
+                  e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Windows+Server"; // Placeholder générique
+                  e.currentTarget.alt = "Image de remplacement pour l'administration Windows Server";
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                 <div className="p-6 md:p-8">
@@ -128,6 +134,11 @@ const WindowsAdministration = () => {
                     src="../lovable-uploads/training/3b1.png"
                     alt="Configuration de Windows Server avec Active Directory" // Alt text optimisé
                     className="w-full h-64 md:h-80 object-cover rounded-lg transition-transform duration-500 hover:scale-105" /* Effet de zoom ajouté */
+                    onError={(e) => {
+                      e.currentTarget.onerror = null; // Empêche la boucle infinie en cas d'erreur de chargement
+                      e.currentTarget.src = "https://placehold.co/600x400/e0e0e0/6a6a6a?text=Active+Directory"; // Placeholder générique
+                      e.currentTarget.alt = "Image de remplacement pour la configuration Windows Server";
+                    }}
                   />
                 </motion.div>
               </motion.div>
@@ -237,9 +248,9 @@ const WindowsAdministration = () => {
                     <h3 className="text-xl font-bold">Environnement de travail et ressources</h3>
                   </div>
                   <p className="text-gray-600">
-                    Pendant la formation, vous travaillerez sur des environnements Windows Server réels et virtualisés, offrant une expérience immersive.
-                    Vous apprendrez à installer, configurer et administrer tous les services essentiels d'un réseau
-                    d'entreprise basé sur Windows Server, vous préparant aux défis du monde professionnel.
+                    Pendant la formation, vous travaillerez sur des environnements Windows Server réels et virtualisés,
+                    offrant une expérience immersive. Vous apprendrez à installer, configurer et administrer tous les services
+                    essentiels d'un réseau d'entreprise basé sur Windows Server, vous préparant aux défis du monde professionnel.
                   </p>
                 </div>
               </motion.div>
@@ -248,15 +259,18 @@ const WindowsAdministration = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-12">
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Formateurs experts</h3>
-                <p className="text-gray-600">Des professionnels certifiés avec une expérience pratique et approfondie dans la gestion, la sécurisation et le dépannage des environnements Windows Server et postes clients.</p>
+                <p className="text-gray-600">Des professionnels certifiés avec une expérience pratique et approfondie dans la
+                  gestion, la sécurisation et le dépannage des environnements Windows Server et postes clients.</p>
               </div>
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Approche pratique</h3>
-                <p className="text-gray-600">Nos formations en administration Windows combinent théorie et travaux pratiques intensifs sur des environnements Windows Server réels, incluant la gestion des utilisateurs, des services réseau et des stratégies de groupe.</p>
+                <p className="text-gray-600">Nos formations en administration Windows combinent théorie et travaux pratiques
+                  intensifs sur des environnements Windows Server réels, incluant la gestion des utilisateurs, des services réseau et des stratégies de groupe.</p>
               </div>
               <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">Certifications reconnues</h3>
-                <p className="text-gray-600">Préparez-vous aux certifications de l'industrie les plus demandées sur le marché de l'emploi en administration système Windows, renforçant ainsi votre profil professionnel.</p>
+                <p className="text-gray-600">Préparez-vous aux certifications de l'industrie les plus demandées sur le marché
+                  de l'emploi en administration système Windows, renforçant ainsi votre profil professionnel.</p>
               </div>
             </div>
           </div>
@@ -265,7 +279,8 @@ const WindowsAdministration = () => {
             <div className="max-w-3xl mx-auto">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Prêt à devenir un expert en administration système Windows Server ?</h2>
               <p className="text-gray-600 mb-6">
-                Contactez notre équipe de Zetoun Labs à Kinshasa dès aujourd'hui pour obtenir plus d'informations sur les dates de formation, les tarifs et les modalités d'inscription. Nous sommes là pour vous accompagner.
+                Contactez notre équipe de Zetoun Labs à Kinshasa dès aujourd'hui pour obtenir plus d'informations
+                sur les dates de formation, les tarifs et les modalités d'inscription. Nous sommes là pour vous accompagner.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/add/telecom-opinion">

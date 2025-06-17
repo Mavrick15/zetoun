@@ -1,20 +1,22 @@
-import PageLayout from '@/components/PageLayout';
-import Hero from '@/components/Hero';
-import Features from '@/components/Features';
-import Projects from '@/components/Projects';
-import WhyWrlds from '@/components/WhyWrlds';
-import BlogPreview from '@/components/BlogPreview';
-import SEO from '@/components/SEO';
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, lazy, Suspense } from 'react'; // Importez lazy et Suspense
+import { Link } from 'react-router-dom'; // Toujours là si utilisé par des sous-composants
 import { motion } from 'framer-motion'; // Import motion
 
+// Importation dynamique des composants pour le lazy loading
+const PageLayout = lazy(() => import('@/components/PageLayout'));
+const Hero = lazy(() => import('@/components/Hero'));
+const Features = lazy(() => import('@/components/Features'));
+const Projects = lazy(() => import('@/components/Projects'));
+const WhyWrlds = lazy(() => import('@/components/WhyWrlds'));
+const BlogPreview = lazy(() => import('@/components/BlogPreview'));
+const SEO = lazy(() => import('@/components/SEO')); // SEO peut aussi être lazy chargé
+
 const Index = () => {
-  // Fix any ID conflicts when the page loads
+  // Correction des conflits d'ID lorsque la page se charge
   useEffect(() => {
     const contactElements = document.querySelectorAll('[id="contact"]');
     if (contactElements.length > 1) {
-      // If there are multiple elements with id="contact", rename one
+      // S'il y a plusieurs éléments avec id="contact", renommez-en un
       contactElements[1].id = 'contact-footer';
     }
   }, []);
@@ -26,51 +28,39 @@ const Index = () => {
   };
 
   return (
-    <PageLayout>
-      <SEO
-        title="ZL - IT Services & Training"
-        description="Zetoun Labs: Pioneering smart engineering solutions with textile sensors for sports, safety, and performance monitoring."
-        keywords={['smart textiles', 'wearable technology', 'textile sensors', 'sports tech', 'safety monitoring', 'performance analytics', 'manufacturing']}
-      />
-      <motion.div
-        variants={pageVariants}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-      >
-        <Hero />
-        <Features />
-        <WhyWrlds />
-        <Projects />
-        <BlogPreview />
-
-        <div className="bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto text-center">
-            <h3 className="text-xl font-semibold mb-4">Nos formations techniques</h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Découvrez nos programmes de formation spécialisés pour développer vos compétences techniques
-            </p>
-            <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
-              <Link to="/formations/linux-administration" className="inline-block px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all">
-                Admin. système sous Linux
-              </Link>
-              <Link to="/formations/windows-administration" className="inline-block px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all">
-                Admin. système sous Windows
-              </Link>
-              <Link to="/formations/network-administration" className="inline-block px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all">
-                Admin. Réseaux
-              </Link>
-              <Link to="/formations/computer-maintenance" className="inline-block px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all">
-                Maintenance Informatique
-              </Link>
-              <Link to="/formations/virtualization-training" className="inline-block px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all">
-                Virtualisation
-              </Link>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    </PageLayout>
+    // Suspense est nécessaire pour envelopper les composants lazy-chargés
+    <Suspense fallback={<div>Chargement de la page...</div>}>
+      <PageLayout>
+        {/* Balises SEO optimisées pour Kinshasa */}
+        <SEO
+          title="Zetoun Labs - Services IT & Formations | Kinshasa"
+          description="Zetoun Labs offre des services IT complets et des formations certifiantes à Kinshasa, incluant le développement logiciel, la cybersécurité, l'ingénierie réseau et l'installation solaire. Boostez votre entreprise et vos compétences avec nos solutions innovantes."
+          keywords={[
+            'services IT Kinshasa',
+            'formations IT Kinshasa',
+            'développement logiciel Kinshasa',
+            'cybersécurité RDC',
+            'ingénierie réseau Kinshasa',
+            'installation solaire Kinshasa',
+            'Zetoun Labs',
+            'IT Congo',
+            'formation professionnelle IT'
+          ]}
+        />
+        <motion.div
+          variants={pageVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
+          <Hero />
+          <Features />
+          <WhyWrlds />
+          <Projects />
+          <BlogPreview />
+        </motion.div>
+      </PageLayout>
+    </Suspense>
   );
 };
 

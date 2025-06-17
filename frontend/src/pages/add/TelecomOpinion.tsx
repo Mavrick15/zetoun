@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Ajout de useEffect
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { toast } from "@/hooks/use-toast";
+import { useToast } from "../../components/ui/use-toast"; // Chemin d'importation standardisé
 import { Send, CheckCircle2, Lightbulb, Clock, ArrowRight, MessageSquare, ArrowLeft, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import PageLayout from '@/components/PageLayout';
@@ -18,8 +18,14 @@ const TelecomOpinion = () => {
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Défilement en haut de page au chargement
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleSubmit = async (e) => { // Suppression de l'annotation de type
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -58,7 +64,7 @@ const TelecomOpinion = () => {
         });
         console.error('Erreur lors de l\'envoi de l\'avis télécom au backend', data);
       }
-    } catch (error: any) {
+    } catch (error) { // Suppression de l'annotation de type
       setIsSubmitting(false);
       toast({
         variant: 'destructive',
