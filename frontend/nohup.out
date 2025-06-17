@@ -3,9 +3,201 @@
 > vite
 
 
-  VITE v5.4.10  ready in 432 ms
+  VITE v5.4.10  ready in 433 ms
 
   ➜  Local:   http://localhost:8080/
   ➜  Network: http://10.0.0.2:8080/
-17:01:35 [vite] hmr update /src/pages/BlogPostDetail.tsx, /src/index.css
-17:01:40 [vite] hmr update /src/App.tsx, /src/index.css
+
+> vite_react_shadcn_ts@0.0.0 dev
+> vite
+
+
+  VITE v5.4.10  ready in 441 ms
+
+  ➜  Local:   http://localhost:8080/
+  ➜  Network: http://10.0.0.2:8080/
+
+> vite_react_shadcn_ts@0.0.0 dev
+> vite
+
+
+  VITE v5.4.10  ready in 373 ms
+
+  ➜  Local:   http://localhost:8080/
+  ➜  Network: http://10.0.0.2:8080/
+20:04:59 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+20:05:08 [vite] hmr update /src/App.tsx, /src/index.css
+20:05:08 [vite] Internal server error: Failed to resolve import "../components/ui/card" from "src/pages/add/TelecomCalendar.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/rva/Zetoun/frontend/src/pages/add/TelecomCalendar.tsx:5:21
+  13 |  // Cela suppose que ce fichier (TelecomCalendar.jsx) est dans un sous-répertoire comme 'src/pages/'.
+  14 |  // Veuillez ajuster davantage si la structure de votre projet est différente.
+  15 |  import { Card } from "../components/ui/card";
+     |                        ^
+  16 |  import { Button } from "../components/ui/button";
+  17 |  import { Badge } from "../components/ui/badge";
+      at TransformPluginContext._formatError (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:49255:41)
+      at TransformPluginContext.error (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:49250:16)
+      at normalizeUrl (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:64041:23)
+      at async file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:64173:39
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:64100:7)
+      at async PluginContainer.transform (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:49096:18)
+      at async loadAndTransform (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:51929:27)
+20:05:08 [vite] Pre-transform error: Failed to resolve import "../components/ui/card" from "src/pages/add/TelecomCalendar.tsx". Does the file exist?
+20:09:09 [vite] hmr update /src/App.tsx, /src/index.css
+20:12:13 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+20:12:18 [vite] hmr update /src/App.tsx, /src/index.css
+
+> vite_react_shadcn_ts@0.0.0 dev
+> vite
+
+
+  VITE v5.4.10  ready in 428 ms
+
+  ➜  Local:   http://localhost:8080/
+  ➜  Network: http://10.0.0.2:8080/
+
+> vite_react_shadcn_ts@0.0.0 dev
+> vite
+
+
+  VITE v5.4.10  ready in 449 ms
+
+  ➜  Local:   http://localhost:8080/
+  ➜  Network: http://10.0.0.2:8080/
+
+> vite_react_shadcn_ts@0.0.0 dev
+> vite
+
+Re-optimizing dependencies because lockfile has changed
+
+  VITE v5.4.10  ready in 360 ms
+
+  ➜  Local:   http://localhost:8080/
+  ➜  Network: http://10.0.0.2:8080/
+20:46:04 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+09:14:17 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+09:21:12 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+09:21:22 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+09:21:54 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+09:27:34 [vite] hmr update /src/pages/add/TelecomCalendar.tsx, /src/index.css
+09:40:50 [vite] hmr update /src/App.tsx, /src/index.css
+Error processing file src/App.tsx: SyntaxError: Identifier 'TechnicalSupport' has already been declared. (22:7)
+    at constructor (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:362:19)
+    at TypeScriptParserMixin.raise (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:3259:19)
+    at TypeScriptScopeHandler.checkRedeclarationInScope (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:1507:19)
+    at TypeScriptScopeHandler.declareName (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:1473:12)
+    at TypeScriptScopeHandler.declareName (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:6927:11)
+    at TypeScriptParserMixin.declareNameFromIdentifier (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:7350:16)
+    at TypeScriptParserMixin.checkIdentifier (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:7346:12)
+    at TypeScriptParserMixin.checkLVal (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:7287:12)
+    at TypeScriptParserMixin.finishImportSpecifier (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:13735:10)
+    at TypeScriptParserMixin.parseImportSpecifierLocal (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:13732:31) {
+  code: 'BABEL_PARSER_SYNTAX_ERROR',
+  reasonCode: 'VarRedeclaration',
+  loc: Position { line: 22, column: 7, index: 1098 },
+  pos: 1098,
+  syntaxPlugin: undefined
+}
+09:40:50 [vite] Internal server error:   [31mx[0m the name `TechnicalSupport` is defined multiple times
+    ,-[[36;1;4m/home/rva/Zetoun/frontend/src/App.tsx[0m:21:1]
+ [2m18[0m | import VideoSurveillance from "./pages/services/VideoSurveillance";
+ [2m19[0m | import WebDevelopment from "./pages/services/WebDevelopment";
+ [2m20[0m | import ITManagement from "./pages/services/ITManagement";
+ [2m21[0m | import TechnicalSupport from "./pages/services/TechnicalSupport";
+    : [35;1m       ^^^^^^^^|^^^^^^^[0m
+    :                [35;1m`-- [35;1mprevious definition of `TechnicalSupport` here[0m[0m
+ [2m22[0m | import TechnicalSupport from "./pages/services/SolarInstallation";
+    : [33;1m       ^^^^^^^^|^^^^^^^[0m
+    :                [33;1m`-- [33;1m`TechnicalSupport` redefined here[0m[0m
+ [2m23[0m | import LinuxAdministration from "./pages/formations/LinuxAdministration";
+ [2m24[0m | import NetworkAdministration from "./pages/formations/NetworkAdministration";
+ [2m25[0m | import ComputerMaintenance from "./pages/formations/ComputerMaintenance";
+    `----
+
+  Plugin: vite:react-swc
+  File: /home/rva/Zetoun/frontend/src/App.tsx
+  
+09:40:52 [vite] hmr update /src/App.tsx, /src/index.css
+Error processing file src/App.tsx: SyntaxError: Identifier 'TechnicalSupport' has already been declared. (22:7)
+    at constructor (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:362:19)
+    at TypeScriptParserMixin.raise (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:3259:19)
+    at TypeScriptScopeHandler.checkRedeclarationInScope (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:1507:19)
+    at TypeScriptScopeHandler.declareName (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:1473:12)
+    at TypeScriptScopeHandler.declareName (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:6927:11)
+    at TypeScriptParserMixin.declareNameFromIdentifier (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:7350:16)
+    at TypeScriptParserMixin.checkIdentifier (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:7346:12)
+    at TypeScriptParserMixin.checkLVal (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:7287:12)
+    at TypeScriptParserMixin.finishImportSpecifier (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:13735:10)
+    at TypeScriptParserMixin.parseImportSpecifierLocal (/home/rva/Zetoun/frontend/node_modules/@babel/parser/lib/index.js:13732:31) {
+  code: 'BABEL_PARSER_SYNTAX_ERROR',
+  reasonCode: 'VarRedeclaration',
+  loc: Position { line: 22, column: 7, index: 1098 },
+  pos: 1098,
+  syntaxPlugin: undefined
+}
+09:40:52 [vite] Internal server error:   [31mx[0m the name `TechnicalSupport` is defined multiple times
+    ,-[[36;1;4m/home/rva/Zetoun/frontend/src/App.tsx[0m:21:1]
+ [2m18[0m | import VideoSurveillance from "./pages/services/VideoSurveillance";
+ [2m19[0m | import WebDevelopment from "./pages/services/WebDevelopment";
+ [2m20[0m | import ITManagement from "./pages/services/ITManagement";
+ [2m21[0m | import TechnicalSupport from "./pages/services/TechnicalSupport";
+    : [35;1m       ^^^^^^^^|^^^^^^^[0m
+    :                [35;1m`-- [35;1mprevious definition of `TechnicalSupport` here[0m[0m
+ [2m22[0m | import TechnicalSupport from "./pages/services/SolarInstallation";
+    : [33;1m       ^^^^^^^^|^^^^^^^[0m
+    :                [33;1m`-- [33;1m`TechnicalSupport` redefined here[0m[0m
+ [2m23[0m | import LinuxAdministration from "./pages/formations/LinuxAdministration";
+ [2m24[0m | import NetworkAdministration from "./pages/formations/NetworkAdministration";
+ [2m25[0m | import ComputerMaintenance from "./pages/formations/ComputerMaintenance";
+    `----
+
+  Plugin: vite:react-swc
+  File: /home/rva/Zetoun/frontend/src/App.tsx
+  
+09:41:57 [vite] hmr update /src/App.tsx, /src/index.css
+09:41:57 [vite] Internal server error: Failed to resolve import "./pages/services/SolarInstallation" from "src/App.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/rva/Zetoun/frontend/src/App.tsx:22:30
+  29 |  import ITManagement from "./pages/services/ITManagement";
+  30 |  import TechnicalSupport from "./pages/services/TechnicalSupport";
+  31 |  import SolarInstallation from "./pages/services/SolarInstallation";
+     |                                 ^
+  32 |  import LinuxAdministration from "./pages/formations/LinuxAdministration";
+  33 |  import NetworkAdministration from "./pages/formations/NetworkAdministration";
+      at TransformPluginContext._formatError (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:49255:41)
+      at TransformPluginContext.error (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:49250:16)
+      at normalizeUrl (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:64041:23)
+      at async file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:64173:39
+      at async Promise.all (index 22)
+      at async TransformPluginContext.transform (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:64100:7)
+      at async PluginContainer.transform (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:49096:18)
+      at async loadAndTransform (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:51929:27)
+      at async viteTransformMiddleware (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:61881:24)
+09:42:42 [vite] page reload src/App.tsx
+09:42:42 [vite] Pre-transform error: Failed to resolve import "./pages/services/SolarInstallation" from "src/App.tsx". Does the file exist?
+09:42:42 [vite] Internal server error: Failed to resolve import "./pages/services/SolarInstallation" from "src/App.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/rva/Zetoun/frontend/src/App.tsx:22:30
+  29 |  import ITManagement from "./pages/services/ITManagement";
+  30 |  import TechnicalSupport from "./pages/services/TechnicalSupport";
+  31 |  import SolarInstallation from "./pages/services/SolarInstallation";
+     |                                 ^
+  32 |  import LinuxAdministration from "./pages/formations/LinuxAdministration";
+  33 |  import NetworkAdministration from "./pages/formations/NetworkAdministration";
+      at TransformPluginContext._formatError (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:49255:41)
+      at TransformPluginContext.error (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:49250:16)
+      at normalizeUrl (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:64041:23)
+      at async file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:64173:39
+      at async Promise.all (index 22)
+      at async TransformPluginContext.transform (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:64100:7)
+      at async PluginContainer.transform (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:49096:18)
+      at async loadAndTransform (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:51929:27)
+      at async viteTransformMiddleware (file:///home/rva/Zetoun/frontend/node_modules/vite/dist/node/chunks/dep-BWSbWtLw.js:61881:24)
+09:43:02 [vite] page reload src/pages/services/SolarInstallation.tsx
+09:43:02 [vite] page reload src/pages/services/solar-installation.tsx
+09:46:58 [vite] hmr update /src/pages/services/SolarInstallation.tsx, /src/index.css
+09:47:10 [vite] hmr update /src/App.tsx, /src/index.css
+09:48:12 [vite] hmr update /src/pages/services/SolarInstallation.tsx, /src/index.css
+09:48:15 [vite] hmr update /src/App.tsx, /src/index.css

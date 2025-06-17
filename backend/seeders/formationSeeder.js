@@ -11,222 +11,178 @@ connectDB();
 
 // Données d'exemple pour les formations
 const formationData = [
+  // Formations Télécom existantes conservées
   {
-    title: "Réseaux de Télécommunication",
+    title: "Réseaux de télécommunication",
     description: "Formation approfondie sur les principes fondamentaux des réseaux de télécommunication modernes.",
     date: "15-19 Juin 2025",
     location: "Paris, France",
     duration: "40 heures",
-    instructor: "Dr. Jean Dupont",
+    instructor: "Ir. Benjamin Baki",
     price: "1,950€",
     seats: 12,
     level: "Intermédiaire",
-    image: "/lovable-uploads/5ca619e6-2139-4879-9b3c-94777ab85e2a.png"
+    image: "../lovable-uploads/teachs/1.png"
   },
   {
-    title: "Technologies Mobiles 5G",
+    title: "Technologies mobiles 5G",
     description: "Cette formation couvre les spécifications techniques, l'architecture et les cas d'utilisation de la technologie 5G.",
     date: "6-10 Juillet 2025",
     location: "Lyon, France",
     duration: "35 heures",
-    instructor: "Marie Lambert",
+    instructor: "Ir. Evra Lashe",
     price: "2,200€",
     seats: 10,
     level: "Avancé",
-    image: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png"
+    image: "../lovable-uploads/teachs/2.png"
   },
   {
-    title: "Systèmes de Communication Optique",
+    title: "Systèmes de communication optique",
     description: "Formation technique sur les systèmes de communication par fibre optique.",
     date: "20-24 Juillet 2025",
     location: "Marseille, France",
     duration: "30 heures",
-    instructor: "Pierre Martin",
+    instructor: "Ir. Grace Moko",
     price: "1,800€",
     seats: 15,
     level: "Intermédiaire",
-    image: "/lovable-uploads/c30e0487-2fa0-41d1-9a0b-699cb2855388.png"
+    image: "../lovable-uploads/teachs/3.png"
   },
   {
-    title: "Sécurité des Réseaux Télécom",
+    title: "Sécurité des réseaux télécom",
     description: "Formation spécialisée sur la protection des infrastructures de télécommunication contre les cyberattaques.",
     date: "10-14 Août 2025",
     location: "Toulouse, France",
     duration: "45 heures",
-    instructor: "Sophie Bernard",
+    instructor: "Ir. Kevine Etanaka",
     price: "2,400€",
     seats: 8,
     level: "Avancé",
-    image: "/lovable-uploads/39671993-1bb4-4bb6-8819-3ca5c07c0042.png"
+    image: "../lovable-uploads/teachs/4.png"
   },
   {
-    title: "VoIP et Communications Unifiées",
+    title: "VoIP et communications unifiées",
     description: "Déployer et gérer des systèmes de voix sur IP et des plateformes de communications unifiées.",
     date: "7-11 Septembre 2025",
     location: "Bordeaux, France",
     duration: "25 heures",
-    instructor: "Michel Dubois",
+    instructor: "Ir. Benjamin Baki",
     price: "1,600€",
     seats: 12,
     level: "Débutant",
-    image: "/lovable-uploads/4bfa0d71-3ed2-4693-90b6-35142468907f.png"
+    image: "../lovable-uploads/teachs/5.png"
   },
   {
-    title: "Fondamentaux des Réseaux Informatiques",
+    title: "Fondamentaux des réseaux informatiques",
     description: "Introduction aux concepts essentiels des réseaux informatiques : modèles OSI et TCP/IP, adressage IP, protocoles de base.",
     date: "22-26 Septembre 2025",
     location: "Lyon, France",
     duration: "35 heures",
-    instructor: "Mme. Sophie Dubois",
+    instructor: "Ir. Evra Lashe",
     price: "1,500€",
     seats: 15,
     level: "Débutant",
-    image: "/lovable-uploads/reseaux_info_debutant.png"
+    image: "../lovable-uploads/teachs/6.png" // Updated path
   },
+
+  // Nouvelles formations basées sur votre demande (première série)
   {
-    title: "Administration Réseau Avancée",
-    description: "Techniques avancées de configuration et de gestion des équipements réseau : routage dynamique, VLANs, sécurité réseau.",
-    date: "13-17 Octobre 2025",
-    location: "Marseille, France",
-    duration: "40 heures",
-    instructor: "M. Pierre Leclerc",
-    price: "2,100€",
-    seats: 10,
-    level: "Avancé",
-    image: "/lovable-uploads/admin_reseau_avance.png"
-  },
-  {
-    title: "Administration Système Linux Server 2022",
-    description: "Maîtrise de l'administration des serveurs Linux (ligne de commande, gestion des utilisateurs, services) et Windows Server 2022 (Active Directory, gestion des rôles).",
+    title: "Administration Système Linux",
+    description: "Maîtrisez l'administration des serveurs Linux, la gestion des utilisateurs, des services et la ligne de commande.",
     date: "03-07 Novembre 2025",
     location: "Toulouse, France",
     duration: "40 heures",
-    instructor: "Mme. Alice Bernard",
+    instructor: "Ir. Grace Moko",
     price: "1,900€",
     seats: 12,
     level: "Intermédiaire",
-    image: "/lovable-uploads/admin_systeme_linux_windows.png"
+    image: "../lovable-uploads/teachs/7.png" // Updated path
   },
   {
-    title: "Maintenance Informatique : Diagnostic et Réparation",
-    description: "Techniques de diagnostic des pannes matérielles et logicielles, procédures de réparation et de remplacement de composants.",
+    title: "Administration Système Windows Server",
+    description: "Apprenez à administrer Windows Server, y compris Active Directory, la gestion des rôles et des fonctionnalités.",
     date: "17-21 Novembre 2025",
-    location: "Bordeaux, France",
-    duration: "30 heures",
-    instructor: "M. François Moreau",
-    price: "1,200€",
-    seats: 18,
-    level: "Débutant",
-    image: "/lovable-uploads/maintenance_info.png"
-  },
-  {
-    title: "Virtualisation avec VMware et Hyper-V",
-    description: "Implémentation et gestion d'environnements virtualisés à l'aide de VMware vSphere et Microsoft Hyper-V.",
-    date: "01-05 Décembre 2025",
-    location: "Nice, France",
-    duration: "35 heures",
-    instructor: "Dr. Laurent Garnier",
-    price: "2,000€",
-    seats: 10,
-    level: "Intermédiaire",
-    image: "/lovable-uploads/virtualisation.png"
-  },
-  {
-    title: "Sécurité des Réseaux Informatiques",
-    description: "Principes de la sécurité réseau, pare-feu, systèmes de détection d'intrusion, VPN.",
-    date: "08-12 Décembre 2025",
-    location: "Lille, France",
+    location: "Paris, France",
     duration: "40 heures",
-    instructor: "Mme. Chloé Roux",
-    price: "2,200€",
-    seats: 12,
-    level: "Avancé",
-    image: "/lovable-uploads/securite_reseaux.png"
-  },
-  {
-    title: "Administration Système Windows Server 2022",
-    description: "Approfondissement de l'administration des serveurs Windows Server 2022 : services avancés, automatisation, PowerShell.",
-    date: "12-16 Janvier 2026",
-    location: "Rennes, France",
-    duration: "40 heures",
-    instructor: "M. Antoine Chevalier",
+    instructor: "Ir. Kevine Etanaka",
     price: "2,050€",
     seats: 10,
-    level: "Avancé",
-    image: "/lovable-uploads/admin_windows_avance.png"
+    level: "Intermédiaire",
+    image: "../lovable-uploads/teachs/8.png" // Updated path
   },
   {
-    title: "Administration Système Linux : Niveau Expert",
-    description: "Techniques avancées d'administration Linux : performance, scripting, sécurité, conteneurisation (Docker).",
-    date: "26-30 Janvier 2026",
-    location: "Strasbourg, France",
-    duration: "40 heures",
-    instructor: "Dr. Isabelle Lefevre",
-    price: "2,150€",
+    title: "Routage et Switching CISCO",
+    description: "Formation essentielle pour la conception, la configuration et le dépannage des réseaux d'entreprise avec les équipements Cisco.",
+    date: "01-05 Décembre 2025",
+    location: "Marseille, France",
+    duration: "35 heures",
+    instructor: "Ir. Benjamin Baki",
+    price: "2,300€",
     seats: 10,
     level: "Avancé",
-    image: "/lovable-uploads/admin_linux_expert.png"
+    image: "../lovable-uploads/teachs/9.png" // Updated path
   },
   {
-    title: "Maintenance des Réseaux Informatiques",
-    description: "Outils et techniques pour la surveillance, le dépannage et l'optimisation des performances des réseaux.",
-    date: "09-13 Février 2026",
-    location: "Montpellier, France",
-    duration: "35 heures",
-    instructor: "M. Lucas Girard",
-    price: "1,600€",
+    title: "Maintenance et Dépannage Informatique",
+    description: "Acquérez les compétences pour diagnostiquer et résoudre les problèmes matériels et logiciels courants des ordinateurs.",
+    date: "15-19 Décembre 2025",
+    location: "Bordeaux, France",
+    duration: "30 heures",
+    instructor: "Ir. Evra Lashe",
+    price: "1,500€",
     seats: 15,
+    level: "Débutant",
+    image: "../lovable-uploads/teachs/10.png" // Updated path
+  },
+  {
+    title: "Technologies de Virtualisation (VMware & Hyper-V)",
+    description: "Explorez les concepts de virtualisation et maîtrisez l'utilisation des plateformes comme VMware vSphere et Microsoft Hyper-V.",
+    date: "05-09 Janvier 2026",
+    location: "Lyon, France",
+    duration: "35 heures",
+    instructor: "Ir. Grace Moko",
+    price: "2,100€",
+    seats: 12,
     level: "Intermédiaire",
-    image: "/lovable-uploads/maintenance_reseaux.png"
+    image: "../lovable-uploads/teachs/11.png" // Updated path
   },
+
+  // Autres formations précédentes, si vous souhaitez les conserver, ajustez les dates et les images
   {
-    title: "Virtualisation Avancée : Kubernetes et Orchestration",
-    description: "Déploiement et gestion d'applications conteneurisées à grande échelle avec Kubernetes.",
-    date: "23-27 Février 2026",
-    location: "Nantes, France",
-    duration: "40 heures",
-    instructor: "Mme. Julie Meunier",
-    price: "2,300€",
-    seats: 8,
-    level: "Avancé",
-    image: "/lovable-uploads/virtualisation_kubernetes.png"
-  },
-  // --- Ajout de 10 nouvelles formations précédentes ---
-  {
-    title: "Cloud Computing : Fondamentaux AWS",
+    title: "Cloud computing : Fondamentaux AWS",
     description: "Introduction aux services essentiels d'Amazon Web Services (AWS) pour le déploiement et la gestion d'infrastructures cloud.",
     date: "10-14 Mars 2026",
     location: "Paris, La Défense, France",
     duration: "35 heures",
-    instructor: "M. David Leroy",
+    instructor: "Ir. Kevine Etanaka",
     price: "2,000€",
     seats: 12,
     level: "Débutant",
-    image: "/lovable-uploads/cloud_aws_fondamentaux.png"
+    image: "../lovable-uploads/teachs/12.png" // Updated path
   },
   {
-    title: "Cybersécurité : Analyse des Menaces et Réponse aux Incidents",
+    title: "Cybersécurité : Analyse des menaces et réponse aux incidents",
     description: "Apprenez à identifier, analyser et répondre aux menaces de cybersécurité pour protéger les systèmes et les données.",
     date: "24-28 Mars 2026",
     location: "Rennes, France",
     duration: "40 heures",
-    instructor: "Mme. Clara Dubois",
+    instructor: "Ir. Benjamin Baki",
     price: "2,500€",
     seats: 10,
     level: "Avancé",
-    image: "/lovable-uploads/cybersecurite_menaces.png"
+    image: "../lovable-uploads/teachs/13.png" // Updated path
   },
   {
-    title: "Bases de Données : SQL et NoSQL",
+    title: "Bases de données : SQL et NoSQL",
     description: "Maîtrise des concepts fondamentaux des bases de données relationnelles (SQL) et non-relationnelles (NoSQL) pour la gestion des données.",
     date: "07-11 Avril 2026",
     location: "Montpellier, France",
     duration: "30 heures",
-    instructor: "M. Thomas Petit",
+    instructor: "Ir. Evra Lashe",
     price: "1,700€",
     seats: 15,
     level: "Intermédiaire",
-    image: "/lovable-uploads/bases_de_donnees.png"
+    image: "../lovable-uploads/teachs/14.png" // Updated path
   },
   {
     title: "Développement Web Full-Stack : React et Node.js",
@@ -234,35 +190,35 @@ const formationData = [
     date: "21-25 Avril 2026",
     location: "Bordeaux, France",
     duration: "45 heures",
-    instructor: "Mme. Léa Girard",
+    instructor: "Ir. Grace Moko",
     price: "2,800€",
     seats: 8,
     level: "Avancé",
-    image: "/lovable-uploads/dev_web_fullstack.png"
+    image: "../lovable-uploads/teachs/15.png" // Updated path
   },
   {
-    title: "Intelligence Artificielle : Introduction au Machine Learning",
+    title: "Intelligence Artificielle : Introduction au machine learning",
     description: "Découvrez les principes du Machine Learning, les algorithmes clés et leurs applications pratiques.",
     date: "05-09 Mai 2026",
     location: "Grenoble, France",
     duration: "35 heures",
-    instructor: "Dr. Marc Lefevre",
+    instructor: "Ir. Kevine Etanaka",
     price: "2,300€",
     seats: 10,
     level: "Débutant",
-    image: "/lovable-uploads/ia_machine_learning.png"
+    image: "../lovable-uploads/teachs/16.png" // Updated path
   },
   {
-    title: "Gestion de Projet IT : Méthodes Agiles (Scrum)",
+    title: "Gestion de projet IT : Méthodes agiles (Scrum)",
     description: "Maîtrisez les principes et les pratiques de la méthodologie Scrum pour la gestion efficace de projets informatiques.",
     date: "19-23 Mai 2026",
     location: "Lille, France",
     duration: "25 heures",
-    instructor: "M. Nicolas Martin",
+    instructor: "Ir. Benjamin Baki",
     price: "1,500€",
     seats: 15,
     level: "Intermédiaire",
-    image: "/lovable-uploads/gestion_projet_agile.png"
+    image: "../lovable-uploads/teachs/17.png" // Updated path
   },
   {
     title: "DevOps : CI/CD avec Jenkins et Docker",
@@ -270,35 +226,35 @@ const formationData = [
     date: "02-06 Juin 2026",
     location: "Nantes, France",
     duration: "40 heures",
-    instructor: "Mme. Sophie Leroy",
+    instructor: "Ir. Evra Lashe",
     price: "2,600€",
     seats: 10,
     level: "Avancé",
-    image: "/lovable-uploads/devops_cicd.png"
+    image: "../lovable-uploads/teachs/18.png" // Updated path
   },
   {
-    title: "Big Data : Introduction à Hadoop et Spark",
+    title: "Big Data : Introduction à hadoop et spark",
     description: "Découvrez les concepts du Big Data et explorez les frameworks Hadoop et Spark pour le traitement de données massives.",
     date: "16-20 Juin 2026",
     location: "Strasbourg, France",
     duration: "35 heures",
-    instructor: "Dr. Paul Durand",
+    instructor: "Ir. Grace Moko",
     price: "2,400€",
     seats: 12,
     level: "Intermédiaire",
-    image: "/lovable-uploads/big_data_hadoop_spark.png"
+    image: "../lovable-uploads/teachs/19.png" // Updated path
   },
   {
-    title: "Sécurité Offensive : Pentesting Web Applications",
+    title: "Sécurité offensive : Pentesting Web Applications",
     description: "Apprenez les techniques de test d'intrusion pour identifier les vulnérabilités dans les applications web.",
     date: "30 Juin - 04 Juillet 2026",
     location: "Paris, Cyber Campus, La Défense, France",
     duration: "40 heures",
-    instructor: "M. Julien Moreau",
+    instructor: "Ir. Kevine Etanaka",
     price: "2,900€",
     seats: 8,
     level: "Avancé",
-    image: "/lovable-uploads/pentesting_web.png"
+    image: "../lovable-uploads/teachs/20.png" // Updated path
   },
   {
     title: "Blockchain : Fondamentaux et Applications",
@@ -306,36 +262,36 @@ const formationData = [
     date: "14-18 Juillet 2026",
     location: "Nice, France",
     duration: "30 heures",
-    instructor: "Mme. Camille Roux",
+    instructor: "Ir. Benjamin Baki",
     price: "1,950€",
     seats: 15,
     level: "Débutant",
-    image: "/lovable-uploads/blockchain_fondamentaux.png"
+    image: "../lovable-uploads/teachs/21.png" // Updated path
   },
   // --- Ajout de 15 nouvelles formations ---
   {
-    title: "Réseaux d'Entreprise : Conception et Déploiement",
+    title: "Réseaux d'entreprise : Conception et Déploiement",
     description: "Concevez et déployez des architectures réseau robustes pour les environnements d'entreprise.",
     date: "01-05 Août 2026",
     location: "Lyon, France",
     duration: "40 heures",
-    instructor: "M. Éric Fournier",
+    instructor: "Ir. Evra Lashe",
     price: "2,250€",
     seats: 10,
     level: "Avancé",
-    image: "/lovable-uploads/reseaux_entreprise_conception.png"
+    image: "../lovable-uploads/teachs/22.png" // Updated path
   },
   {
-    title: "Administration de Bases de Données NoSQL (MongoDB)",
+    title: "Administration de bases de données NoSQL (MongoDB)",
     description: "Maîtrise de l'administration et de l'optimisation des bases de données NoSQL, avec un focus sur MongoDB.",
     date: "15-19 Août 2026",
     location: "Toulouse, France",
     duration: "35 heures",
-    instructor: "Mme. Sarah Leclerc",
+    instructor: "Ir. Grace Moko",
     price: "2,100€",
     seats: 12,
     level: "Intermédiaire",
-    image: "/lovable-uploads/admin_nosql_mongodb.png"
+    image: "../lovable-uploads/teachs/23.png" // Updated path
   },
   {
     title: "Automatisation IT avec Python",
@@ -343,156 +299,398 @@ const formationData = [
     date: "01-05 Septembre 2026",
     location: "Paris, France",
     duration: "30 heures",
-    instructor: "M. Kévin Bernard",
+    instructor: "Ir. Kevine Etanaka",
     price: "1,800€",
     seats: 15,
     level: "Débutant",
-    image: "/lovable-uploads/automatisation_python.png"
+    image: "../lovable-uploads/teachs/24.png" // Updated path
   },
   {
-    title: "Sécurité Cloud : Azure et Google Cloud",
+    title: "Sécurité cloud : Azure et Google Cloud",
     description: "Sécurisez vos infrastructures et applications déployées sur Microsoft Azure et Google Cloud Platform.",
     date: "15-19 Septembre 2026",
     location: "Marseille, France",
     duration: "40 heures",
-    instructor: "Dr. Laura Petit",
+    instructor: "Ir. Benjamin Baki",
     price: "2,700€",
     seats: 8,
     level: "Avancé",
-    image: "/lovable-uploads/securite_cloud_azure_gcp.png"
+    image: "../lovable-uploads/teachs/25.png" // Updated path
   },
   {
-    title: "Développement Mobile : Android avec Kotlin",
+    title: "Développement mobile : Android avec Kotlin",
     description: "Créez des applications natives pour Android en utilisant le langage de programmation Kotlin.",
     date: "01-05 Octobre 2026",
     location: "Bordeaux, France",
     duration: "45 heures",
-    instructor: "M. Florian Martin",
+    instructor: "Ir. Evra Lashe",
     price: "2,900€",
     seats: 10,
     level: "Intermédiaire",
-    image: "/lovable-uploads/dev_mobile_android_kotlin.png"
+    image: "../lovable-uploads/teachs/26.png" // Updated path
   },
   {
-    title: "Gestion de la Continuité d'Activité et Reprise après Sinistre (BCDR)",
+    title: "Gestion de la continuité d'activité et reprise après sinistre (BCDR)",
     description: "Mettez en place des stratégies de BCDR pour assurer la résilience de vos systèmes d'information.",
     date: "15-19 Octobre 2026",
     location: "Lille, France",
     duration: "35 heures",
-    instructor: "Mme. Sophie Moreau",
+    instructor: "Ir. Grace Moko",
     price: "2,200€",
     seats: 12,
     level: "Avancé",
-    image: "/lovable-uploads/bcdr_reprise_sinistre.png"
+    image: "../lovable-uploads/teachs/27.png" // Updated path
   },
   {
-    title: "Réseaux Sans Fil : Wi-Fi 6 et au-delà",
+    title: "Réseaux sans fil : Wi-Fi 6 et au-delà",
     description: "Explorez les dernières avancées en matière de réseaux sans fil, y compris le standard Wi-Fi 6 et les futures évolutions.",
     date: "01-05 Novembre 2026",
     location: "Nantes, France",
     duration: "30 heures",
-    instructor: "M. Julien Dupont",
+    instructor: "Ir. Kevine Etanaka",
     price: "1,900€",
     seats: 15,
     level: "Intermédiaire",
-    image: "/lovable-uploads/reseaux_sans_fil_wifi6.png"
+    image: "../lovable-uploads/teachs/28.png" // Updated path
   },
   {
-    title: "Administration de Systèmes de Stockage (SAN/NAS)",
+    title: "Administration de systèmes de stockage (SAN/NAS)",
     description: "Gérez et optimisez les solutions de stockage en réseau (SAN et NAS) pour les environnements d'entreprise.",
     date: "15-19 Novembre 2026",
     location: "Strasbourg, France",
     duration: "40 heures",
-    instructor: "M. Vincent Dubois",
+    instructor: "Ir. Benjamin Baki",
     price: "2,400€",
     seats: 10,
     level: "Avancé",
-    image: "/lovable-uploads/admin_stockage_san_nas.png"
+    image: "../lovable-uploads/teachs/29.png" // Updated path
   },
   {
-    title: "Audit de Sécurité des Systèmes d'Information",
+    title: "Audit de sécurité des systèmes d'information",
     description: "Réalisez des audits de sécurité complets pour évaluer et améliorer la posture de sécurité de votre organisation.",
     date: "01-05 Décembre 2026",
     location: "Paris, France",
     duration: "45 heures",
-    instructor: "Mme. Émilie Lambert",
+    instructor: "Ir. Evra Lashe",
     price: "3,100€",
     seats: 8,
     level: "Avancé",
-    image: "/lovable-uploads/audit_securite_si.png"
+    image: "../lovable-uploads/teachs/30.png" // Updated path
   },
   {
-    title: "Conteneurisation Avancée : Docker Swarm et Podman",
+    title: "Conteneurisation avancée : Docker Swarm et Podman",
     description: "Maîtrisez l'orchestration de conteneurs avec Docker Swarm et explorez Podman comme alternative à Docker.",
     date: "15-19 Décembre 2026",
     location: "Lyon, France",
     duration: "35 heures",
-    instructor: "M. Rémi Girard",
+    instructor: "Ir. Grace Moko",
     price: "2,500€",
     seats: 10,
     level: "Avancé",
-    image: "/lovable-uploads/conteneurisation_docker_podman.png"
+    image: "../lovable-uploads/teachs/31.png" // Updated path
   },
   {
-    title: "Gestion des Identités et des Accès (IAM)",
+    title: "Gestion des identités et des accès (IAM)",
     description: "Implémentez des solutions de gestion des identités et des accès pour sécuriser les ressources de l'entreprise.",
     date: "05-09 Janvier 2027",
     location: "Toulouse, France",
     duration: "30 heures",
-    instructor: "Mme. Pauline Roussel",
+    instructor: "Ir. Kevine Etanaka",
     price: "2,000€",
     seats: 12,
     level: "Intermédiaire",
-    image: "/lovable-uploads/gestion_identites_acces.png"
+    image: "../lovable-uploads/teachs/32.png" // Updated path
   },
   {
-    title: "Supervision et Monitoring des Infrastructures IT",
+    title: "Supervision et monitoring des infrastructures IT",
     description: "Mettez en place des outils et des stratégies de supervision pour garantir la disponibilité et la performance de vos systèmes.",
     date: "19-23 Janvier 2027",
     location: "Bordeaux, France",
     duration: "35 heures",
-    instructor: "M. David Leroy",
+    instructor: "Ir. Benjamin Baki",
     price: "2,100€",
     seats: 15,
     level: "Intermédiaire",
-    image: "/lovable-uploads/supervision_monitoring_it.png"
+    image: "../lovable-uploads/teachs/33.png" // Updated path
   },
   {
-    title: "Réseaux Définis par Logiciel (SDN) et NFV",
+    title: "Réseaux définis par logiciel (SDN) et NFV",
     description: "Explorez les concepts de SDN et NFV pour une gestion plus flexible et automatisée des réseaux.",
     date: "02-06 Février 2027",
     location: "Nice, France",
     duration: "40 heures",
-    instructor: "Dr. Jean-Luc Moreau",
+    instructor: "Ir. Evra Lashe",
     price: "2,600€",
     seats: 10,
     level: "Avancé",
-    image: "/lovable-uploads/sdn_nfv.png"
+    image: "../lovable-uploads/teachs/34.png" // Updated path
   },
   {
-    title: "Virtualisation de Poste de Travail (VDI)",
+    title: "Virtualisation de poste de travail (VDI)",
     description: "Déployez et gérez des infrastructures de virtualisation de poste de travail pour un accès sécurisé et flexible.",
     date: "16-20 Février 2027",
     location: "Montpellier, France",
     duration: "35 heures",
-    instructor: "Mme. Claire Bernard",
+    instructor: "Ir. Grace Moko",
     price: "2,300€",
     seats: 12,
     level: "Intermédiaire",
-    image: "/lovable-uploads/virtualisation_vdi.png"
+    image: "../lovable-uploads/teachs/35.png" // Updated path
   },
   {
-    title: "Gestion des Services IT (ITSM) avec ITIL",
+    title: "Gestion des services IT (ITSM) avec ITIL",
     description: "Apprenez les meilleures pratiques ITIL pour la gestion des services informatiques et l'amélioration continue.",
     date: "02-06 Mars 2027",
     location: "Lille, France",
     duration: "25 heures",
-    instructor: "M. Philippe Martin",
+    instructor: "Ir. Kevine Etanaka",
     price: "1,750€",
     seats: 15,
     level: "Débutant",
-    image: "/lovable-uploads/itsm_itil.png"
-  }
+    image: "../lovable-uploads/teachs/36.png" // Updated path
+  },
+  // NOUVELLES FORMATIONS AJOUTÉES
+  {
+    title: "Sécurité Opérationnelle (SecOps)",
+    description: "Maîtrisez les pratiques et outils pour intégrer la sécurité dans les opérations quotidiennes de l'IT.",
+    date: "20-24 Mars 2027",
+    location: "Paris, France",
+    duration: "40 heures",
+    instructor: "Ir. Benjamin Baki",
+    price: "2,800€",
+    seats: 10,
+    level: "Avancé",
+    image: "../lovable-uploads/teachs/37.png" // Updated path
+  },
+  {
+    title: "Développement Python pour la Data Science",
+    description: "Apprenez à utiliser Python et ses bibliothèques (NumPy, Pandas, Scikit-learn) pour l'analyse et la modélisation de données.",
+    date: "03-07 Avril 2027",
+    location: "Grenoble, France",
+    duration: "35 heures",
+    instructor: "Ir. Evra Lashe",
+    price: "2,200€",
+    seats: 14,
+    level: "Intermédiaire",
+    image: "../lovable-uploads/teachs/38.png" // Updated path
+  },
+  {
+    title: "Cloud Native Computing (Kubernetes, Microservices)",
+    description: "Concevez, déployez et gérez des applications modernes basées sur des microservices et Kubernetes.",
+    date: "17-21 Avril 2027",
+    location: "Nantes, France",
+    duration: "45 heures",
+    instructor: "Ir. Grace Moko",
+    price: "3,000€",
+    seats: 8,
+    level: "Avancé",
+    image: "../lovable-uploads/teachs/39.png" // Updated path
+  },
+  {
+    title: "Gestion des projets agiles à l'échelle (SAFe)",
+    description: "Implémentez le framework Scaled Agile Framework (SAFe) pour gérer des projets agiles dans de grandes organisations.",
+    date: "08-12 Mai 2027",
+    location: "Lille, France",
+    duration: "30 heures",
+    instructor: "Ir. Kevine Etanaka",
+    price: "2,400€",
+    seats: 10,
+    level: "Avancé",
+    image: "../lovable-uploads/teachs/40.png" // Updated path
+  },
+  {
+    title: "Ingénierie du prompt pour l'IA Générative",
+    description: "Maîtrisez l'art de créer des prompts efficaces pour interagir avec les modèles d'IA générative et en tirer le meilleur parti.",
+    date: "22-26 Mai 2027",
+    location: "Lyon, France",
+    duration: "25 heures",
+    instructor: "Ir. Benjamin Baki",
+    price: "1,900€",
+    seats: 16,
+    level: "Débutant",
+    image: "../lovable-uploads/teachs/41.png" // Updated path
+  },
+  {
+    title: "Sécurité des applications Web (OWASP Top 10)",
+    description: "Identifiez et corrigez les vulnérabilités les plus courantes des applications web selon l'OWASP Top 10.",
+    date: "05-09 Juin 2027",
+    location: "Toulouse, France",
+    duration: "40 heures",
+    instructor: "Ir. Evra Lashe",
+    price: "2,700€",
+    seats: 9,
+    level: "Intermédiaire",
+    image: "../lovable-uploads/teachs/42.png" // Updated path
+  },
+  {
+    title: "Gestion des bases de données relationnelles (PostgreSQL)",
+    description: "Apprenez à administrer, optimiser et sécuriser les bases de données PostgreSQL.",
+    date: "19-23 Juin 2027",
+    location: "Bordeaux, France",
+    duration: "35 heures",
+    instructor: "Ir. Grace Moko",
+    price: "2,000€",
+    seats: 13,
+    level: "Intermédiaire",
+    image: "../lovable-uploads/teachs/43.png" // Updated path
+  },
+  {
+    title: "Réseaux 5G Privés et Industriels",
+    description: "Déploiement et gestion de réseaux 5G privés pour des applications industrielles critiques (IoT, usine 4.0).",
+    date: "03-07 Juillet 2027",
+    location: "Marseille, France",
+    duration: "40 heures",
+    instructor: "Ir. Kevine Etanaka",
+    price: "3,200€",
+    seats: 7,
+    level: "Avancé",
+    image: "../lovable-uploads/teachs/44.png" // Updated path
+  },
+  {
+    title: "Audit et Conformité RGPD pour les SI",
+    description: "Comprenez les exigences du RGPD et apprenez à réaliser des audits pour assurer la conformité de vos systèmes d'information.",
+    date: "17-21 Juillet 2027",
+    location: "Strasbourg, France",
+    duration: "30 heures",
+    instructor: "Ir. Benjamin Baki",
+    price: "2,500€",
+    seats: 11,
+    level: "Intermédiaire",
+    image: "../lovable-uploads/teachs/45.png" // Updated path
+  },
+  {
+    title: "Systèmes embarqués et IoT",
+    description: "Conception, développement et déploiement de solutions pour les systèmes embarqués et l'Internet des Objets (IoT).",
+    date: "07-11 Août 2027",
+    location: "Nice, France",
+    duration: "45 heures",
+    instructor: "Ir. Evra Lashe",
+    price: "2,950€",
+    seats: 9,
+    level: "Avancé",
+    image: "../lovable-uploads/teachs/46.png" // Updated path
+  },
+  // NOUVELLES FORMATIONS AJOUTÉES
+  {
+    title: "Cisco CCNA: Réseaux Essentiels",
+    description: "Acquérez les compétences fondamentales en routage, commutation et services réseau pour la certification Cisco CCNA.",
+    date: "21-25 Août 2027",
+    location: "Paris, France",
+    duration: "40 heures",
+    instructor: "Ir. Grace Moko",
+    price: "2,400€",
+    seats: 10,
+    level: "Intermédiaire",
+    image: "../lovable-uploads/teachs/47.png" // Updated path
+  },
+  {
+    title: "Administration Avancée Linux (Red Hat/CentOS)",
+    description: "Maîtrisez les concepts avancés d'administration système Linux, la gestion des performances et la sécurité sur Red Hat/CentOS.",
+    date: "04-08 Septembre 2027",
+    location: "Lyon, France",
+    duration: "45 heures",
+    instructor: "Ir. Kevine Etanaka",
+    price: "2,200€",
+    seats: 8,
+    level: "Avancé",
+    image: "../lovable-uploads/teachs/48.png" // Updated path
+  },
+  {
+    title: "Windows Server 2022 : Haute Disponibilité et Sauvegarde",
+    description: "Implémentez des solutions de haute disponibilité et de récupération après sinistre sur Windows Server 2022.",
+    date: "18-22 Septembre 2027",
+    location: "Toulouse, France",
+    duration: "35 heures",
+    instructor: "Ir. Benjamin Baki",
+    price: "2,150€",
+    seats: 12,
+    level: "Avancé",
+    image: "../lovable-uploads/teachs/49.png" // Updated path
+  },
+  {
+    title: "Sécurité Réseau Cisco (CCNA Security)",
+    description: "Protégez les réseaux en implémentant des solutions de sécurité Cisco, y compris les VPN, les pare-feu et les IPS.",
+    date: "02-06 Octobre 2027",
+    location: "Marseille, France",
+    duration: "40 heures",
+    instructor: "Ir. Evra Lashe",
+    price: "2,600€",
+    seats: 9,
+    level: "Avancé",
+    image: "../lovable-uploads/teachs/50.png" // Updated path
+  },
+  {
+    title: "Scripting Shell pour l'Administration Linux",
+    description: "Apprenez à automatiser les tâches d'administration système Linux avec des scripts Bash et d'autres outils shell.",
+    date: "16-20 Octobre 2027",
+    location: "Bordeaux, France",
+    duration: "30 heures",
+    instructor: "Ir. Grace Moko",
+    price: "1,700€",
+    seats: 14,
+    level: "Intermédiaire",
+    image: "../lovable-uploads/teachs/51.png" // Updated path
+  },
+  {
+    title: "PowerShell pour l'Administration Windows",
+    description: "Maîtrisez PowerShell pour automatiser et gérer efficacement les environnements Windows Server et clients.",
+    date: "30 Octobre - 03 Novembre 2027",
+    location: "Lille, France",
+    duration: "35 heures",
+    instructor: "Ir. Kevine Etanaka",
+    price: "1,850€",
+    seats: 13,
+    level: "Intermédiaire",
+    image: "../lovable-uploads/teachs/52.png" // Updated path
+  },
+  {
+    title: "Préparation Examen Cisco CCNP Enterprise (ENCORE)",
+    description: "Préparez-vous à l'examen ENCORE (Implementing and Operating Cisco Enterprise Network Core Technologies) pour la certification CCNP.",
+    date: "13-17 Novembre 2027",
+    location: "Nantes, France",
+    duration: "45 heures",
+    instructor: "Ir. Benjamin Baki",
+    price: "3,500€",
+    seats: 7,
+    level: "Avancé",
+    image: "../lovable-uploads/teachs/53.png" // Updated path
+  },
+  {
+    title: "Déploiement et Gestion de Conteneurs avec Docker (Linux)",
+    description: "Apprenez à déployer, gérer et orchestrer des applications conteneurisées avec Docker sur des systèmes Linux.",
+    date: "27 Novembre - 01 Décembre 2027",
+    location: "Strasbourg, France",
+    duration: "30 heures",
+    instructor: "Ir. Evra Lashe",
+    price: "2,000€",
+    seats: 12,
+    level: "Intermédiaire",
+    image: "../lovable-uploads/teachs/54.png" // Updated path
+  },
+  {
+    title: "Gestion des GPO et WSUS sur Windows Server",
+    description: "Optimisez la gestion de votre parc Windows avec les GPO (Group Policy Objects) et WSUS (Windows Server Update Services).",
+    date: "11-15 Décembre 2027",
+    location: "Paris, France",
+    duration: "35 heures",
+    instructor: "Ir. Grace Moko",
+    price: "1,950€",
+    seats: 11,
+    level: "Intermédiaire",
+    image: "../lovable-uploads/teachs/55.png" // Updated path
+  },
+  {
+    title: "Troubleshooting Réseau Avancé (Cisco)",
+    description: "Développez des compétences avancées pour diagnostiquer et résoudre des problèmes complexes sur les réseaux Cisco.",
+    date: "08-12 Janvier 2028",
+    location: "Lyon, France",
+    duration: "40 heures",
+    instructor: "Ir. Kevine Etanaka",
+    price: "2,800€",
+    seats: 8,
+    level: "Avancé",
+    image: "../lovable-uploads/teachs/56.png" // Updated path
+  },
 ];
 
 // Fonction pour insérer les formations dans la base de données
@@ -505,7 +703,7 @@ const seedFormations = async () => {
     // Insérer les nouvelles données de formations
     const createdFormations = await Formation.insertMany(formationData);
     console.log(`${createdFormations.length} formations insérées avec succès.`);
-    
+
     // Quitter le processus avec succès
     process.exit(0);
   } catch (error) {

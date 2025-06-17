@@ -19,6 +19,7 @@ import VideoSurveillance from "./pages/services/VideoSurveillance";
 import WebDevelopment from "./pages/services/WebDevelopment";
 import ITManagement from "./pages/services/ITManagement";
 import TechnicalSupport from "./pages/services/TechnicalSupport";
+import SolarInstallation from "./pages/services/SolarInstallation";
 import LinuxAdministration from "./pages/formations/LinuxAdministration";
 import NetworkAdministration from "./pages/formations/NetworkAdministration";
 import ComputerMaintenance from "./pages/formations/ComputerMaintenance";
@@ -53,6 +54,7 @@ const App = () => {
             <Route path="/services/web-development" element={<WebDevelopment />} />
             <Route path="/services/it-management" element={<ITManagement />} />
             <Route path="/services/technical-support" element={<TechnicalSupport />} />
+            <Route path="/services/solar-installation" element={<SolarInstallation />} />
             <Route path="/formations/linux-administration" element={<LinuxAdministration />} />
             <Route path="/formations/windows-administration" element={<WindowsAdministration />} />
             <Route path="/formations/virtualization-training" element={<VirtualizationTraining />} />

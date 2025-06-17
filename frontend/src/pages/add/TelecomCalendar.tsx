@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Card } from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
+import { Badge } from "../../components/ui/badge";
 import { CalendarIcon, MapPin, Clock, Users, UserCircle, Search, Filter, AlertCircle, ArrowLeft } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { motion } from "framer-motion";
-import PageLayout from '@/components/PageLayout';
-import SEO from '@/components/SEO';
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
-import useFormations, { Formation } from '@/hooks/useFormations';
-import { Skeleton } from "@/components/ui/skeleton";
+import { Input } from "../../components/ui/input";
+import { motion, AnimatePresence } from "framer-motion";
+import PageLayout from '../../components/PageLayout';
+import SEO from '../../components/SEO';
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "../../components/ui/pagination";
+import useFormations, { Formation } from '../../hooks/useFormations';
+import { Skeleton } from "../../components/ui/skeleton";
 import { Link } from 'react-router-dom';
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "../../components/ui/use-toast";
 
 const TelecomCalendar = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -177,8 +177,8 @@ const TelecomCalendar = () => {
   return (
     <PageLayout>
       <SEO
-        title="Calendrier des Formations Télécom | Zetoun Labs"
-        description="Consultez notre calendrier des formations en télécommunication et réservez votre participation dès maintenant."
+        title="Calendrier des Formations | Zetoun Labs"
+        description="Consultez notre calendrier des formations et trouvez la session qui vous convient."
       />
 
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
@@ -195,9 +195,9 @@ const TelecomCalendar = () => {
               transition={{ duration: 0.6 }}
               className="text-center mb-8"
             >
-              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 font-space">Calendrier des Formations</h1>
+              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 font-space">Calendrier des formations</h1>
               <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                Découvrez nos prochaines sessions de formation en télécommunication et réservez votre place dès maintenant.
+                Découvrez nos prochaines sessions de formation et inscrivez-vous dès aujourd'hui !
               </p>
             </motion.div>
 
@@ -221,145 +221,168 @@ const TelecomCalendar = () => {
               </div>
             </div>
 
-            {/* Error state (fetching formations) */}
-            {error && (
-              <div className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100 mb-8">
-                <AlertCircle className="h-12 w-12 mx-auto text-red-400 mb-3" />
-                <h3 className="text-xl font-medium text-gray-900 mb-2">Une erreur s'est produite</h3>
-                <p className="text-gray-600">{error}</p>
-                <Button
-                  variant="outline"
-                  onClick={() => window.location.reload()}
-                  className="mt-4"
+            {/* AnimatePresence pour des transitions fluides entre les états de chargement/erreur/vide/contenu */}
+            <AnimatePresence mode="wait">
+              {loading ? (
+                <motion.div
+                  key="loading-skeletons"
+                  initial={{ opacity: 0, y: 20 }} // Ajout de l'effet d'entrée
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }} // Ajout de l'effet de sortie
+                  transition={{ duration: 0.4 }} // Durée légèrement augmentée
                 >
-                  Réessayer
-                </Button>
-              </div>
-            )}
-
-            {/* Loading state */}
-            {loading && renderSkeletons()}
-
-            {/* Empty state */}
-            {!loading && !error && formations?.length === 0 && (
-              <div className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100">
-                <Filter className="h-12 w-12 mx-auto text-gray-400 mb-3" />
-                <h3 className="text-xl font-medium text-gray-900 mb-2">Aucune formation trouvée</h3>
-                <p className="text-gray-600">Veuillez modifier vos critères de recherche ou consulter notre catalogue complet.</p>
-              </div>
-            )}
-
-            {/* List of formations */}
-            {!loading && !error && formations?.length > 0 && (
-              <div className="grid grid-cols-1 gap-8 mb-8">
-                {formations.map((course, index) => (
-                  <motion.div
-                    key={course._id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  {renderSkeletons()}
+                </motion.div>
+              ) : error ? (
+                <motion.div
+                  key="error-message"
+                  initial={{ opacity: 0, y: 20 }} // Ajout de l'effet d'entrée
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }} // Ajout de l'effet de sortie
+                  transition={{ duration: 0.4 }} // Durée légèrement augmentée
+                  className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100 mb-8"
+                >
+                  <AlertCircle className="h-12 w-12 mx-auto text-red-400 mb-3" />
+                  <h3 className="text-xl font-medium text-gray-900 mb-2">Une erreur s'est produite</h3>
+                  <p className="text-gray-600">{error}</p>
+                  <Button
+                    variant="outline"
+                    onClick={() => window.location.reload()}
+                    className="mt-4"
                   >
-                    {/* Apply opacity and disable pointer events if enrolling in this specific course or if already enrolled */}
-                    <Card className={`overflow-hidden hover:shadow-lg transition-shadow duration-300 border-0 shadow-md ${enrollingId === course._id || course.isEnrolled ? 'opacity-50 pointer-events-none' : ''}`}>
-                      <div className="grid md:grid-cols-3 gap-0">
-                        {course.image && (
-                          <div className="relative h-full min-h-[200px] md:min-h-0 bg-gray-100">
-                            <img
-                              src={course.image}
-                              alt={course.title}
-                              className="w-full h-full object-cover absolute inset-0"
-                            />
-                            <div className="absolute top-4 left-4">
-                              <Badge className="bg-white/90 text-blue-600 hover:bg-white/80 backdrop-blur-sm font-medium px-3 py-1">
-                                {course.level}
-                              </Badge>
-                            </div>
-                            <div className="absolute bottom-4 left-4 right-4 md:hidden">
-                              <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3">
-                                <p className="font-semibold text-blue-600">{course.price}</p>
-                                <p className="text-sm text-gray-700">{course.seats} places disponibles</p>
+                    Réessayer
+                  </Button>
+                </motion.div>
+              ) : formations?.length === 0 ? (
+                <motion.div
+                  key="empty-state"
+                  initial={{ opacity: 0, y: 20 }} // Ajout de l'effet d'entrée
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }} // Ajout de l'effet de sortie
+                  transition={{ duration: 0.4 }} // Durée légèrement augmentée
+                  className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100"
+                >
+                  <Filter className="h-12 w-12 mx-auto text-gray-400 mb-3" />
+                  <h3 className="text-xl font-medium text-gray-900 mb-2">Aucune formation trouvée</h3>
+                  <p className="text-gray-600">Veuillez modifier vos critères de recherche ou consulter notre catalogue complet.</p>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="formations-list"
+                  initial={{ opacity: 0, y: 20 }} // Ajout de l'effet d'entrée
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }} // Durée légèrement augmentée
+                  className="grid grid-cols-1 gap-8 mb-8"
+                >
+                  {formations.map((course, index) => (
+                    <motion.div
+                      key={course._id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                      {/* Apply opacity and disable pointer events if enrolling in this specific course or if already enrolled */}
+                      <Card className={`overflow-hidden hover:shadow-lg transition-shadow duration-300 border-0 shadow-md ${enrollingId === course._id || course.isEnrolled
+                        ? 'opacity-50 pointer-events-none' : ''}`}>
+                        <div className="grid md:grid-cols-3 gap-0">
+                          {course.image && (
+                            <div className="relative h-full min-h-[200px] md:min-h-0 bg-gray-100">
+                              <img
+                                src={course.image}
+                                alt={course.title}
+                                className="w-full h-full object-cover absolute inset-0"
+                              />
+                              <div className="absolute top-4 left-4">
+                                <Badge className="bg-white/90 text-blue-600 hover:bg-white/80 backdrop-blur-sm font-medium px-3 py-1">
+                                  {course.level}
+                                </Badge>
+                              </div>
+                              <div className="absolute bottom-4 left-4 right-4 md:hidden">
+                                <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3">
+                                  <p className="font-semibold text-blue-600">{course.price}</p>
+                                  <p className="text-sm text-gray-700">{course.seats} places disponibles</p>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        )}
-                        <div className={`p-6 ${course.image ? 'md:col-span-2' : 'md:col-span-3'}`}>
-                          <div className="space-y-4">
-                            <div>
-                              <h2 className="text-2xl font-bold text-gray-900 mb-2">{course.title}</h2>
-                              <p className="text-gray-700">{course.description}</p>
-                            </div>
+                          )}
+                          <div className={`p-6 ${course.image ? 'md:col-span-2' : 'md:col-span-3'}`}>
+                            <div className="space-y-4">
+                              <div>
+                                <h2 className="text-2xl font-bold text-gray-900 mb-2">{course.title}</h2>
+                                <p className="text-gray-700">{course.description}</p>
+                              </div>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
-                              <div className="flex items-start">
-                                <CalendarIcon className="h-5 w-5 text-blue-600 mr-3 mt-0.5" />
-                                <div>
-                                  <p className="font-medium">Date</p>
-                                  <p className="text-gray-700">{course.date}</p>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                                <div className="flex items-start">
+                                  <CalendarIcon className="h-5 w-5 text-blue-600 mr-3 mt-0.5" />
+                                  <div>
+                                    <p className="font-medium">Date</p>
+                                    <p className="text-gray-700">{course.date}</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start">
+                                  <MapPin className="h-5 w-5 text-blue-600 mr-3 mt-0.5" />
+                                  <div>
+                                    <p className="font-medium">Lieu</p>
+                                    <p className="text-gray-700">{course.location}</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start">
+                                  <Clock className="h-5 w-5 text-blue-600 mr-3 mt-0.5" />
+                                  <div>
+                                    <p className="font-medium">Durée</p>
+                                    <p className="text-gray-700">{course.duration}</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start">
+                                  <Users className="h-5 w-5 text-blue-600 mr-3 mt-0.5" />
+                                  <div>
+                                    <p className="font-medium">Places disponibles</p>
+                                    <p className="text-gray-700">{course.seats} places</p>
+                                  </div>
                                 </div>
                               </div>
-                              <div className="flex items-start">
-                                <MapPin className="h-5 w-5 text-blue-600 mr-3 mt-0.5" />
-                                <div>
-                                  <p className="font-medium">Lieu</p>
-                                  <p className="text-gray-700">{course.location}</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start">
-                                <Clock className="h-5 w-5 text-blue-600 mr-3 mt-0.5" />
-                                <div>
-                                  <p className="font-medium">Durée</p>
-                                  <p className="text-gray-700">{course.duration}</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start">
-                                <Users className="h-5 w-5 text-blue-600 mr-3 mt-0.5" />
-                                <div>
-                                  <p className="font-medium">Places disponibles</p>
-                                  <p className="text-gray-700">{course.seats} places</p>
-                                </div>
-                              </div>
-                            </div>
 
-                            <div className="flex flex-wrap items-center justify-between gap-4 border-t border-gray-100 pt-4">
-                              <div className="flex items-center">
-                                <UserCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                <div>
-                                  <p className="font-medium">{course.instructor}</p>
-                                  <p className="text-sm text-gray-500">Formateur</p>
+                              <div className="flex flex-wrap items-center justify-between gap-4 border-t border-gray-100 pt-4">
+                                <div className="flex items-center">
+                                  <UserCircle className="h-5 w-5 text-blue-600 mr-2" />
+                                  <div>
+                                    <p className="font-medium">{course.instructor}</p>
+                                    <p className="text-sm text-gray-500">Formateur</p>
+                                  </div>
                                 </div>
-                              </div>
-                              <div className="flex items-center gap-4">
-                                <div className="hidden md:block">
-                                  <p className="text-sm text-gray-700">Prix</p>
-                                  <p className="font-semibold text-lg text-blue-600">{course.price}</p>
+                                <div className="flex items-center gap-4">
+                                  <div className="hidden md:block">
+                                    <p className="text-sm text-gray-700">Prix</p>
+                                    <p className="font-semibold text-lg text-blue-600">{course.price}</p>
+                                  </div>
+                                  <Button
+                                    size="lg"
+                                    className="relative overflow-hidden group"
+                                    onClick={() => handleEnrollment(course._id)}
+                                    disabled={enrollingId === course._id || course.isEnrolled}
+                                  >
+                                    <span className="relative z-10">
+                                      {enrollingId === course._id
+                                        ? "Enrôlement..."
+                                        : course.isEnrolled
+                                          ? "Déjà enrôlé"
+                                          : "S'enroller"}
+                                    </span>
+                                    <div className="absolute inset-0 bg-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                                  </Button>
                                 </div>
-                                <Button
-                                  size="lg"
-                                  className="relative overflow-hidden group"
-                                  onClick={() => handleEnrollment(course._id)}
-                                  // Disable the button if this specific course is being enrolled or if already enrolled
-                                  disabled={enrollingId === course._id || course.isEnrolled}
-                                >
-                                  <span className="relative z-10">
-                                    {/* Change button text based on enrollment status */}
-                                    {enrollingId === course._id
-                                      ? "Enrôlement..."
-                                      : course.isEnrolled
-                                        ? "Déjà enrôlé"
-                                        : "S'enroller"}
-                                  </span>
-                                  <div className="absolute inset-0 bg-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-                                </Button>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            )}
+                      </Card>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+
 
             {/* Pagination */}
             {!loading && !error && formations?.length > 0 && pagination?.pages > 1 && (
